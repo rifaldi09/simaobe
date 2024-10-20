@@ -1,0 +1,112 @@
+.navbar {
+  background-color: #001e60 !important;
+  border-bottom-left-radius: 15px; /* Radius 15px untuk sudut kiri bawah */
+  border-bottom-right-radius: 15px; /* Radius 15px untuk sudut kanan bawah */
+}
+
+.navbar-brand strong {
+  margin-left: 10px;
+}
+
+.title {
+  font-size: 18px;
+  color: white;
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600; /* Menggunakan berat font yang lebih tebal */
+}
+
+.subtitle {
+  font-size: 16px;
+  color: white;
+  margin-left: 20px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600; /* Berat font normal */
+}
+
+.login-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.login-box {
+  background-color: #264178;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600; /* Berat font normal */
+}
+
+.login-title {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600; /* Berat font normal */
+}
+
+.form-label {
+  color: white;
+  margin-bottom: 5px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600; /* Berat font normal */
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.btn-masuk {
+  background-color: #FFFF00;
+  color: black;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600; /* Berat font normal */
+}
+
+.forgot-password {
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600; /* Berat font normal */
+}
+
+.forgot-password:hover {
+  color: #FFFF00;
+}
+
+
+.footer {
+  background-color: #001e60;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: white;
+  padding: 15px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600; /* Berat font normal */
+}
+
+
