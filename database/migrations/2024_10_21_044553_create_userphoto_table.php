@@ -10,8 +10,9 @@ class CreateUserphotoTable extends Migration
     {
         // Table User Photo
         Schema::create('userphoto', function (Blueprint $table) {
-            $table->id('PhotoID')->increment();
-            $table->string('UserPhoto');
+            $table->id('photo_id')->increment();
+            $table->string('user_photo');
+            $table->integer('biodata_id');
             $table->timestamps();
         });
     }

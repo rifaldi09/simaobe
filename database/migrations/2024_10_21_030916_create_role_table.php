@@ -10,8 +10,8 @@ class CreateRoleTable extends Migration
     {
         // Table Role
         Schema::create('role', function (Blueprint $table) {
-            $table->id('RoleID')->increment();
-            $table->string('RoleName');
+            $table->id('role_id')->increment();
+            $table->string('role_name');
             $table->timestamps();
         });
     }

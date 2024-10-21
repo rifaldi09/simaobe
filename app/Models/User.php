@@ -11,29 +11,20 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    /* menjadikan username default menjadi user_id karna laravel menganggap user_id sebagai username bukan sebagai user_id */
+    public function username()
+    {
+        return 'user_id';
+    }
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'user_id', 'user_email', 'user_name', 'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

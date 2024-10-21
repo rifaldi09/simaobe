@@ -29,23 +29,29 @@
         <!-- Login Box -->
         <div class="login-box">
             <h2 class="login-title">LOGIN</h2>
-            <form>
+            <form action="{{ route('proses-login') }}" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="mb-3">
                     <label for="userId" class="form-label">User ID</label>
-                    <input type="text" class="form-control" id="userId">
+                    <input type="text" class="form-control" id="user_id" name="user_id">
+                    {{-- menampilkan error jika inputan kosong --}}
+                    @error('user_id')
+                        <small>{{ $message }}</small>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Kata Sandi</label>
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" class="form-control" id="password" name="password">
+                    {{-- menampilkan error jika inputan kosong --}}
+                    @error('password')
+                        <small>{{ $message }}</small>
+                    @enderror
                 </div>
                 <button type="submit" class="btn-masuk">Masuk</button>
                 <a href="#" class="forgot-password">Lupa Password ?</a>
             </form>
         </div>
-    </div>
-
-
-    
+    </div> 
 
   <footer class="footer mt-auto">
     <div class="container text-center">
