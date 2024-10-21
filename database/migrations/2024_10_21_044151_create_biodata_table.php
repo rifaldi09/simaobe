@@ -11,14 +11,14 @@ class CreateBiodataTable extends Migration
         // Table Biodata
         Schema::create('biodata', function (Blueprint $table) {
             $table->id('BiodataID')->increment();
-            $table->stirng('Name');
+            $table->string('Name');
             $table->text('Address');
-            $table->stirng('PhoneNumber');
+            $table->string('PhoneNumber');
             $table->integer('UserID');
             $table->timestamps();
         });
     }
-    
+
     public function down()
     {
         Schema::dropIfExists('biodata');
