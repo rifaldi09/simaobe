@@ -6,13 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRoleTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
+        // Table Role
         Schema::create('role', function (Blueprint $table) {
             $table->id('RoleID')->increment();
             $table->string('RoleName');

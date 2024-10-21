@@ -6,13 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
+        // table User
         Schema::create('users', function (Blueprint $table) {
             $table->id('UserID')->increment();
             $table->string('UserEmail')->unique();
