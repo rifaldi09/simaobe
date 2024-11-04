@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\isGuest;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -62,5 +63,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'isGuest' => \App\Http\Middleware\isGuest::class, //Penamaan untuk middleware ketika dipakai di route nanti
+        'isLogin' => \App\Http\Middleware\isLogin::class,
     ];
 }

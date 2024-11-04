@@ -11,7 +11,11 @@ class LoginController extends Controller
 {
     //tampilkan page login
     public function index(){
-        return view('login');
+        // set variabel title dengan menambahkan array data
+        // penamaan title karena di file view kita set title dengan variabel $title
+        return view('login', [
+            'title' => 'Login Page'
+        ]);
     }
 
     //proses login
@@ -36,7 +40,9 @@ class LoginController extends Controller
 
     //tampilkan page register
     public function register(){
-        return view('register');
+        return view('register', [
+            'title' => 'Register'
+        ]);
     }
 
     //proses register
