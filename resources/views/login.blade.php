@@ -50,10 +50,4 @@
         </form>
     </div>
 </div> 
-
-<footer class="footer mt-auto">
-<div class="container text-center">
-    <p class="mb-0">Developed by Informatics Engineering</p>
-</div>
-</footer>
 @endsection

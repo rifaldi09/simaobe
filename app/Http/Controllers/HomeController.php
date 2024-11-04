@@ -11,4 +11,11 @@ class HomeController extends Controller
             'title' => 'Landing Page'
         ]);
     }
+
+    // mengarah ke halaman landing_page/analisis.blade.php
+    public function analisis(){
+        return view('landing_page.analisis', [
+            'title' => 'Analisis Page'
+        ]);
+    }
 }

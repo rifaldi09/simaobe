@@ -31,3 +31,4 @@ Route::post('/proses-register', [LoginController::class, 'prosesRegister'])->nam
 
 //belum ada proteksi jadi bisa di akses melalui url
 Route::get('/landing-page', [HomeController::class, 'index'])->name('landing-page');
+Route::get('/analisis-page', [HomeController::class, 'analisis'])->name('analisis-page');
