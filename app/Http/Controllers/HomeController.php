@@ -18,4 +18,12 @@ class HomeController extends Controller
             'title' => 'Analisis Page'
         ]);
     }
+
+    // menampilkan halaman mata kuliah
+    public function mata_kuliah()
+    {
+        return view('landing_page.matkul', [
+            'title' => 'Mata Kuliah Page'
+        ]);
+    }
 }

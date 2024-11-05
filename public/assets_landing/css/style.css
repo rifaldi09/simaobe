@@ -229,3 +229,24 @@ body {
 .text-custom-primary {
     color: #001e60 !important;
 }
+
+.font-outfit{
+    font-family: "Outfit", sans-serif;
+}
+
+.tabs-bg{
+    background-color: #608BC1;
+}
+
+.text-outline-yellow {
+    text-shadow: 
+      -1px -1px 0 yellow,
+       1px -1px 0 yellow,
+      -1px  1px 0 yellow,
+       1px  1px 0 yellow;
+}
+
+/* mengubah cursor ketika diarahkan ke text menjadi pointer */
+.cursor-pointer{
+    cursor: pointer;
+}
