@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
+{{-- Menambah class di body agar dapat memuat halaman sesuai tinggi layar dekstop --}}
 <body class="d-flex flex-column min-vh-100">
     {{-- yield berguna untuk menentukan bagian konten yang akan diisi --}}
     {{-- Penamaaan tidak harus 'content' --}}
