@@ -30,6 +30,8 @@
 
     <!-- Hanya memuat bootstrap.bundle.min.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- js untuk sidebar -->
+    <script href="{{ asset ('assets_landing/css/style.css') }}"></script>
     <!-- font outfit -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 

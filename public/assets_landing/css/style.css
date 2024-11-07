@@ -1,3 +1,333 @@
+/* Sidebar Styles */
+.sidebar {
+    background-color: #415788 !important;
+    width: 280px;
+    position: fixed;
+    left: 0;
+    top: 70px; 
+    bottom: 60px;
+    /* Ubah default transform agar sidebar tertutup di awal */
+    transform: translateX(-280px);
+    transition: transform 0.3s ease;
+    z-index: 1020;
+    overflow-y: auto;
+    border-radius: 15px;
+}
+
+/* Saat active, sidebar akan terbuka */
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar-header {
+    color: white;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: "Outfit", sans-serif;
+    font-weight: 600;
+}
+
+.sidebar.minimized {
+    transform: translateX(-280px);
+}
+
+.sidebar-content {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-link {
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    font-family: "Outfit", sans-serif;
+    font-weight: 600;
+}
+
+.menu-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+}
+
+.submenu {
+    list-style: none;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.05);
+    display: none;
+}
+
+.submenu.active {
+    display: block;
+}
+
+.submenu a {
+    color: white;
+    padding: 0.75rem 2rem;
+    display: block;
+    text-decoration: none;
+    font-family: "Outfit", sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.submenu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+}
+
+/* Toggle Button Styles */
+#sidebarToggle {
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+#sidebarToggle:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.menu-icon {
+    transition: transform 0.3s ease;
+}
+
+.chevron-icon {
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.chevron-icon.rotated {
+    transform: rotate(180deg);
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    /* Ubah default margin menjadi 0 */
+    margin-left: 0;
+    margin-top: 70px;
+    margin-bottom: 60px;
+    transition: all 0.3s ease;
+    min-height: calc(100vh - 130px);
+    width: 100%; /* Default width full */
+    float: right;
+}
+
+/* Saat sidebar active, content wrapper akan bergeser */
+.content-wrapper.sidebar-active {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+}
+
+.content-wrapper.expanded {
+    margin-left: 0;
+    width: 100%; /* Take full width when sidebar is closed */
+}
+
+/* Main container adjustments */
+main.container {
+    transition: all 0.3s ease;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Card grid container */
+.row {
+    transition: all 0.3s ease;
+}
+
+/* Ensure cards maintain proper spacing */
+.col {
+    transition: all 0.3s ease;
+}
+
+/* Custom card adjustments */
+.custom-card {
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.menu-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-link {
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    font-family: "Outfit", sans-serif;
+    font-weight: 600;
+}
+
+.menu-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.submenu {
+    list-style: none;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.05);
+    display: none;
+}
+
+.submenu.active {
+    display: block;
+}
+
+.submenu a {
+    color: white;
+    padding: 0.75rem 2rem;
+    display: block;
+    text-decoration: none;
+    font-family: "Outfit", sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.submenu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Toggle Button Styles */
+.sidebar-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.sidebar-toggle.shifted {
+    left: 290px;
+}
+
+.sidebar-toggle .btn {
+    background-color: #001e60;
+    border: none;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+    .sidebar {
+        transform: translateX(-280px);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .content-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .content-wrapper.expanded {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* Ensure the content doesn't shift on mobile when sidebar is opened */
+    .content-wrapper.sidebar-active {
+        margin-left: 0;
+    }
+}
+
+/* Add backdrop for mobile */
+.sidebar-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1015;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar-backdrop.active {
+        display: block;
+    }
+}
+
+.menu-icon {
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.chevron-icon {
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.chevron-icon.rotated {
+    transform: rotate(180deg);
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+    padding-top: 1rem;
+}
+
+.content-wrapper.expanded {
+    margin-left: 0;
+}
+
+/* SVG Icons */
+.menu-icon, .chevron-icon {
+    stroke: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+    .sidebar {
+        transform: translateX(-280px);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .content-wrapper {
+        margin-left: 0;
+    }
+
+    .sidebar-toggle {
+        left: 1rem !important;
+    }
+}
+
 /* Gaya untuk navbar */
 .navbar {
     background-color: #001e60 !important;
