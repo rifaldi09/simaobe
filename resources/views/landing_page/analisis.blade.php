@@ -84,12 +84,15 @@
 
             </div>
         </div>
-        <div >
-            <button type="button" class="btn btn-primary">Tambah</button>
+        <div class="container">
+            <div class="d-flex justify-content-end mt-3">
+                <button class="btn btn-primary" onclick="addAnalisis()">Tambah</button>
+            </div>
         </div>
 
         {{--* Garis Horizontal --}}
         <hr class="my-3 border-dark w-100" style="height: 2px;">
+        <div id="newAnalisis"></div>
 </main>
 
 @endsection

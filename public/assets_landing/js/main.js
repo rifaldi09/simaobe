@@ -160,3 +160,75 @@ $(document).ready(function(){
     $(`#selectMultipleMinggu${m_id}`).select2();
     $(`#selectMultipleCPMK${c_id}`).select2();
 });
+
+$(document).on('click', '.remove_analisis', function(){
+    $(this).closest('.child_analisis').remove();
+    console.log(`hapus`);
+});
+
+addAnalisis = () => {
+    m_id++;
+    c_id++;
+
+    $('#newAnalisis').append(`
+        <div class="child_analisis">
+            <div class="container d-flex flex-column flex-md-row">
+                <div class="container col-12 col-md-3 mb-3">
+                    <p class="h3">Minggu</p>
+                    <select name="" id="selectMultipleMinggu${m_id}" class="form-control" multiple="multiple">
+                        <option value="1">Minggu 1</option>
+                        <option value="2">Minggu 2</option>
+                        <option value="3">Minggu 3</option>
+                        <option value="4">Minggu 4</option>
+                    </select>
+                </div>
+
+                <div class="container col-12 col-md-9">
+                    <div class="container d-flex justify-content-center flex-column flex-md-row">
+
+                        <div class="container mb-3">
+                            <p class="h3">Materi Perkuliahan</p>
+                            <div class="card">
+                                <div class="card-body">
+                                    <textarea class="form-control" style="height: 200px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, cum. Adipisci eligendi nobis commodi explicabo ab cum accusamus quod aperiam.</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container mb-3">
+                            <p class="h3">Sub-CPMK</p>
+                            <div class="card">
+                                <div class="card-body">
+                                    <textarea class="form-control" style="height: 200px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, cum. Adipisci eligendi nobis commodi explicabo ab cum accusamus quod aperiam.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="container mt-1 justify-content-center">
+                        <p class="h3">CPMK</p>
+                        <select name="" id="selectMultipleCPMK${c_id}" class="form-control" multiple="multiple">
+                            <option value="1">CPMK1</option>
+                            <option value="2">CPMK2</option>
+                            <option value="3">CPMK3</option>
+                            <option value="4">CPMK4</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-danger remove_analisis">Hapus</button>
+                    <button class="btn btn-primary" onclick="addAnalisis()">Tambah</button>
+                </div>
+            </div>
+
+            <hr class="my-3 border-dark w-100" style="height: 2px;">
+            <div id="newAnalisis"></div>
+        </div>
+        `);
+
+        $(`#selectMultipleMinggu${m_id}`).select2();
+        $(`#selectMultipleCPMK${c_id}`).select2();
+}
