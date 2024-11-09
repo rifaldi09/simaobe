@@ -34,6 +34,6 @@ Route::get('/landing-page', [HomeController::class, 'index'])->name('landing-pag
 Route::get('/analisis-page', [HomeController::class, 'analisis'])->name('analisis-page');
 
 // Route untuk mata kuliah
-Route::get('/analisis-mata-kuliah-page', [HomeController::class, 'analisis_main_page'])->name('analisis-main-page');
-Route::get('/basis-evaluasi-mata-kuliah-page', [HomeController::class, 'basis_evaluasi_main_page'])->name('basis-evaluasi-main-page');
-Route::get('/rencana-pembelajaran-mata-kuliah-page', [HomeController::class, 'rencana_pembelajaran_main_page'])->name('rencana-pembelajaran-main-page');
+Route::get('/analisis-matkul-page', [HomeController::class, 'analisis_main_page'])->name('analisis-main-page');
+Route::get('/basis-evaluasi-matkul-page', [HomeController::class, 'basis_evaluasi_main_page'])->name('basis-evaluasi-main-page');
+Route::get('/rencana-pembelajaran-matkul-page', [HomeController::class, 'rencana_pembelajaran_main_page'])->name('rencana-pembelajaran-main-page');
