@@ -1,5 +1,5 @@
 {{-- rencana pembelajaran --}}
-<div id="rencana-pembelajaran" class="d-none mx-5 mt-3">
+<div id="rencana-pembelajaran" class="mx-5 mt-3">
     <a href="#" class="text-decoration-none"><i class="bi bi-plus-circle"></i> Tambah</a>
     <div class="card mt-2">
         {{-- Tampilan sementara --}}

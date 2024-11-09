@@ -34,11 +34,21 @@ class HomeController extends Controller
             'title' => 'Basis Evaluasi Pembelajaran Page'
         ]);
     
-    }// menampilkan halaman utama rencana pembelajaran semester
+    }
+    
+    // menampilkan halaman utama rencana pembelajaran semester
     public function rencana_pembelajaran_main_page()
     {
         return view('landing_page.rencana-pembelajaran-mata-kuliah', [
             'title' => 'Rencana Pembelajaran Semester Page'
+        ]);
+    }
+
+    // menampilkan halaman penilaian sub cpmk
+    public function penilaian_subcpmk_page()
+    {
+        return view('landing_page.basis evaluasi.penilaian-sub-cpmk', [
+            'title' => 'Penilaian SUB CPMK'
         ]);
     }
 }
