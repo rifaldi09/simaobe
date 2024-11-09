@@ -147,3 +147,16 @@ removePenilaian = (event) => {
         }
     }
 }
+
+
+let mingguId = document.getElementById('seletcMultipleMinggu1').id;
+let cpmkId = document.getElementById('seletcMultipleCPMK1').id;
+// console.log(mingguId);
+let m_id = mingguId.match(/\d+$/)[0];
+let c_id = cpmkId.match(/\d+$/)[0];
+// console.log(id);
+
+$(document).ready(function(){
+    $(`#seletcMultipleMinggu${id}`).select2();
+    $(`#${id}`).select2();
+});
