@@ -6,8 +6,6 @@
     left: 0;
     top: 70px; 
     bottom: 60px;
-    /* Ubah default transform agar sidebar tertutup di awal */
-    transform: translateX(-280px);
     transition: transform 0.3s ease;
     z-index: 1020;
     overflow-y: auto;
@@ -126,12 +124,6 @@
     min-height: calc(100vh - 130px);
     width: 100%; /* Default width full */
     float: right;
-}
-
-/* Saat sidebar active, content wrapper akan bergeser */
-.content-wrapper.sidebar-active {
-    margin-left: 280px;
-    width: calc(100% - 280px);
 }
 
 .content-wrapper.expanded {

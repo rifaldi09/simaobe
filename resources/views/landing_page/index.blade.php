@@ -97,57 +97,5 @@
     </div>
 </div>
 
-<!-- Content Wrapper -->
-<main class="container my-4">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <!-- Card 1 -->
-        <div class="col">
-            <div class="custom-card">
-                <div class="card-body">
-                    <h5 class="card-title">Interaksi Manusia dan Komputer</h5>
-                    <p class="card-code">INF11103</p>
-                    <p class="card-sks">2 SKS</p>
-                    <p class="card-prodi">Teknik Informatika</p>
-                </div>
-            </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="col">
-            <div class="custom-card">
-                <div class="card-body">
-                    <h5 class="card-title">Pemrograman Berorientasi Objek</h5>
-                    <p class="card-code">INF11103</p>
-                    <p class="card-sks">3 SKS</p>
-                    <p class="card-prodi">Teknik Informatika</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="col">
-            <div class="custom-card">
-                <div class="card-body">
-                    <h5 class="card-title">Praktikum Pemrograman Berorientasi Objek</h5>
-                    <p class="card-code">INF11105</p>
-                    <p class="card-sks">1 SKS</p>
-                    <p class="card-prodi">Teknik Informatika</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="col">
-            <div class="custom-card">
-                <div class="card-body">
-                    <h5 class="card-title">Analisis dan Desain Berorientasi Objek</h5>
-                    <p class="card-code">INF11105</p>
-                    <p class="card-sks">2 SKS</p>
-                    <p class="card-prodi">Teknik Informatika</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</main>
 @endsection
