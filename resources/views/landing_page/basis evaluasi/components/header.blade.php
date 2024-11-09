@@ -10,7 +10,7 @@
             </div>
 
             <div class="container d-flex align-items-center col-md-9 text-center mt-3 mt-md-0">
-                <p class="text-white display-6 fw-bold">Basis Evaluasi Penilaian</p>
+                <p class="text-white display-6 fw-bold font-outfit">Basis Evaluasi Penilaian</p>
             </div>
         </div>
     </div>

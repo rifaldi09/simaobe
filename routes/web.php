@@ -37,4 +37,8 @@ Route::get('/analisis-page', [HomeController::class, 'analisis'])->name('analisi
 Route::get('/analisis-matkul-page', [HomeController::class, 'analisis_main_page'])->name('analisis-main-page');
 Route::get('/basis-evaluasi-matkul-page', [HomeController::class, 'basis_evaluasi_main_page'])->name('basis-evaluasi-main-page');
 Route::get('/rencana-pembelajaran-matkul-page', [HomeController::class, 'rencana_pembelajaran_main_page'])->name('rencana-pembelajaran-main-page');
+
+// route penilaian
 Route::get('/penilaian-sub-cpmk-page', [HomeController::class, 'penilaian_subcpmk_page'])->name('penilaian_subcpmk');
+Route::get('/penilaian1', [HomeController::class, 'penilaian1'])->name('penilaian01');
+Route::get('/penilaian2', [HomeController::class, 'penilaian2'])->name('penilaian02');
