@@ -49,8 +49,8 @@
                 </a>
                 <ul class="submenu">
                     <li><a href="/analisis-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Analisis Pembelajaran</a></li>
-                    <li><a href="/basis-evaluasi-matkul-page">Rencana Pembelajaran Semester</a></li>
-                    <li><a href="/rencana-pembelajaran-matkul-page">Basis Evaluasi Penilaian</a></li>
+                    <li><a href="/basis-evaluasi-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Rencana Pembelajaran Semester</a></li>
+                    <li><a href="/rencana-pembelajaran-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Basis Evaluasi Penilaian</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -61,9 +61,9 @@
                     </svg>
                 </a>
                 <ul class="submenu">
-                    <li><a href="/analisis-matkul-page">Analisis Pembelajaran</a></li>
-                    <li><a href="/basis-evaluasi-matkul-page">Rencana Pembelajaran Semester</a></li>
-                    <li><a href="/rencana-pembelajaran-matkul-page">Basis Evaluasi Penilaian</a></li>
+                    <li><a href="/analisis-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Analisis Pembelajaran</a></li>
+                    <li><a href="/basis-evaluasi-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Rencana Pembelajaran Semester</a></li>
+                    <li><a href="/rencana-pembelajaran-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Basis Evaluasi Penilaian</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -74,9 +74,9 @@
                     </svg>
                 </a>
                 <ul class="submenu">
-                    <li><a href="/analisis-matkul-page">Analisis Pembelajaran</a></li>
-                    <li><a href="/basis-evaluasi-matkul-page">Rencana Pembelajaran Semester</a></li>
-                    <li><a href="/rencana-pembelajaran-matkul-page">Basis Evaluasi Penilaian</a></li>
+                    <li><a href="/analisis-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Analisis Pembelajaran</a></li>
+                    <li><a href="/basis-evaluasi-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Rencana Pembelajaran Semester</a></li>
+                    <li><a href="/rencana-pembelajaran-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Basis Evaluasi Penilaian</a></li>
                 </ul>
             </li>
             <li class="menu-item">
@@ -87,9 +87,9 @@
                     </svg>
                 </a>
                 <ul class="submenu">
-                    <li><a href="/analisis-matkul-page">Analisis Pembelajaran</a></li>
-                    <li><a href="/basis-evaluasi-matkul-page">Rencana Pembelajaran Semester</a></li>
-                    <li><a href="/rencana-pembelajaran-matkul-page">Basis Evaluasi Penilaian</a></li>
+                    <li><a href="/analisis-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Analisis Pembelajaran</a></li>
+                    <li><a href="/basis-evaluasi-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Rencana Pembelajaran Semester</a></li>
+                    <li><a href="/rencana-pembelajaran-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Basis Evaluasi Penilaian</a></li>
                 </ul>
             </li>
             <!-- Add other menu items similarly -->
