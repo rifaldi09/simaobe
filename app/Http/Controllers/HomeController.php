@@ -51,4 +51,20 @@ class HomeController extends Controller
             'title' => 'Penilaian SUB CPMK'
         ]);
     }
+
+    // penilai 1
+    public function penilaian1()
+    {
+        return view('landing_page.basis evaluasi.penilaian1', [
+            'title' => 'Penilaian 01'
+        ]);
+    }
+
+    // penilaian 2
+    public function penilaian2()
+    {
+        return view('landing_page.basis evaluasi.penilaian2', [
+            'title' => 'Penilaian 02'
+        ]);
+    }
 }
