@@ -67,4 +67,12 @@ class HomeController extends Controller
             'title' => 'Penilaian 02'
         ]);
     }
+
+    // RPS
+    public function rps()
+    {
+        return view('landing_page.basis evaluasi.rps', [
+            'title' => 'RPS'
+        ]);
+    }
 }
