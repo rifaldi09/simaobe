@@ -61,9 +61,9 @@
                     </svg>
                 </a>
                 <ul class="submenu">
-                    <li><a href="#">Analisis Pembelajaran</a></li>
-                    <li><a href="#">Rencana Pembelajaran Semester</a></li>
-                    <li><a href="#">Basis Evaluasi Penilaian</a></li>
+                    <li><a href="/analisis-mata-kuliah-page" target="_blank">Analisis Pembelajaran</a></li>
+                    <li><a href="/rencana-pembelajaran-mata-kuliah-page">Rencana Pembelajaran Semester</a></li>
+                    <li><a href="/basis-evaluasi-mata-kuliah-page">Basis Evaluasi Penilaian</a></li>
                 </ul>
             </li>
             <li class="menu-item">

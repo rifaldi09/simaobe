@@ -33,4 +33,7 @@ Route::post('/proses-register', [LoginController::class, 'prosesRegister'])->nam
 Route::get('/landing-page', [HomeController::class, 'index'])->name('landing-page');
 Route::get('/analisis-page', [HomeController::class, 'analisis'])->name('analisis-page');
 
-Route::get('/mata-kuliah-page', [HomeController::class, 'mata_kuliah'])->name('mata-kuliah-page');
+// Route untuk mata kuliah
+Route::get('/analisis-mata-kuliah-page', [HomeController::class, 'analisis_main_page'])->name('analisis-main-page');
+Route::get('/basis-evaluasi-mata-kuliah-page', [HomeController::class, 'basis_evaluasi_main_page'])->name('basis-evaluasi-main-page');
+Route::get('/rencana-pembelajaran-mata-kuliah-page', [HomeController::class, 'rencana_pembelajaran_paeg'])->name('rencana-pembelajaran-main-page');
