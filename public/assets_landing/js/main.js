@@ -1,5 +1,11 @@
-newWindow = () => {
-    window.open(this.href)
+function openInNewWindow(url, width = 800, height = 400) {
+    // Hitung posisi tengah layar
+    const left = (screen.width - width) / 2;
+    const top = (screen.height - height) / 2;
+    
+    const windowFeatures = `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes,status=yes`;
+    
+    window.open(url, '_blank', windowFeatures);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
