@@ -6,6 +6,8 @@
     left: 0;
     top: 70px; 
     bottom: 60px;
+    /* Ubah default transform agar sidebar tertutup di awal */
+    transform: translateX(-280px);
     transition: transform 0.3s ease;
     z-index: 1020;
     overflow-y: auto;
