@@ -578,3 +578,21 @@ body {
 .bg-custom-primary-2{
     background-color: #608BC1;
 }
+
+.card01{
+    border-bottom-left-radius: 15px; /* Radius 15px untuk sudut kiri bawah */
+    border-bottom-right-radius: 15px; /* Radius 15px untuk sudut kanan bawah */
+    border-top-left-radius: 15px; /* Radius 15px untuk sudut kiri bawah */
+    border-top-right-radius: 15px; /* Radius 15px untuk sudut kanan bawah */
+    background-color: #001e60 !important;
+    color: white;
+    padding: 20px;
+}
+
+.card02{
+    background-color: #9cabcc !important;
+}
+
+.table01{
+    background-color: #5379CB !important;
+}
