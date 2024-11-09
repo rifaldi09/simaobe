@@ -33,7 +33,7 @@
             {{--* Bagian Minggu --}}
             <div class="container col-12 col-md-3 mb-3">
                 <p class="h3">Minggu</p>
-                <select name="" id="seletcMultipleMinggu1" class="form-control" multiple="multiple">
+                <select name="" id="selectMultipleMinggu1" class="form-control" multiple="multiple">
                     <option value="1">Minggu 1</option>
                     <option value="2">Minggu 2</option>
                     <option value="3">Minggu 3</option>
@@ -73,7 +73,7 @@
                 {{--* Bagian CPMK --}}
                 <div class="container mt-1 justify-content-center">
                     <p class="h3">CPMK</p>
-                    <select name="" id="seletcMultipleCPMK1" class="form-control" multiple="multiple">
+                    <select name="" id="selectMultipleCPMK1" class="form-control" multiple="multiple">
                         <option value="1">CPMK1</option>
                         <option value="2">CPMK2</option>
                         <option value="3">CPMK3</option>
@@ -83,6 +83,9 @@
                 {{--* AKhir dari Bagian CPMK --}}
 
             </div>
+        </div>
+        <div >
+            <button type="button" class="btn btn-primary">Tambah</button>
         </div>
 
         {{--* Garis Horizontal --}}
