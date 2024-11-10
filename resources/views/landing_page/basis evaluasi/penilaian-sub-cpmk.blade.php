@@ -8,11 +8,18 @@
     <hr class="border border-2 border-dark">
     <div class="container">
         <h3>Sub CPMK</h3>
-        <select name="subcpmk" id="subcpmk" class="form-control w-50">
-            <option hidden class="text-muted">--No Selection--</option>
-            <option value="">Sub CPMK1 - Lorem ipsum dolor sit.</option>
-            <option value="">Sub CPMK2 - Lorem ipsum dolor sit.</option>
-        </select>
+        <div class="d-flex justify-content-between">
+            <div class="w-50 me-4">
+                <select name="subcpmk" id="subcpmk" class="form-control">
+                    <option hidden class="text-muted">--No Selection--</option>
+                    <option value="">Sub CPMK1 - Lorem ipsum dolor sit.</option>
+                    <option value="">Sub CPMK2 - Lorem ipsum dolor sit.</option>
+                </select>
+            </div>
+            <div class="w-50">
+                <textarea name="" id="" cols="30" rows="5" placeholder="indikator" class="form-control"></textarea>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-3 mb-2">
                 <div class="card rounded-4 bg-custom-primary-2">
@@ -40,9 +47,6 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="d-flex justify-content-center align-items-center h-100">
-            &nbsp;
-        </div> --}}
         <div class="text-center">
             <button class="btn bg-custom-primary text-light rounded-pill px-5 py-2 mt-2">Simpan</button>
         </div>
