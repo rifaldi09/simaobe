@@ -160,6 +160,95 @@ $(document).ready(function() {
     });
 });
 
+// BUAR RPS
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('indikatorContainer');
+
+    // Function to create new input group
+    function createInputGroup() {
+        const div = document.createElement('div');
+        div.className = 'input-group mb-2';
+        div.innerHTML = `
+            <input type="text" class="form-control" name="indikator[]">
+            <button class="btn btn-outline-secondary border-0 mb-3 remove-indikator" type="button">
+                <i class="bi bi-dash-circle"></i>
+            </button>
+        `;
+        return div;
+    }
+
+    // Add new input group
+    container.addEventListener('click', function(e) {
+        if (e.target.closest('.add-indikator')) {
+            container.appendChild(createInputGroup());
+        }
+    });
+
+    // Remove input group
+    container.addEventListener('click', function(e) {
+        if (e.target.closest('.remove-indikator')) {
+            e.target.closest('.input-group').remove();
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const syntaxContainer = document.getElementById('syntaxContainer');
+    const kriteriaContainer = document.getElementById('kriteriaContainer');
+
+    // Function to create new input group
+    function createInputGroup(type) {
+        const div = document.createElement('div');
+        div.className = 'input-group mb-2';
+
+        if (type === 'syntax') {
+            div.innerHTML = `
+                <select class="form-select mb-5">
+                    <option></option>
+                </select>
+                <button class="btn btn-outline-secondary mb-5 border-0 remove-syntax" type="button">
+                    <i class="bi bi-dash-circle"></i>
+                </button>
+            `;
+        } else if (type === 'kriteria') {
+            div.innerHTML = `
+                <input type="text" class="form-control" name="kriteria[]">
+                <button class="btn btn-outline-secondary mb-3 border-0 remove-kriteria" type="button">
+                    <i class="bi bi-dash-circle"></i>
+                </button>
+            `;
+        }
+
+        return div;
+    }
+
+    // Add new input group
+    syntaxContainer.addEventListener('click', function(e) {
+        if (e.target.closest('.add-syntax')) {
+            syntaxContainer.appendChild(createInputGroup('syntax'));
+        }
+    });
+
+    kriteriaContainer.addEventListener('click', function(e) {
+        if (e.target.closest('.add-kriteria')) {
+            kriteriaContainer.appendChild(createInputGroup('kriteria'));
+        }
+    });
+
+    // Remove input group
+    syntaxContainer.addEventListener('click', function(e) {
+        if (e.target.closest('.remove-syntax')) {
+            e.target.closest('.input-group').remove();
+        }
+    });
+
+    kriteriaContainer.addEventListener('click', function(e) {
+        if (e.target.closest('.remove-kriteria')) {
+            e.target.closest('.input-group').remove();
+        }
+    });
+});
+// PENUTUP RPS
 
 let mingguId = document.getElementById('selectMultipleMinggu1').id;
 let cpmkId = document.getElementById('selectMultipleCPMK1').id;

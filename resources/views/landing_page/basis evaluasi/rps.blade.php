@@ -29,14 +29,16 @@
                     </div>
 
                     <div class="container mt-5">
-                        <p class="h3">Syntax Pembelajaran</p>
-                        <div class="input-group">
-                            <select class="form-select mb-5">
-                                <option></option>
-                            </select>
-                            <button class="btn btn-outline-secondary mb-5 border-0" type="button">
-                                <i class="bi bi-plus-circle "></i>
-                            </button>
+                        <p class="h3 text-start mb-2">Syntax Pembelajaran</p>
+                        <div id="syntaxContainer">
+                            <div class="input-group mb-2">
+                                <select class="form-select mb-5">
+                                    <option></option>
+                                </select>
+                                <button class="btn btn-outline-secondary mb-5 border-0 add-syntax" type="button">
+                                    <i class="bi bi-plus-circle"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -68,17 +70,13 @@
 
                     <div class="container mt-1">
                         <p class="h3 text-start mb-2">Indikator Pencapaian</p>
-                        <div class="input-group mb-2">
-                            <input type="text" class="form-control">
-                            <button class="btn btn-outline-secondary border-0 mb-3" type="button">
-                                <i class="bi bi-plus-circle"></i>
-                            </button>
-                        </div>
-                        <div class="input-group">
-                            <input type="text" class="form-control">
-                            <button class="btn btn-outline-secondary border-0 mb-3" type="button">
-                                <i class="bi bi-dash-circle"></i>
-                            </button>
+                        <div id="indikatorContainer">
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" name="indikator[]">
+                                <button class="btn btn-outline-secondary border-0 mb-3 add-indikator" type="button">
+                                    <i class="bi bi-plus-circle"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,21 +93,17 @@
                     </div>
                 
 
-                        <div class="container mt-1">
-                            <p class="h3 text-start mb-2">Kreteria Penilaian</p>
+                    <div class="container mt-1">
+                        <p class="h3 text-start mb-2">Kreteria Penilaian</p>
+                        <div id="kriteriaContainer">
                             <div class="input-group mb-2">
-                                <input type="text" class="form-control" value="Aktifitas Partisipatif">
-                                <button class="btn btn-outline-secondary border-0 mb-3" type="button">
+                                <input type="text" class="form-control" name="kriteria[]">
+                                <button class="btn btn-outline-secondary border-0 mb-3 add-kriteria" type="button">
                                     <i class="bi bi-plus-circle"></i>
                                 </button>
                             </div>
-                            <div class="input-group">
-                                <input type="text" class="form-control">
-                                <button class="btn btn-outline-secondary border-0 mb-3" type="button">
-                                    <i class="bi bi-dash-circle"></i>
-                                </button>
-                            </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
