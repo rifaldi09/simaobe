@@ -148,6 +148,18 @@ removePenilaian = (event) => {
     }
 }
 
+$(document).ready(function() {
+    $('#multiple-select-field').select2({
+        theme: "bootstrap-5",
+        width: '100%',
+        placeholder: "Choose anything",
+        allowClear: true,
+        closeOnSelect: false,
+        selectionCssClass: "select2--large", // Tambahkan ini untuk ukuran yang lebih besar
+        dropdownCssClass: "select2--large", // Tambahkan ini untuk ukuran yang lebih besar
+    });
+});
+
 
 let mingguId = document.getElementById('selectMultipleMinggu1').id;
 let cpmkId = document.getElementById('selectMultipleCPMK1').id;
