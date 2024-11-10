@@ -43,3 +43,4 @@ Route::get('/penilaian-sub-cpmk-page', [HomeController::class, 'penilaian_subcpm
 Route::get('/penilaian1', [HomeController::class, 'penilaian1'])->name('penilaian01');
 Route::get('/penilaian2', [HomeController::class, 'penilaian2'])->name('penilaian02');
 Route::get('/rps', [HomeController::class, 'rps'])->name('rps');
+Route::get('/komponen-penilaian', [HomeController::class, 'komponen_penilaian'])->name('komponenPenilaian');
