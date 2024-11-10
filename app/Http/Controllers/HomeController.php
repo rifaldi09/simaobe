@@ -75,4 +75,12 @@ class HomeController extends Controller
             'title' => 'RPS'
         ]);
     }
+
+    // komponen penilaian
+    public function komponen_penilaian()
+    {
+        return view('landing_page.basis evaluasi.kp', [
+            'title' => 'Komponen Penilaian'
+        ]);
+    }
 }
