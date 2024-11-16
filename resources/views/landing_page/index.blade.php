@@ -54,6 +54,8 @@
                     </svg>
                 </a>
                 <ul class="submenu">
+                    <li><a href="/struktur-mata-kuliah" onclick="event.preventDefault(); openInNewWindow(this.href);"
+                        class="nav-link">Struktur Mata Kuliah</a></li>
                     <li><a href="/analisis-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);"
                             class="nav-link">Analisis Pembelajaran</a></li>
                     <li><a href="/rencana-pembelajaran-matkul-page"
@@ -74,6 +76,8 @@
                     </svg>
                 </a>
                 <ul class="submenu">
+                    <li><a href="/struktur-mata-kuliah" onclick="event.preventDefault(); openInNewWindow(this.href);"
+                        class="nav-link">Struktur Mata Kuliah</a></li>
                     <li><a href="/analisis-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);"
                             class="nav-link">Analisis Pembelajaran</a></li>
                     <li><a href="/rencana-pembelajaran-matkul-page"
@@ -94,6 +98,8 @@
                     </svg>
                 </a>
                 <ul class="submenu">
+                    <li><a href="/struktur-mata-kuliah" onclick="event.preventDefault(); openInNewWindow(this.href);"
+                        class="nav-link">Struktur Mata Kuliah</a></li>
                     <li><a href="/analisis-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);"
                             class="nav-link">Analisis Pembelajaran</a></li>
                     <li><a href="/rencana-pembelajaran-matkul-page"
@@ -114,6 +120,8 @@
                     </svg>
                 </a>
                 <ul class="submenu">
+                    <li><a href="/struktur-mata-kuliah" onclick="event.preventDefault(); openInNewWindow(this.href);"
+                        class="nav-link">Struktur Mata Kuliah</a></li>
                     <li><a href="/analisis-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);"
                             class="nav-link">Analisis Pembelajaran</a></li>
                     <li><a href="/rencana-pembelajaran-matkul-page"

@@ -18,8 +18,12 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+    {{-- ckeditor --}}
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.css">
+
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+
 </head>
 {{-- Menambah class di body agar dapat memuat halaman sesuai tinggi layar dekstop --}}
 <body class="d-flex flex-column min-vh-100">
@@ -40,7 +44,7 @@
     <!-- Hanya memuat bootstrap.bundle.min.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- js untuk komponen-penilaian -->
-  <script src="{{ asset('assets_landing/js/komponen-penilaian.js') }}"></script>
+    <script src="{{ asset('assets_landing/js/komponen-penilaian.js') }}"></script>
   
     <!-- js untuk sidebar -->
     <script href="{{ asset ('assets_landing/css/style.css') }}"></script>
@@ -54,5 +58,27 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>  
 
+     {{-- ckeditor --}}
+     {{-- <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+     <script>
+         CKEDITOR.replace( 'editor' );
+     </script> --}}
+     <script type="importmap">
+        {
+            "imports": {
+                "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.js",
+                "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.3.1/"
+            }
+        }
+    </script>
+    <script type="module" src="{{ asset('assets_landing/js/ckeditor.js') }}"></script>
+    <!-- A friendly reminder to run on a server, remove this during the integration. -->
+    <script>
+        window.onload = function() {
+            if ( window.location.protocol === 'file:' ) {
+                alert( 'This sample requires an HTTP server. Please serve this file with a web server.' );
+            }
+        };
+    </script>
 </body>
 </html>
