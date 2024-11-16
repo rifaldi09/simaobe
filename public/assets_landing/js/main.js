@@ -252,15 +252,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let mingguId = document.getElementById('selectMultipleMinggu1').id;
 let cpmkId = document.getElementById('selectMultipleCPMK1').id;
-// console.log(mingguId);
+
 let m_id = mingguId.match(/\d+$/)[0];
 let c_id = cpmkId.match(/\d+$/)[0];
-// console.log(id);
+// console.log(mrp_id);
 
 $(document).ready(function(){
     $(`#selectMultipleMinggu${m_id}`).select2();
     $(`#selectMultipleCPMK${c_id}`).select2();
 });
+
 
 $(document).on('click', '.remove_analisis', function(){
     $(this).closest('.child_analisis').remove();

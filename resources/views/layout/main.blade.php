@@ -48,6 +48,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 
     <script src="{{ asset('assets_landing/js/main.js') }}"></script>
+    <script src="{{ asset('assets_landing/js/rps.js') }}"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>  

@@ -62,6 +62,7 @@
                 </tr>
             </tbody>
         </table>
+        <button class="btn btn-danger float-end" type="button">Hapus</button>
     </div>
 </div>
 
