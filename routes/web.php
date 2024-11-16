@@ -44,6 +44,7 @@ Route::get('/penilaian1', [HomeController::class, 'penilaian1'])->name('penilaia
 Route::get('/penilaian2', [HomeController::class, 'penilaian2'])->name('penilaian02');
 Route::get('/rps', [HomeController::class, 'rps'])->name('rps');
 Route::get('/komponen-penilaian', [HomeController::class, 'komponen_penilaian'])->name('komponenPenilaian');
+Route::get('/struktur-mata-kuliah', [HomeController::class, 'struktur_mata_kuliah'])->name('struktur-mata-kuliah');
 
 // logout
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

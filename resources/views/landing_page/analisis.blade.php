@@ -86,7 +86,7 @@
         </div>
         <div class="container">
             <div class="d-flex justify-content-end mt-3">
-                <button class="btn btn-primary" onclick="addAnalisis()">Tambah</button>
+                <button type="button" class="btn btn-primary" onclick="addAnalisis()">Tambah</button>
             </div>
         </div>
 

@@ -83,4 +83,12 @@ class HomeController extends Controller
             'title' => 'Komponen Penilaian'
         ]);
     }
+
+    // struktur mata kuliah
+    public function struktur_mata_kuliah()
+    {
+        return view('landing_page.struktur-mata-kuliah', [
+            'title' => 'Struktur Mata Kuliah'
+        ]);
+    }
 }
