@@ -46,7 +46,7 @@
                 @enderror
             </div>
             <button type="submit" class="btn-masuk">Masuk</button>
-            <a href="#" class="forgot-password">Lupa Password ?</a>
+            <a href="/regis" class="forgot-password">Register</a>
         </form>
     </div>
 </div>
