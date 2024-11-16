@@ -44,7 +44,7 @@
         </table>
     </div>
     <div class="container">
-        <a href="{{ route('komponenPenilaian') }}" class="btn btn-primary">Tambah Komponen Penilaian</a>
+        <a href="{{ route('komponenPenilaian') }}" class="text-decoration-none"><i class="bi bi-plus-circle"></i> Tambah Komponen Penilaian</a>
     </div>
 
     <div class="container mt-3">
