@@ -24,9 +24,10 @@
             <div class="dropdown">
                 <button class="btn p-0" type="button" id="userIcon" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="assets_landing/images/logo_profil1.jpeg" alt="User Icon" class="user-icon">
+                    <h7 style="color: white;">{{ $nama_dosen }}</h7>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="userIcon">
-                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li><a class="dropdown-item" href="/my-profil">My Profile</a></li>
                     <li><a class="dropdown-item" href="/logout">Log Out</a></li>
                 </ul>
             </div>

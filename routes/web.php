@@ -24,6 +24,9 @@ Route::get('/', function () {
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/proses-login', [LoginController::class, 'prosesLogin'])->name('proses-login');
 
+Route::get('/my-profil', [HomeController::class, 'profil'])->name('profil');
+
+
 //route untuk register 
 //jika ingin register, tambahkan aja di url '127.0.0.1:8000/regis'
 Route::get('/regis', [LoginController::class, 'register'])->name('register');
