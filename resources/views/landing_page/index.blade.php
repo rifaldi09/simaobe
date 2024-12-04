@@ -1,7 +1,6 @@
 @extends('layout.main')
 
 @section('content')
-
 <header>
     <div class="navbar navbar-dark shadow-sm">
         <div class="container d-flex justify-content-between">
@@ -44,75 +43,10 @@
             </span>
         </div>
         <ul class="sidebar-menu">
+            @foreach ($data as $mata_kuliah)
             <li class="menu-item">
                 <a href="#" class="menu-link">
-                    <span>Pemrograman Web</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="chevron-icon">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </a>
-                <ul class="submenu">
-                    <li><a href="/struktur-mata-kuliah" onclick="event.preventDefault(); openInNewWindow(this.href);"
-                        class="nav-link">Struktur Mata Kuliah</a></li>
-                    <li><a href="/analisis-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);"
-                            class="nav-link">Analisis Pembelajaran</a></li>
-                    <li><a href="/rencana-pembelajaran-matkul-page"
-                            onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Rencana
-                            Pembelajaran Semester</a></li>
-                    <li><a href="/basis-evaluasi-matkul-page"
-                            onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Basis
-                            Evaluasi Penilaian</a></li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <a href="#" class="menu-link">
-                    <span>Interaksi Manusia dan Komputer</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="chevron-icon">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </a>
-                <ul class="submenu">
-                    <li><a href="/struktur-mata-kuliah" onclick="event.preventDefault(); openInNewWindow(this.href);"
-                        class="nav-link">Struktur Mata Kuliah</a></li>
-                    <li><a href="/analisis-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);"
-                            class="nav-link">Analisis Pembelajaran</a></li>
-                    <li><a href="/rencana-pembelajaran-matkul-page"
-                            onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Rencana
-                            Pembelajaran Semester</a></li>
-                    <li><a href="/basis-evaluasi-matkul-page"
-                            onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Basis
-                            Evaluasi Penilaian</a></li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <a href="#" class="menu-link">
-                    <span>Sistem Operasi</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="chevron-icon">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </a>
-                <ul class="submenu">
-                    <li><a href="/struktur-mata-kuliah" onclick="event.preventDefault(); openInNewWindow(this.href);"
-                        class="nav-link">Struktur Mata Kuliah</a></li>
-                    <li><a href="/analisis-matkul-page" onclick="event.preventDefault(); openInNewWindow(this.href);"
-                            class="nav-link">Analisis Pembelajaran</a></li>
-                    <li><a href="/rencana-pembelajaran-matkul-page"
-                            onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Rencana
-                            Pembelajaran Semester</a></li>
-                    <li><a href="/basis-evaluasi-matkul-page"
-                            onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Basis
-                            Evaluasi Penilaian</a></li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <a href="#" class="menu-link">
-                    <span>Internet Untuk Segala</span>
+                    <span>{{ $mata_kuliah["NamaMtklh"] }}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="chevron-icon">
@@ -133,6 +67,7 @@
                 </ul>
             </li>
             <!-- Add other menu items similarly -->
+            @endforeach
         </ul>
     </div>
 </div>
