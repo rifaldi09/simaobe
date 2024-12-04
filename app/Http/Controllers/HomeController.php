@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Analisis;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,9 +23,13 @@ class HomeController extends Controller
     // menampilkan halaman utama analisis pembelajaran
     public function analisis_main_page()
     {
+        $session = [
+            "sessionID" => session('sessionID')
+        ];
+        $data = Analisis::getAnalisis($session);
         return view('landing_page.analisis-mata-kuliah', [
             'title' => 'Analisis Pembelajaran Page'
-        ]);
+        ], compact('data'));
     }
 
     // menampilkan halaman utama basis evaluasi pembelajaran
