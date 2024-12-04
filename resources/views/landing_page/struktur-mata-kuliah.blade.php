@@ -86,9 +86,9 @@
                     </div>
                     <div class="col-md-9">
                         <select name="" id="bahan-kajian" class="form-control" multiple="multiple">
-                            <option value="1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis aperiam, dolore tempore voluptatibus impedit distinctio fuga laboriosam natus enim nihil. Voluptatum velit sequi earum reprehenderit quam nam eius voluptatibus nesciunt maiores dolore dolorum tempora veritatis, in officia ut temporibus perspiciatis est, consequatur quas nihil molestias praesentium! Minus natus fuga quibusdam asperiores veritatis voluptas numquam aspernatur sed inventore ullam animi repellat, distinctio vel eum esse?</option>
-                            <option value="2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam eum quod, fuga laudantium ipsam veniam laborum delectus nisi.</option>
-                            <option value="3">Lorem ipsum dolor sit.</option>
+                            @foreach ($response as $respon)
+                                <option value="{{ $respon['BKID'] }}">{{ $respon['KeteranganBK'] }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

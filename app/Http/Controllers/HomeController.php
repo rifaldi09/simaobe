@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Analisis;
 use App\Models\Login;
+use App\Models\StrukturMatkul;
 use Illuminate\Http\Request;
 //use App\Model\Login;
 
@@ -99,10 +100,16 @@ class HomeController extends Controller
     }
 
     // struktur mata kuliah
-    public function struktur_mata_kuliah($idMatkul)
+    public function struktur_mata_kuliah($id)
     {
+        // Masih menggunakan sessionID yang sesuai dengan dokumentasi
+        $id = '80c85915-ab28-11ef-8868-0faa2bd6b0ee';
+
+        // Mengamil data dari model StrukturMatkul dengan mengirim sessionID
+        $response = StrukturMatkul::bahanKajian($id);
+
         return view('landing_page.struktur-mata-kuliah', [
             'title' => 'Struktur Mata Kuliah'
-        ]);
+        ],compact('response'));
     }
 }
