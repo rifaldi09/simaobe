@@ -1,3 +1,4 @@
+{{ dd($data) }}
 {{-- Analisis --}}
 <div id="analisis" class="mx-5 mt-3">
     <a href="/analisis-page" class="text-decoration-none"><i class="bi bi-plus-circle"></i> Tambah</a>
