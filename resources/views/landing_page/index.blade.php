@@ -53,6 +53,9 @@
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </a>
+
+                
+
                 <ul class="submenu">
                     <li><a href="/struktur-mata-kuliah" onclick="event.preventDefault(); openInNewWindow(this.href);"
                         class="nav-link">Struktur Mata Kuliah</a></li>
