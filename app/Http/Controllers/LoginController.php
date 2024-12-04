@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Login;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
@@ -19,23 +20,23 @@ class LoginController extends Controller
     }
 
     //proses login
-    public function prosesLogin(Request $req){
+    public function prosesLogin(Request $request){
         //validasi data kosong
-        $data = $req->validate([
-            'user_id' => 'required',
-            'password' => 'required',
+        $data = $request->validate([
+            'username' => 'required',
+            'pwd' => 'required',
         ]);
 
-        //validasi jika inputan user dengan database sama atau tidak
-        if (Auth::attempt($data)) {
-            $req->session()->regenerate();
-            return redirect()->intended('landing-page');
-        } 
+        // panggil api via model
+        $response = Login::auth($data);
 
-        //mengembalikan error jika inputan user gak sesuai dengan database
-        return back()->withErrors([
-            'user_id' => 'User ID atau password salah.',
-        ])->withInput($req->except('password'));
+        // cek apakah response ada sessionID apa tidak
+        if($response["sessionID"]) {
+            $request->session()->put("sessionID", $response["sessionID"]);
+            return redirect('/landing-page');
+        } else {
+            return redirect()->back()->with('gagal_login', 'Gagal Login');
+        }
     }
 
     //tampilkan page register
@@ -74,7 +75,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-        Auth::logout();
+        session()->flush();
 
         return redirect('/login');
     }
