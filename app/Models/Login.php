@@ -28,7 +28,7 @@ class Login extends Model
     }
 
     static function userInfo($sessionId)
-    {
+    {   
         $response = Http::post(self::path("info"), $sessionId);
         return $response->json();
     }

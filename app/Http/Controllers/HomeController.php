@@ -16,10 +16,11 @@ class HomeController extends Controller
         ];
 
         $data = Login::dataMatkul($session);
+        $nama_dosen = Login::userInfo($session)['NamaLengkap'];
 
         return view('landing_page.index', [
             'title' => 'Landing Page'
-        ], compact('data'));
+        ], compact('data', 'nama_dosen'));
     }
 
     // mengarah ke halaman landing_page/analisis.blade.php
@@ -111,5 +112,18 @@ class HomeController extends Controller
         return view('landing_page.struktur-mata-kuliah', [
             'title' => 'Struktur Mata Kuliah'
         ],compact('response'));
+    }
+
+    // struktur mata kuliah
+    public function profil()
+    {
+        $session = [
+            "sessionID" => session('sessionID')
+        ];
+
+        $data = Login::userInfo($session);
+        return view('profil', [
+            'title' => 'My Profil'
+        ], compact(""));
     }
 }
