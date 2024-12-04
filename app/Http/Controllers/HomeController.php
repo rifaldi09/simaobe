@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Analisis;
+use App\Models\Login;
 use Illuminate\Http\Request;
 use App\Model\Login;
 
 class HomeController extends Controller
 {
     public function index(){
+        $session = [
+            "sessionID" => session('sessionID')
+        ];
+
+        $data = Login::dataMatkul($session);
+
         return view('landing_page.index', [
             'title' => 'Landing Page'
-        ]);
+        ], compact('data'));
     }
 
     // mengarah ke halaman landing_page/analisis.blade.php
@@ -27,6 +34,7 @@ class HomeController extends Controller
         $session = [
             "sessionID" => session('sessionID')
         ];
+
         $data = Analisis::getAnalisis($session);
         return view('landing_page.analisis-mata-kuliah', [
             'title' => 'Analisis Pembelajaran Page'
