@@ -33,9 +33,9 @@ class LoginController extends Controller
         // cek apakah response ada sessionID apa tidak
         if($response["sessionID"]) {
             $request->session()->put("sessionID", $response["sessionID"]);
-            return redirect('/landing-page');
+            return redirect('/landing-page')->with('success', 'Berhasil Login');
         } else {
-            return redirect()->back()->with('gagal_login', 'Gagal Login');
+            return redirect()->back()->with('error', 'Gagal Login');
         }
     }
 
