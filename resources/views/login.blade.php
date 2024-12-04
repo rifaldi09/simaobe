@@ -19,11 +19,11 @@
     </div>
 </header>
 
-    <!-- Main Content -->
+<!-- Main Content -->
 <div class="login-container">
     <!-- Logo -->
-    <img src="logo.png" alt="Logo" class="logo">
-    
+    <img src="{{url('assets_landing/images/logoumrah.png')}}" alt="Logo" class="logo">
+
     <!-- Login Box -->
     <div class="login-box">
         <h2 class="login-title">LOGIN</h2>
@@ -34,7 +34,7 @@
                 <input type="text" class="form-control" id="user_id" name="user_id">
                 {{-- menampilkan error jika inputan kosong --}}
                 @error('user_id')
-                    <small>{{ $message }}</small>
+                <small>{{ $message }}</small>
                 @enderror
             </div>
             <div class="mb-3">
@@ -42,12 +42,12 @@
                 <input type="password" class="form-control" id="password" name="password">
                 {{-- menampilkan error jika inputan kosong --}}
                 @error('password')
-                    <small>{{ $message }}</small>
+                <small>{{ $message }}</small>
                 @enderror
             </div>
             <button type="submit" class="btn-masuk">Masuk</button>
-            <a href="#" class="forgot-password">Lupa Password ?</a>
+            <a href="/regis" class="forgot-password">Register</a>
         </form>
     </div>
-</div> 
+</div>
 @endsection

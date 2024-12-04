@@ -1,28 +1,43 @@
 @extends('layout.main')
 
 @section('content')
-<form action="{{ route('proses-register') }}" method="post" enctype="multipart/form-data">
-    @csrf
-    <table>
-        <tr>
-            <td>User ID</td>
-            <td><input type="number" name="user_id" id="user_id"></td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td><input type="email" name="user_email" id="user_email"></td>
-        </tr>
-        <tr>
-            <td>Username</td>
-            <td><input type="text" name="user_name" id="user_name"></td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td><input type="password" name="password" id="password"></td>
-        </tr>
-        <tr>
-            <td><button type="submit" name="submit">Register</button></td>
-        </tr>
-    </table>
-</form>
+<header>
+    <div class="navbar navbar-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <div>
+                    <span class="title">Sistem Manajemen</span>
+                    <span class="subtitle">Kurikulum OBE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="login-container">
+    <img src="{{url('assets_landing/images/logoumrah.png')}}" alt="Logo" class="logo">
+    <div class="login-box">
+        <form action="{{ route('proses-register') }}" method="post" enctype="multipart/form-data">
+            @csrf   
+            <div class="mb-3">
+                <label for="" class="form-label">User ID</label>
+                <input type="number" name="user_id" id="user_id" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Email</label>
+                <input type="email" name="user_email" id="user_email" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Username</label>
+                <input type="text" name="user_name" id="user_name" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control">
+            </div>
+            <button type="submit" class="btn-masuk">Register</button>
+            <a href="/login" class="forgot-password">Login</a>
+        </form>
+    </div>
+</div>
 @endsection
