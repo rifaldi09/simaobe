@@ -34,9 +34,9 @@ Route::get('/landing-page', [HomeController::class, 'index'])->name('landing-pag
 Route::get('/analisis-page', [HomeController::class, 'analisis'])->name('analisis-page');
 
 // Route untuk mata kuliah
-Route::get('/analisis-matkul-page', [HomeController::class, 'analisis_main_page'])->name('analisis-main-page');
-Route::get('/basis-evaluasi-matkul-page', [HomeController::class, 'basis_evaluasi_main_page'])->name('basis-evaluasi-main-page');
-Route::get('/rencana-pembelajaran-matkul-page', [HomeController::class, 'rencana_pembelajaran_main_page'])->name('rencana-pembelajaran-main-page');
+Route::get('/analisis-matkul-page/{id}', [HomeController::class, 'analisis_main_page'])->name('analisis-main-page');
+Route::get('/basis-evaluasi-matkul-page/{id}', [HomeController::class, 'basis_evaluasi_main_page'])->name('basis-evaluasi-main-page');
+Route::get('/rencana-pembelajaran-matkul-page/{id}', [HomeController::class, 'rencana_pembelajaran_main_page'])->name('rencana-pembelajaran-main-page');
 
 // route penilaian
 Route::get('/penilaian-sub-cpmk-page', [HomeController::class, 'penilaian_subcpmk_page'])->name('penilaian_subcpmk');
@@ -44,7 +44,7 @@ Route::get('/penilaian1', [HomeController::class, 'penilaian1'])->name('penilaia
 Route::get('/penilaian2', [HomeController::class, 'penilaian2'])->name('penilaian02');
 Route::get('/rps', [HomeController::class, 'rps'])->name('rps');
 Route::get('/komponen-penilaian', [HomeController::class, 'komponen_penilaian'])->name('komponenPenilaian');
-Route::get('/struktur-mata-kuliah', [HomeController::class, 'struktur_mata_kuliah'])->name('struktur-mata-kuliah');
+Route::get('/struktur-mata-kuliah/{id}', [HomeController::class, 'struktur_mata_kuliah'])->name('struktur-mata-kuliah');
 
 // logout
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

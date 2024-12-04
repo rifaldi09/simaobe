@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Analisis;
 use App\Models\Login;
 use Illuminate\Http\Request;
-use App\Model\Login;
+//use App\Model\Login;
 
 class HomeController extends Controller
 {
@@ -29,7 +29,7 @@ class HomeController extends Controller
     }
 
     // menampilkan halaman utama analisis pembelajaran
-    public function analisis_main_page()
+    public function analisis_main_page($idMatkul)
     {
         $session = [
             "sessionID" => session('sessionID')
@@ -51,7 +51,7 @@ class HomeController extends Controller
     }
     
     // menampilkan halaman utama rencana pembelajaran semester
-    public function rencana_pembelajaran_main_page()
+    public function rencana_pembelajaran_main_page($idMatkul)
     {
         return view('landing_page.rencana-pembelajaran-mata-kuliah', [
             'title' => 'Rencana Pembelajaran Semester Page'
@@ -99,7 +99,7 @@ class HomeController extends Controller
     }
 
     // struktur mata kuliah
-    public function struktur_mata_kuliah()
+    public function struktur_mata_kuliah($idMatkul)
     {
         return view('landing_page.struktur-mata-kuliah', [
             'title' => 'Struktur Mata Kuliah'
