@@ -30,10 +30,10 @@
         <form action="{{ route('proses-login') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="userId" class="form-label">User ID</label>
-                <input type="text" class="form-control" id="user_id" name="user_id">
+                <label for="username" class="form-label">User ID</label>
+                <input type="text" class="form-control" id="username" name="username">
                 {{-- menampilkan error jika inputan kosong --}}
-                @error('user_id')
+                @error('username')
                 <small>{{ $message }}</small>
                 @enderror
             </div>
