@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Analisis;
 use App\Models\Login;
 use Illuminate\Http\Request;
+//use App\Model\Login;
 
 class HomeController extends Controller
 {
@@ -18,7 +19,7 @@ class HomeController extends Controller
 
         return view('landing_page.index', [
             'title' => 'Landing Page'
-        ], compact('data'));
+        ], compact('data', 'nama_dosen'));
     }
 
     // mengarah ke halaman landing_page/analisis.blade.php
