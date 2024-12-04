@@ -38,8 +38,8 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Kata Sandi</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <label for="pwd" class="form-label">Kata Sandi</label>
+                <input type="password" class="form-control" id="pwd" name="pwd">
                 {{-- menampilkan error jika inputan kosong --}}
                 @error('password')
                 <small>{{ $message }}</small>

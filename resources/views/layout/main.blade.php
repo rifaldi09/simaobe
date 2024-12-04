@@ -27,6 +27,9 @@
 </head>
 {{-- Menambah class di body agar dapat memuat halaman sesuai tinggi layar dekstop --}}
 <body class="d-flex flex-column min-vh-100">
+    {{-- Sweet Alert --}}
+    @include('sweetalert::alert')
+
     {{-- yield berguna untuk menentukan bagian konten yang akan diisi --}}
     {{-- Penamaaan tidak harus 'content' --}}
     <main class="flex-grow-1">
