@@ -292,7 +292,7 @@ addAnalisis = () => {
                             <p class="h3">Materi Perkuliahan</p>
                             <div class="card">
                                 <div class="card-body">
-                                    <textarea class="form-control" style="height: 200px;"></textarea>
+                                    <textarea class="form-control" style="height: 200px;">.</textarea>
                                 </div>
                             </div>
                         </div>

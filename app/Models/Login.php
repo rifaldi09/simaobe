@@ -33,4 +33,10 @@ class Login extends Model
         return $response->json();
     }
 
+    static function logout($data)
+    {
+        $response = Http::post(self::path("login/quit"), $data);
+        return $response->json();
+    }
+
 }

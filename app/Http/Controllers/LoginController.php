@@ -75,8 +75,16 @@ class LoginController extends Controller
 
     public function logout()
     {
-        session()->flush();
+        $session = [
+            "sessionID" => session('sessionID')
+        ];
 
-        return redirect('/login');
+        $data = Login::logout($session);
+        if ($data[0]['message']==="Logout Success") {
+            return redirect('/login')->with('success', 'Berhasil Loout');
+        } else {
+            return redirect()->back()->with('error', 'Gagal Logout');
+        }
+        session()->flush();
     }
 }
