@@ -45,6 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // function untuk mengubah input menjadi disabled
+    function toggleInputs(disabled) {
+        const allInputs = tbody.querySelectorAll('input[type="number"]:not([readonly])');
+        allInputs.forEach(input => {
+            input.disabled = disabled;
+        })
+    }
+
     function addNewRow(komponenName) {
         console.log('Adding new row for:', komponenName);
         const newRow = {
@@ -80,9 +88,9 @@ document.addEventListener('DOMContentLoaded', function() {
             tr.innerHTML = `
                 <td><b>${index + 1}</b></td>
                 <td><b>${row.komponen}</b></td>
-                <td><input type="number" class="form-control" value="${row.values[0]}" min="0"></td>
-                <td><input type="number" class="form-control" value="${row.values[1]}" min="0"></td>
-                <td><input type="number" class="form-control" value="${row.values[2]}" min="0"></td>
+                <td><input type="number" class="form-control" value="${row.values[0]}" min="0" max="100"></td>
+                <td><input type="number" class="form-control" value="${row.values[1]}" min="0" max="100"></td>
+                <td><input type="number" class="form-control" value="${row.values[2]}" min="0" max="100"></td>
                 <td><input type="number" class="form-control" value="${row.bobot}" readonly></td>
             `;
             tbody.insertBefore(tr, tbody.lastElementChild);
@@ -94,6 +102,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (totalRow && totalRow.querySelector('input[type="text"]')) {
             totalRow.querySelector('input[type="text"]').value = totalBobot;
         }
+
+        // membuat input menjadi disabled ketika total bobot sama dengan 100
+        toggleInputs(totalBobot >= 100);
+
         console.log('Table updated, total bobot:', totalBobot);
     }
 
@@ -106,6 +118,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const inputs = Array.from(row.querySelectorAll('input[type="number"]:not([readonly])'));
             const rowIndex = getRowIndex(row);
+
+            // validasi input agar jika input lebih dari 100 maka nilai akan otomatis jadi 100
+            inputs.forEach(input => {
+                if (parseFloat(input.value) > 100) {
+                    input.value = 100;
+                }
+            });
 
             // Update nilai di formData
             if (rowIndex !== -1) {
