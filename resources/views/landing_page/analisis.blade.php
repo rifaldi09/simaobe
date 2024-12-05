@@ -51,7 +51,7 @@
                         <div class="card">
                             <div class="card-body">
                                 {{--! Masih belum ada tag form, jadi harap hati-hati --}}
-                                <textarea class="form-control" style="height: 200px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, cum. Adipisci eligendi nobis commodi explicabo ab cum accusamus quod aperiam.</textarea>
+                                <textarea class="form-control" style="height: 200px;"></textarea>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                         <div class="card">
                             <div class="card-body">
                                 {{--! Masih belum ada tag form, jadi harap hati-hati --}}
-                                <textarea class="form-control" style="height: 200px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, cum. Adipisci eligendi nobis commodi explicabo ab cum accusamus quod aperiam.</textarea>
+                                <textarea class="form-control" style="height: 200px;"></textarea>
                             </div>
                         </div>
                     </div>
