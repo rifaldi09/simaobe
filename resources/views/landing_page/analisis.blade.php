@@ -67,10 +67,9 @@
             <div class="container mt-1 justify-content-center">
                 <p class="h3">CPMK</p>
                 <select id="selectMultipleCPMK1" class="form-control" multiple="multiple">
-                    <option value="1">CPMK1</option>
-                    <option value="2">CPMK2</option>
-                    <option value="3">CPMK3</option>
-                    <option value="4">CPMK4</option>
+                        @foreach ($analisis as $respon)
+                            <option value="{{ $respon['KetCPMK'] }}">{{ $respon['KetCPMK'] }}</option>
+                        @endforeach
                 </select>
             </div>
         </div>
@@ -86,39 +85,9 @@
     <hr class="my-3 border-dark w-100" style="height: 2px;">
     <div id="newAnalisis"></div>
 
-    <div class="text-center mt-3">
-        <button type="button" class="btn btn-primary">SIMPAN</button>
+    <div class="d-flex justify-content-center mt-4 gap-3">
+        <button class="btn btn-primary">Simpan</button>
     </div>
 </main>
 </form>
-
-<script>
-    function addAnalisis() {
-        // Ambil data input
-        const minggu = Array.from(document.getElementById('selectMultipleMinggu1').selectedOptions).map(opt => opt.text);
-        const MateriPerkuliahan = document.getElementById('materi').value;
-        const subCPMK = document.getElementById('subCPMK').value;
-        const cpmk = Array.from(document.getElementById('selectMultipleCPMK1').selectedOptions).map(opt => opt.text);
-
-        // Buat elemen baru untuk ditambahkan
-        const newElement = document.createElement('div');
-        newElement.classList.add('container', 'border', 'p-3', 'mb-3');
-        newElement.innerHTML = `
-            <p><strong>Minggu:</strong> ${minggu.join(', ')}</p>
-            <p><strong>Materi Perkuliahan:</strong> ${MateriPerkuliahan}</p>
-            <p><strong>Sub-CPMK:</strong> ${subCPMK}</p>
-            <p><strong>CPMK:</strong> ${cpmk.join(', ')}</p>
-        `;
-
-        // Tambahkan elemen baru ke dalam div#newAnalisis
-        document.getElementById('newAnalisis').appendChild(newElement);
-
-        // Reset input form
-        document.getElementById('MateriPerkuliahan').value = '';
-        document.getElementById('subCPMK').value = '';
-        document.getElementById('selectMultipleMinggu1').value = '';
-        document.getElementById('selectMultipleCPMK1').value = '';
-    }
-</script>
-
 @endsection

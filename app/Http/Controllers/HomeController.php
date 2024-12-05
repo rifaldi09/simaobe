@@ -25,8 +25,12 @@ class HomeController extends Controller
 
     // mengarah ke halaman landing_page/analisis.blade.php
     public function analisis(){
+        // Mengambil data dari model Analisis dengan mengirim sessionID
+        $analisis = Analisis::posttambahanalisis(session('sessionID'));
+
         return view('landing_page.analisis', [
-            'title' => 'Analisis Page'
+            'title' => 'Halaman Analisis',
+            'analisis' => $analisis
         ]);
     }
 

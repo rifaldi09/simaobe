@@ -292,7 +292,7 @@ addAnalisis = () => {
                             <p class="h3">Materi Perkuliahan</p>
                             <div class="card">
                                 <div class="card-body">
-                                    <textarea class="form-control" style="height: 200px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, cum. Adipisci eligendi nobis commodi explicabo ab cum accusamus quod aperiam.</textarea>
+                                    <textarea class="form-control" style="height: 200px;"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -301,7 +301,7 @@ addAnalisis = () => {
                             <p class="h3">Sub-CPMK</p>
                             <div class="card">
                                 <div class="card-body">
-                                    <textarea class="form-control" style="height: 200px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, cum. Adipisci eligendi nobis commodi explicabo ab cum accusamus quod aperiam.</textarea>
+                                    <textarea class="form-control" style="height: 200px;"></textarea>
                                 </div>
                             </div>
                         </div>
