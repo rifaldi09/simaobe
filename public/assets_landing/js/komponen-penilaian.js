@@ -85,6 +85,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add rows for each component
         formData.rows.forEach((row, index) => {
             const tr = document.createElement('tr');
+
+            if(row.bobot > 100) {
+                row.bobot = 100;
+            }
+
             tr.innerHTML = `
                 <td><b>${index + 1}</b></td>
                 <td><b>${row.komponen}</b></td>
