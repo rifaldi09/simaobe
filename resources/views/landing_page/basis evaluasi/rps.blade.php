@@ -4,6 +4,32 @@
 
 <main>
     <div class="container mt-4">
+        <div class="mt-3">
+            <h4 class="text-decoration-underline">Otorisasi</h4>
+            <div class="row w-100">
+                <div class="col-md-6">
+                    <label for="dosen-pengembang">Dosen Pengembang</label>
+                    <select name="" id="dosen-pengembang" class="form-control">
+                        <option hidden></option>
+                        <option value="Dosen 1">Dosen 1</option>
+                        <option value="Dosen 2">Dosen 2</option>
+                        <option value="Dosen 3">Dosen 3</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="dosen-pengembang">Dosen Pengampu</label>
+                    <select name="" id="dosen-pengampu" class="form-control" multiple="multiple">
+                        <option value="Dosen 1">Dosen 1</option>
+                        <option value="Dosen 2">Dosen 2</option>
+                        <option value="Dosen 3">Dosen 3</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <h4 class="text-decoration-underline">Deskripsi Singkat Mata Kuliah</h4>
+            <textarea name="" class="form-control w-100" id="" cols="30" rows="5" placeholder="Deskripsi"></textarea>
+        </div>
         <form>
             <div class="row">
                 <!-- Kolom Kiri -->
