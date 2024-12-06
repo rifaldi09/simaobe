@@ -264,13 +264,30 @@ $(document).ready(function(){
 
 
 $(document).on('click', '.remove_analisis', function(){
+    const mingguSelect = $(this).closest('.child_analisis').find('[id^="selectMultipleMinggu"]');
+    const removedValues = mingguSelect.val(); // Ambil nilai yang akan dihapus
+    
+    selectedMinggu = selectedMinggu.filter(value => !removedValues.includes(value)); // Perbarui array minggu
+
     $(this).closest('.child_analisis').remove();
     console.log(`hapus`);
 });
 
+let selectedMinggu = [];
+
 addAnalisis = () => {
     m_id++;
     c_id++;
+
+    // mengambil minggu yang sudah dipilih
+    const allSelectedMinggu = document.querySelectorAll('[id^="selectMultipleMinggu"]');
+    selectedMinggu = Array.from(allSelectedMinggu).flatMap(select => Array.from(select.selectedOptions).map(opt => opt.value));
+
+    // filter minggu baru yang dipilih
+    const mingguOptions = [1 ,2 ,3, 4]
+    .filter(value => !selectedMinggu.includes(value.toString()))
+    .map(value => `<option value="${value}">Minggu ${value}</option>`)
+    .join("");
 
     $('#newAnalisis').append(`
         <div class="child_analisis">
@@ -278,10 +295,7 @@ addAnalisis = () => {
                 <div class="container col-12 col-md-3 mb-3">
                     <p class="h3">Minggu</p>
                     <select name="" id="selectMultipleMinggu${m_id}" class="form-control" multiple="multiple">
-                        <option value="1">Minggu 1</option>
-                        <option value="2">Minggu 2</option>
-                        <option value="3">Minggu 3</option>
-                        <option value="4">Minggu 4</option>
+                        ${mingguOptions}
                     </select>
                 </div>
 

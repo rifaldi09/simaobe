@@ -1,4 +1,3 @@
-
 {{-- Analisis --}}
 <div id="analisis" class="mx-5 mt-3">
     <a href="/analisis-page" class="text-decoration-none"><i class="bi bi-plus-circle"></i> Tambah</a>
@@ -6,21 +5,6 @@
         {{-- Tampilan sementara --}}
         {{-- Data nanti keluar disini setelah ditambahkan --}}
         <div class="card-body">
-            @if (count($data) == 0)
-            <table>
-                <table class="table table-bordered">
-                    <tr>
-                        <th>No.</th>
-                        <th>Materi</th>
-                        <th class="text-center">Minggu</th>
-                        <th class="text-center">CPMK</th>
-                    </tr>
-                    <tr>
-                        <td colspan="4" class="text-center">Tidak Ada Data</td>
-                    </tr>
-                </table>
-            </table>
-            @else
             <div class="table-responsive">
                 <table>
                     <table class="table table-bordered">
@@ -39,7 +23,6 @@
                     </table>
                 </table>
             </div>
-            @endif
         </div>
     </div>
 </div>
