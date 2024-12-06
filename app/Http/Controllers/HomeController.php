@@ -121,6 +121,6 @@ class HomeController extends Controller
         $data = Login::userInfo($session);
         return view('profil', [
             'title' => 'My Profil'
-        ], compact(""));
+        ], compact('data'));
     }
 }
