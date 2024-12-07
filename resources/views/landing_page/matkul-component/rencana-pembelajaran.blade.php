@@ -13,9 +13,8 @@
                         <th class="text-center">Minggu</th>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                        <td class="text-center">3</td>
+                        {{-- No Data --}}
+                            <td colspan="3" class="text-center"><em>No Data</em></td>
                     </tr>
                 </table>
             </table>

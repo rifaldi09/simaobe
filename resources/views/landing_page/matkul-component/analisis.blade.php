@@ -15,10 +15,8 @@
                             <th class="text-center">CPMK</th>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                            <td class="text-center">3</td>
-                            <td class="text-center">Lorem ipsum dolor sit.</td>
+                            {{-- No Data --}}
+                            <td colspan="4" class="text-center"><em>No Data</em></td>
                         </tr>
                     </table>
                 </table>
