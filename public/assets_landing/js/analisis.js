@@ -1,8 +1,10 @@
 let mingguId = document.getElementById("selectMultipleMinggu1").id;
 let cpmkId = document.getElementById("selectMultipleCPMK1").id;
+let cplID = document.getElementById("selectCpl1").id;
 
 let m_id = mingguId.match(/\d+$/)[0];
 let c_id = cpmkId.match(/\d+$/)[0];
+let cpl_id = cplID.match(/\d+$/)[0];
 // console.log(mrp_id);
 
 $(document).ready(function () {
@@ -42,12 +44,53 @@ const getCpmk = async () => {
     }
 };
 
+const cpmkopt = document.querySelector(`#selectMultipleCPMK${c_id}`);
+const selectCpl = document.querySelector(`#selectCpl${cpl_id}`);
 
+const onCpmkChange = () => {
+    const selectedCplValue = selectCpl.value;
+
+    getCpmk()
+        .then((responseData) => {
+            const filteredData = responseData.filter(
+                value => value.CPLID == selectedCplValue
+            );
+
+            const cpmkOption = filteredData.map(
+                value => `<option value="${value.CPMKID}">${value.KetCPMK}</option>`
+            ).join("");
+
+            cpmkopt.innerHTML = cpmkOption;
+            $(`#selectMultipleCPMK${c_id}`).select2();
+        })
+        .catch((error) => console.error("Error fetching CPMK:", error));
+};
+
+$(document).on('change', 'select[id^="selectCpl"]', function() {
+    const selectedCplValue = this.value;
+    const cpmkopt = $(this).closest('.child_analisis').find('select[id^="selectMultipleCPMK"]')[0];
+
+    getCpmk()
+        .then((responseData) => {
+            const filteredData = responseData.filter(
+                (value) => value.CPLID == selectedCplValue
+            );
+
+            const cpmkOption = filteredData.map(
+                (value) => `<option value="${value.CPMKID}">${value.KetCPMK}</option>`
+            ).join("");
+
+            cpmkopt.innerHTML = cpmkOption;
+            $(cpmkopt).select2(); // Reinitialize select2
+        })
+        .catch((error) => console.error("Error fetching CPMK:", error));
+});
 
 let index = 0;
 addAnalisis = () => {
     m_id++;
     c_id++;
+    cpl_id++;
     console.log(index);
 
     getCpmk()
@@ -64,6 +107,15 @@ addAnalisis = () => {
             selectedMinggu = Array.from(allSelectedMinggu).flatMap((select) =>
                 Array.from(select.selectedOptions).map((opt) => opt.value)
             );
+
+            const cplOption = data
+                .filter((value, index, self) =>
+                    index === self.findIndex((v) => v.CPLID === value.CPLID)
+                ) 
+                .map(
+                    (data) => `<option value="${data.CPLID}">${data.CPL}</option>`
+                )
+                .join("");
 
             // filter minggu baru yang dipilih
             const mingguOptions = [1, 2, 3, 4]
@@ -111,6 +163,18 @@ addAnalisis = () => {
                             <select id="selectMultipleCPMK${c_id}" class="form-control" name="analisis[${index}][cpmk][]" multiple="multiple">
                                 ${cpmkOption}
                             </select>
+                        </div>
+
+                        <div class="container mt-1 justify-content-center">
+                            <p class="h3">CPL</p>
+                            <select class="form-select" name="analisis[${index}][cplid]" id="selectCpl${cpl_id}">
+                                ${cplOption}
+                            </select>
+                        </div>
+                        
+                         <div class="container mt-1 justify-content-center mt-3">
+                            <p class="h3">KodeSubCpmk</p>
+                            <textarea id="kscmpk" class="form-control" name="analisis[${index}][kscpmk]"></textarea>
                         </div>
     
                     </div>

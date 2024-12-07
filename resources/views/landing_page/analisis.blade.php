@@ -64,30 +64,29 @@
                 </div>
             </div>
 
-            {{--* Bagian CPMK --}}
+            {{--* Bagian CPL --}}
             <div class="container mt-1 justify-content-center">
-                <p class="h3">CPMK</p>
-                <select id="selectMultipleCPMK1" class="form-control" name="analisis[0][cpmk][]" multiple="multiple">
-                        @foreach ($analisis as $respon)
-                            <option value="{{ $respon['CPMKID'] }}">{{ $respon['KetCPMK'] }}</option>
-                        @endforeach
-                </select>
-            </div>
-
-
-            <div class="container mt-1 justify-content-center">
-                <p class="h3">Model Pembelajaran</p>
-                <select class="form-select">
+                <p class="h3">CPL</p>
+                <select class="form-select" name="analisis[0][cplid]" onchange="onCpmkChange()" id="selectCpl1">
                     @foreach ($cpl as $respon)
                         <option value="{{ $respon['CPLID'] }}">{{ $respon['KetCPL'] }}</option>
                     @endforeach
                 </select>
             </div>
 
+            {{--* Bagian CPMK --}}
+            <div class="container mt-1 justify-content-center">
+                <p class="h3">CPMK</p>
+                <select id="selectMultipleCPMK1" class="form-control" name="analisis[0][cpmk][]" multiple="multiple">
+                        {{-- @foreach ($analisis as $respon)
+                            <option value="{{ $respon['CPMKID'] }}">{{ $respon['KetCPMK'] }}</option>
+                        @endforeach --}}    
+                </select>
+            </div>
 
             <div class="container mt-1 justify-content-center mt-3">
                 <p class="h3">KodeSubCpmk</p>
-                <textarea id="kscmpk" class="form-control"></textarea>
+                <textarea id="kscmpk" class="form-control" name="kscpmk"></textarea>
             </div>
 
 
