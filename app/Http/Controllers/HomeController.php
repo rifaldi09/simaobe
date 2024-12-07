@@ -29,14 +29,16 @@ class HomeController extends Controller
     }
 
     // mengarah ke halaman landing_page/analisis.blade.php
-    public function analisis(){
+    public function analisis($id){
         // Mengambil data dari model Analisis dengan mengirim sessionID
         $analisis = Analisis::getCpmk(session('sessionID'));
+
+        $idMatkul = $id;
 
         return view('landing_page.analisis', [
             'title' => 'Halaman Analisis',
             'analisis' => $analisis
-        ]);
+        ], compact('idMatkul'));
     }
 
     // menampilkan halaman utama analisis pembelajaran
@@ -71,10 +73,12 @@ class HomeController extends Controller
             ];
         }
 
+        $matkul_id = $idMatkul;
+
         // Mengembalikan data yang sudah di gabungkan ke dalam view
         return view('landing_page.analisis-mata-kuliah', [
-            'title' => 'Analisis Pembelajaran Page'
-        ], compact('result'));
+            'title' => 'Analisis Pembelajaran Page',
+        ], compact('result', 'matkul_id'));
     }
 
     // menampilkan halaman utama basis evaluasi pembelajaran

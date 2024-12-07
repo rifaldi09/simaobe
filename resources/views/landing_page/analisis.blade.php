@@ -23,7 +23,7 @@
     </div>
 </header>
 
-<form action="{{ route('analisis.create') }}" method="POST" id="analisisForm">
+<form action="/create-analisis/{{ $idMatkul }}" method="POST" id="analisisForm">
 @csrf
 {{--! Bagian Body --}}
 <main class="mt-4">
@@ -32,7 +32,7 @@
         {{--* Bagian Minggu --}}
         <div class="container col-12 col-md-3 mb-3">
             <p class="h3">Minggu</p>
-            <select id="selectMultipleMinggu1" class="form-control" name="analisis[0][minggu]" multiple="multiple">
+            <select id="selectMultipleMinggu1" class="form-control" name="analisis[0][minggu][]" multiple="multiple">
                 <option value="1">Minggu 1</option>
                 <option value="2">Minggu 2</option>
                 <option value="3">Minggu 3</option>
@@ -67,9 +67,9 @@
             {{--* Bagian CPMK --}}
             <div class="container mt-1 justify-content-center">
                 <p class="h3">CPMK</p>
-                <select id="selectMultipleCPMK1" class="form-control" name="analisis[0][cpmk]" multiple="multiple">
+                <select id="selectMultipleCPMK1" class="form-control" name="analisis[0][cpmk][]" multiple="multiple">
                         @foreach ($analisis as $respon)
-                            <option value="{{ $respon['KetCPMK'] }}">{{ $respon['KetCPMK'] }}</option>
+                            <option value="{{ $respon['CPMKID'] }}">{{ $respon['KetCPMK'] }}</option>
                         @endforeach
                 </select>
             </div>
