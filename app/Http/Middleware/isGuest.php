@@ -20,7 +20,7 @@ class isGuest
         // Middleware untuk halaman yang dapat di akses sebelum login
 
         // Jika user sudah login, maka akan dikembalikan ke halaman yang di akses saat ini 
-        if(Auth::check()) {
+        if(session("sessionID")) {
             return back();
         }
 

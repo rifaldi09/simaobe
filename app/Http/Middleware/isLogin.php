@@ -20,7 +20,7 @@ class isLogin
         // Middleware untuk halaman yang dapat di akses setelah login
 
         // Jika user sudah login, maka dapat mengakses halaman yang diakses setelah login
-        if(Auth::check()) {
+        if(session("sessionID")) {
             return $next($request);
         }
         
