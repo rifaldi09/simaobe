@@ -31,6 +31,7 @@ Route::get('/my-profil', [HomeController::class, 'profil'])->name('profil');
 //jika ingin register, tambahkan aja di url '127.0.0.1:8000/regis'
 Route::get('/regis', [LoginController::class, 'register'])->name('register');
 Route::post('/proses-register', [LoginController::class, 'prosesRegister'])->name('proses-register');
+Route::get('/get-cpmk', [HomeController::class, 'getCpmk'])->name('getCpmk');
 
 //belum ada proteksi jadi bisa di akses melalui url
 Route::get('/landing-page', [HomeController::class, 'index'])->name('landing-page');

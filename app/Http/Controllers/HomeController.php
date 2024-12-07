@@ -23,6 +23,12 @@ class HomeController extends Controller
         ], compact('data', 'nama_dosen'));
     }
 
+    public function getCpmk()
+    {
+        $data = Analisis::posttambahanalisis(session('sessionID'));
+        return $data;
+    }
+
     // mengarah ke halaman landing_page/analisis.blade.php
     public function analisis(){
         // Mengambil data dari model Analisis dengan mengirim sessionID
