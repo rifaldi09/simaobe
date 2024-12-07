@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BEPController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
@@ -54,4 +55,10 @@ Route::get('/struktur-mata-kuliah/{id}', [HomeController::class, 'struktur_mata_
 // logout
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+<<<<<<< HEAD
 Route::post('/create-analisis/{id}', [AnalisisController::class, 'create'])->name('analisis.create');
+=======
+// route input
+Route::post('/create-kp', [BEPController::class, 'store'])->name('kp');
+Route::post('/analisis', [AnalisisController::class, 'create'])->name('analisis.create');
+>>>>>>> 52c7e0f15967390263b181bccee4439b6716d0c7
