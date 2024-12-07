@@ -75,7 +75,7 @@
             </div>
 
 
-            <div class="container mt-1 justify-content-center m-3">
+            <div class="container mt-1 justify-content-center">
                 <p class="h3">Model Pembelajaran</p>
                 <select class="form-select">
                     @foreach ($cpl as $respon)
