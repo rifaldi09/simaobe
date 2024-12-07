@@ -157,6 +157,14 @@ addAnalisis = () => {
                                 </div>
                             </div>
                         </div>
+
+                        <div class="container mt-1 justify-content-center">
+                            <p class="h3">CPL</p>
+                            <select class="form-select" name="analisis[${index}][cplid]" id="selectCpl${cpl_id}">
+                                <option value=""></option>
+                                ${cplOption}
+                            </select>
+                        </div>
             
                         <div class="container mt-1 justify-content-center">
                             <p class="h3">CPMK</p>
@@ -165,18 +173,11 @@ addAnalisis = () => {
                             </select>
                         </div>
 
-                        <div class="container mt-1 justify-content-center">
-                            <p class="h3">CPL</p>
-                            <select class="form-select" name="analisis[${index}][cplid]" id="selectCpl${cpl_id}">
-                                ${cplOption}
-                            </select>
-                        </div>
-                        
-                         <div class="container mt-1 justify-content-center mt-3">
+                        <div class="container mt-1 justify-content-center mt-3">
                             <p class="h3">KodeSubCpmk</p>
-                            <textarea id="kscmpk" class="form-control" name="analisis[${index}][kscpmk]"></textarea>
+                            <input id="kscmpk" class="form-control" name="analisis[${index}][kscpmk]"></input>
                         </div>
-    
+
                     </div>
                 </div>
                 <div class="container">

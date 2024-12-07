@@ -68,11 +68,13 @@
             <div class="container mt-1 justify-content-center">
                 <p class="h3">CPL</p>
                 <select class="form-select" name="analisis[0][cplid]" onchange="onCpmkChange()" id="selectCpl1">
+                    <option value=""></option>
                     @foreach ($cpl as $respon)
                         <option value="{{ $respon['CPLID'] }}">{{ $respon['KetCPL'] }}</option>
                     @endforeach
                 </select>
             </div>
+
 
             {{--* Bagian CPMK --}}
             <div class="container mt-1 justify-content-center">
@@ -84,9 +86,10 @@
                 </select>
             </div>
 
+            {{--* Bagian KodeSubCpmk --}}
             <div class="container mt-1 justify-content-center mt-3">
                 <p class="h3">KodeSubCpmk</p>
-                <textarea id="kscmpk" class="form-control" name="kscpmk"></textarea>
+                <input id="kscmpk" class="form-control" name="kscpmk"></input>
             </div>
 
 
