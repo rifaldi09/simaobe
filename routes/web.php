@@ -36,7 +36,7 @@ Route::get('/get-cpmk', [HomeController::class, 'getCpmk'])->name('getCpmk');
 
 //belum ada proteksi jadi bisa di akses melalui url
 Route::get('/landing-page', [HomeController::class, 'index'])->name('landing-page');
-Route::get('/analisis-page', [HomeController::class, 'analisis'])->name('analisis-page');
+Route::get('/analisis-page/{id}', [HomeController::class, 'analisis'])->name('analisis-page');
 
 // Route untuk mata kuliah
 Route::get('/analisis-matkul-page/{id}', [HomeController::class, 'analisis_main_page'])->name('analisis-main-page');
@@ -54,4 +54,4 @@ Route::get('/struktur-mata-kuliah/{id}', [HomeController::class, 'struktur_mata_
 // logout
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::post('/analisis', [AnalisisController::class, 'create'])->name('analisis.create');
+Route::post('/create-analisis/{id}', [AnalisisController::class, 'create'])->name('analisis.create');

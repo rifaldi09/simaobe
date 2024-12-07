@@ -77,7 +77,7 @@ addAnalisis = () => {
                 <div class="container d-flex flex-column flex-md-row">
                     <div class="container col-12 col-md-3 mb-3">
                         <p class="h3">Minggu</p>
-                        <select id="selectMultipleMinggu${m_id}" name="analisis[${index}][minggu]" class="form-control" multiple="multiple">
+                        <select id="selectMultipleMinggu${m_id}" name="analisis[${index}][minggu][]" class="form-control" multiple="multiple">
                             ${mingguOptions}
                         </select>
                     </div>
@@ -89,7 +89,7 @@ addAnalisis = () => {
                                 <p class="h3">Materi Perkuliahan</p>
                                 <div class="card">
                                     <div class="card-body">
-                                        <textarea class="form-control" name="analisis[${index}][materiperkuliahan]" style="height: 200px;">.</textarea>
+                                        <textarea class="form-control" name="analisis[${index}][materiperkuliahan]" style="height: 200px;"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@ addAnalisis = () => {
             
                         <div class="container mt-1 justify-content-center">
                             <p class="h3">CPMK</p>
-                            <select id="selectMultipleCPMK${c_id}" class="form-control" name="analisis[${index}][cpmk]" multiple="multiple">
+                            <select id="selectMultipleCPMK${c_id}" class="form-control" name="analisis[${index}][cpmk][]" multiple="multiple">
                                 ${cpmkOption}
                             </select>
                         </div>

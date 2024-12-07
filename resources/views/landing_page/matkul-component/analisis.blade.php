@@ -1,6 +1,6 @@
 {{-- Analisis --}}
 <div id="analisis" class="mx-5 mt-3">
-    <a href="/analisis-page" class="text-decoration-none"><i class="bi bi-plus-circle"></i> Tambah</a>
+    <a href="/analisis-page/{{ $matkul_id }}" class="text-decoration-none"><i class="bi bi-plus-circle"></i> Tambah</a>
     <div class="card mt-2">
         {{-- Tampilan sementara --}}
         {{-- Data nanti keluar disini setelah ditambahkan --}}
