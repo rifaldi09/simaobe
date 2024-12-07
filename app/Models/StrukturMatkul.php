@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Http;
 
 class StrukturMatkul extends Model
 {
+    // semua yang ada pada struktur matakuliah sudah di pindahkan ke rps
+
     use HasFactory;
 
     static function path($param = null)

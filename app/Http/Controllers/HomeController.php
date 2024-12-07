@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Analisis;
 use App\Models\Login;
+use App\Models\RPS;
 use App\Models\StrukturMatkul;
 use Illuminate\Http\Request;
 
@@ -125,9 +126,10 @@ class HomeController extends Controller
     // RPS
     public function rps()
     {
+        $response = RPS::bahanKajian(session('sessionID'));
         return view('landing_page.basis evaluasi.rps', [
             'title' => 'RPS'
-        ]);
+        ],compact('response'));
     }
 
     // komponen penilaian
@@ -141,6 +143,8 @@ class HomeController extends Controller
     // struktur mata kuliah
     public function struktur_mata_kuliah($id)
     {
+        // semua yang ada pada struktur matakuliah sudah di pindahkan ke rps
+
         // Mengamil data dari model StrukturMatkul dengan mengirim sessionID
         $response = StrukturMatkul::bahanKajian(session('sessionID'));
 

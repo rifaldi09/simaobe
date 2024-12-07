@@ -16,10 +16,10 @@ class RPS extends Model
     }
 
     // Function untuk mengambil data dari API berupa data
-    static function RPS($sessionId)
+    static function bahanKajian($sessionId)
     {
         $id = ['sessionID'=>$sessionId];
-        $response = Http::post(self::path("RPS"), $id);
+        $response = Http::post(self::path("bok"), $id);
         return $response->json();
     }
 }
