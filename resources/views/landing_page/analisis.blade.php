@@ -74,14 +74,16 @@
                 </select>
             </div>
 
-            <div class="container mt-1 justify-content-center mt-3">
-                <p class="h3">CPL</p>
-                <select id="selectMultipleCpl" class="form-control" multiple="multiple">
+
+            <div class="container mt-1 justify-content-center m-3">
+                <p class="h3">Model Pembelajaran</p>
+                <select class="form-select">
                     @foreach ($cpl as $respon)
                         <option value="{{ $respon['CPLID'] }}">{{ $respon['KetCPL'] }}</option>
                     @endforeach
                 </select>
             </div>
+
 
             <div class="container mt-1 justify-content-center mt-3">
                 <p class="h3">KodeSubCpmk</p>
