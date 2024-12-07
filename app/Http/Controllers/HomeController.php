@@ -25,14 +25,14 @@ class HomeController extends Controller
 
     public function getCpmk()
     {
-        $data = Analisis::posttambahanalisis(session('sessionID'));
+        $data = Analisis::getCpmk(session('sessionID'));
         return $data;
     }
 
     // mengarah ke halaman landing_page/analisis.blade.php
     public function analisis(){
         // Mengambil data dari model Analisis dengan mengirim sessionID
-        $analisis = Analisis::posttambahanalisis(session('sessionID'));
+        $analisis = Analisis::getCpmk(session('sessionID'));
 
         return view('landing_page.analisis', [
             'title' => 'Halaman Analisis',
@@ -48,11 +48,7 @@ class HomeController extends Controller
             'IDSmtMtklh' => $idMatkul
         ];
 
-        $data = Analisis::getAnalisis($session);
-
-        foreach ($data as $dat) {
-            
-        }
+        $data = Analisis::get($session);
         return view('landing_page.analisis-mata-kuliah', [
             'title' => 'Analisis Pembelajaran Page'
         ], compact('data'));

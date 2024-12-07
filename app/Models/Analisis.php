@@ -16,7 +16,7 @@ class Analisis extends Model
     }
 
     // Function untuk mengambil data dari API berupa data
-    static function posttambahanalisis($sessionId)
+    static function getCpmk($sessionId)
     {
         $id = ['sessionID'=>$sessionId];
         $response = Http::post(self::path("clo"), $id);
@@ -24,7 +24,7 @@ class Analisis extends Model
     }
 
     // Function untuk mengambil data analisis berdasarkan sessionID
-    static function getAnalisis($sessionId)
+    static function get($sessionId)
     {
         $response = Http::post(self::path("aap/get"), $sessionId);
         return $response->json();
