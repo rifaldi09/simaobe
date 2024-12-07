@@ -4,7 +4,6 @@
 
 {{--! Bagian Navbar --}}
 <header>
-    <form action="">
     <div class="navbar navbar-dark shadow-sm">
         <div class="container d-flex flex-column flex-md-row justify-content-between">
             <div class="d-flex align-items-center col-12 col-md-3 container">
@@ -24,6 +23,8 @@
     </div>
 </header>
 
+<form action="{{ route('analisis.create') }}" method="POST" id="analisisForm">
+@csrf
 {{--! Bagian Body --}}
 <main class="mt-4">
     {{--* Section Pertama --}}
@@ -31,7 +32,7 @@
         {{--* Bagian Minggu --}}
         <div class="container col-12 col-md-3 mb-3">
             <p class="h3">Minggu</p>
-            <select id="selectMultipleMinggu1" class="form-control" multiple="multiple">
+            <select id="selectMultipleMinggu1" class="form-control" name="analisis[0][minggu]" multiple="multiple">
                 <option value="1">Minggu 1</option>
                 <option value="2">Minggu 2</option>
                 <option value="3">Minggu 3</option>
@@ -47,7 +48,7 @@
                     <p class="h3">Materi Perkuliahan</p>
                     <div class="card">
                         <div class="card-body">
-                            <textarea id="MateriPerkuliahan" class="form-control" style="height: 200px;"></textarea>
+                            <textarea id="MateriPerkuliahan" class="form-control" name="analisis[0][materiperkuliahan]"  style="height: 200px;"></textarea>
                         </div>
                     </div>
                 </div>
@@ -57,7 +58,7 @@
                     <p class="h3">Sub-CPMK</p>
                     <div class="card">
                         <div class="card-body">
-                            <textarea id="subCPMK" class="form-control" style="height: 200px;"></textarea>
+                            <textarea id="subCPMK" class="form-control" name="analisis[0][subcpmk]" style="height: 200px;"></textarea>
                         </div>
                     </div>
                 </div>
@@ -66,7 +67,7 @@
             {{--* Bagian CPMK --}}
             <div class="container mt-1 justify-content-center">
                 <p class="h3">CPMK</p>
-                <select id="selectMultipleCPMK1" class="form-control" multiple="multiple">
+                <select id="selectMultipleCPMK1" class="form-control" name="analisis[0][cpmk]" multiple="multiple">
                         @foreach ($analisis as $respon)
                             <option value="{{ $respon['KetCPMK'] }}">{{ $respon['KetCPMK'] }}</option>
                         @endforeach
@@ -88,6 +89,6 @@
     <div class="d-flex justify-content-center mt-4 gap-3">
         <button class="btn btn-primary">Simpan</button>
     </div>
-</main>
 </form>
+</main>
 @endsection

@@ -29,4 +29,10 @@ class Analisis extends Model
         $response = Http::post(self::path("aap/get"), $sessionId);
         return $response->json();
     }
+
+    static function create($sessionId){
+        $id = ['sessionID'=>$sessionId];
+        $response = Http::post(self::path("aap"));
+        return $response->json();
+    }
 }

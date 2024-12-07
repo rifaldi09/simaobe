@@ -4,7 +4,7 @@ use App\Http\Controllers\BEPController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\KPController;
+use App\Http\Controllers\AnalisisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +57,4 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // route input
 Route::post('/create-kp', [BEPController::class, 'create'])->name('kp');
+Route::post('/analisis', [AnalisisController::class, 'create'])->name('analisis.create');

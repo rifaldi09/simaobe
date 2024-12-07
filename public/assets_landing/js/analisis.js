@@ -42,12 +42,15 @@ const getCpmk = async () => {
     }
 };
 
+let index = 0;
 addAnalisis = () => {
     m_id++;
     c_id++;
+    console.log(index);
 
     getCpmk()
-        .then((data) => {
+    .then((data) => {
+
             const cpmkOption = data.map(data => 
                 `<option value="${data.KetCPMK}">${data.KetCPMK}</option>`
             ).join("");
@@ -74,7 +77,7 @@ addAnalisis = () => {
                 <div class="container d-flex flex-column flex-md-row">
                     <div class="container col-12 col-md-3 mb-3">
                         <p class="h3">Minggu</p>
-                        <select name="" id="selectMultipleMinggu${m_id}" class="form-control" multiple="multiple">
+                        <select id="selectMultipleMinggu${m_id}" name="analisis[${index}][minggu]" class="form-control" multiple="multiple">
                             ${mingguOptions}
                         </select>
                     </div>
@@ -86,7 +89,7 @@ addAnalisis = () => {
                                 <p class="h3">Materi Perkuliahan</p>
                                 <div class="card">
                                     <div class="card-body">
-                                        <textarea class="form-control" style="height: 200px;">.</textarea>
+                                        <textarea class="form-control" name="analisis[${index}][materiperkuliahan]" style="height: 200px;">.</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +98,7 @@ addAnalisis = () => {
                                 <p class="h3">Sub-CPMK</p>
                                 <div class="card">
                                     <div class="card-body">
-                                        <textarea class="form-control" style="height: 200px;"></textarea>
+                                        <textarea class="form-control" name="analisis[${index}][subcpmk]" style="height: 200px;"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +106,7 @@ addAnalisis = () => {
             
                         <div class="container mt-1 justify-content-center">
                             <p class="h3">CPMK</p>
-                            <select name="" id="selectMultipleCPMK${c_id}" class="form-control" multiple="multiple">
+                            <select id="selectMultipleCPMK${c_id}" class="form-control" name="analisis[${index}][cpmk]" multiple="multiple">
                                 ${cpmkOption}
                             </select>
                         </div>
@@ -113,7 +116,7 @@ addAnalisis = () => {
                 <div class="container">
                     <div class="d-flex justify-content-between mt-3">
                         <button type="button" class="btn btn-danger remove_analisis">Hapus</button>
-                        <button class="btn btn-primary" onclick="addAnalisis()">Tambah</button>
+                        <button type="button" class="btn btn-primary" onclick="addAnalisis()">Tambah</button>
                     </div>
                 </div>
     
@@ -128,4 +131,6 @@ addAnalisis = () => {
         .catch((error) => {
             console.log(error);
         });
+
+    index++;
 };
