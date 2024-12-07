@@ -33,13 +33,6 @@
                     <td class="text-center"></td>
                     <td class="text-center"></td>
                 </tr>
-                <tr>
-                    <td>Sub-CPMK04</td>
-                    <td></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
             </tbody>
         </table>
     </div>

@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\BEPController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KPController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +54,6 @@ Route::get('/struktur-mata-kuliah/{id}', [HomeController::class, 'struktur_mata_
 
 // logout
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// route input
+Route::post('/create-kp', [BEPController::class, 'create'])->name('kp');

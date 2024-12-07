@@ -46,7 +46,9 @@
     </div>
   </div>
 
-
+  
+<form action="/create-kp" method="post">
+  @csrf
   <table class="table table-bordered">
     <thead class="table-light">
       <tr>
@@ -68,6 +70,8 @@
   <div class="d-flex justify-content-end mb-3">
     <button class="btn text-white font-outfit" style="background-color: #072C7D;">SIMPAN</button>
   </div>
+</form>
+
 </div>
 
 @push('scripts')
