@@ -6,29 +6,36 @@
         {{-- Data nanti keluar disini setelah ditambahkan --}}
         <div class="card-body">
             <div class="table-responsive">
-                <table>
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>No.</th>
-                            <th>Materi</th>
-                            <th class="text-center">Minggu</th>
-                            <th class="text-center">CPMK</th>
-                        </tr>
-                        @foreach ($data as $dat)
+                <table class="table table-bordered">
+                    <tr>
+                        <th>No.</th>
+                        <th>Materi</th>
+                        <th class="text-center">Minggu</th>
+                        <th class="text-center">CPMK</th>
+                    </tr>
+                    @php $no = 1; @endphp
+                    @if (empty($result))
+                    <tr>
+                        {{-- No Data --}}
+                        <td colspan="4" class="text-center"><em>No Data</em></td>
+                    </tr>
+                    @else
+                        @foreach ($result as $data)
                             <tr>
-                                @php $no = 1; @endphp
-                                @if (empty($dat))
-                                    {{-- No Data --}}
-                                    <td colspan="4" class="text-center"><em>No Data</em></td>
-                                @else
-                                    <td class="text-center">{{ $no++ }}</td>
-                                    <td>{{ $dat['MateriAjar'] }}</td>
-                                    <td class="text-center">{{ $dat['Minggu'] }}</td>
-                                    {{-- <td>{{ $dat[''] }}</td> --}}
-                                    @endif
+                                <td class="text-center">{{ $no++ }}</td>
+                                <td>{{ $data['MateriAjar'] }}</td>
+                                <td class="text-center">{{ $data['Minggu'] }}</td>
+                                <td class="w-50">
+                                    <ul>
+                                        @foreach ($data['CPMK'] as $CPMK)
+                                            <li>{{ $CPMK }}</li>
+                                        @endforeach
+                                    </ul>
+                                </td>
+
                             </tr>
                         @endforeach
-                    </table>
+                    @endif
                 </table>
             </div>
         </div>
