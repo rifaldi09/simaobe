@@ -3,6 +3,9 @@
 @include('landing_page.basis evaluasi.components.header')
 
 <div class="container mt-5">
+  @if (!empty($validasi))
+    <p>{{ $validasi }}</p>
+  @endif
   <h4><b>Komponen Penilaian</b></h4>
   <hr class="border border-2 border-dark">
   <div class="row mb-4">

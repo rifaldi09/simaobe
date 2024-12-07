@@ -89,7 +89,11 @@
             {{--* Bagian KodeSubCpmk --}}
             <div class="container mt-1 justify-content-center mt-3">
                 <p class="h3">KodeSubCpmk</p>
+<<<<<<< HEAD
                 <input id="kscmpk" class="form-control" name="kscpmk"></input>
+=======
+                <input id="kscmpk" name="analisis[0][kscpmk]" class="form-control" name="kscpmk" type="text"></input>
+>>>>>>> 3e8c0f9d1acfdc9066afd3e1ea96929776ed363c
             </div>
 
 

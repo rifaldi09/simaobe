@@ -25,7 +25,7 @@ class AnalisisController extends Controller
                 $transformedData["minggu"][] = [
                     "minggu" => $minggu, // Nomor minggu
                     "materi" => $item["materiperkuliahan"], // Materi perkuliahan
-                    "kodesubcpmk" => "SubCPMK " . $minggu, // Kode SubCPMK (di-generate)
+                    "kodesubcpmk" => $item['kscpmk'], // Kode SubCPMK (di-generate)
                     "ketsubcpmk" => $item["subcpmk"], // Keterangan SubCPMK
                     "CPMKID" => $item["cpmk"], // CPMKID langsung dari data asli
                 ];
@@ -33,10 +33,9 @@ class AnalisisController extends Controller
         }
 
         $response = Analisis::create($transformedData);
-
         // dd($transformedData);
 
-        if ($response==="OK") {
+        if ($response->successful()) {
             return response()->json(['message' => 'Data berhasil disimpan'], 200);  
         } else {
             return response()->json(['message' => 'Gagal menyimpan data']);
