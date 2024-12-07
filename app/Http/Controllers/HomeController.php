@@ -33,12 +33,14 @@ class HomeController extends Controller
     public function analisis($id){
         // Mengambil data dari model Analisis dengan mengirim sessionID
         $analisis = Analisis::getCpmk(session('sessionID'));
+        $cpl = Analisis::getCpl(session('sessionID'));
 
         $idMatkul = $id;
 
         return view('landing_page.analisis', [
             'title' => 'Halaman Analisis',
-            'analisis' => $analisis
+            'analisis' => $analisis,
+            'cpl' => $cpl
         ], compact('idMatkul'));
     }
 

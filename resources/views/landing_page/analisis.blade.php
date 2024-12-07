@@ -73,6 +73,22 @@
                         @endforeach
                 </select>
             </div>
+
+            <div class="container mt-1 justify-content-center mt-3">
+                <p class="h3">CPL</p>
+                <select id="selectMultipleCpl" class="form-control" multiple="multiple">
+                    @foreach ($cpl as $respon)
+                        <option value="{{ $respon['CPLID'] }}">{{ $respon['KetCPL'] }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="container mt-1 justify-content-center mt-3">
+                <p class="h3">KodeSubCpmk</p>
+                <textarea id="kscmpk" class="form-control"></textarea>
+            </div>
+
+
         </div>
     </div>
 
