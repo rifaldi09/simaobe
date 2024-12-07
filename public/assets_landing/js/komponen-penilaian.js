@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             tr.innerHTML = `
                 <td><b>${index + 1}</b></td>
-                <td><b>${row.komponen}</b></td>
+                <td><textarea class="form-control" cols="5" rows="1" disabled >${row.komponen}</textarea></td>
                 <td><input type="number" class="form-control" value="${row.values[0]}" min="0" max="100"></td>
                 <td><input type="number" class="form-control" value="${row.values[1]}" min="0" max="100"></td>
                 <td><input type="number" class="form-control" value="${row.values[2]}" min="0" max="100"></td>
