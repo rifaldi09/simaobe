@@ -23,8 +23,6 @@ class AnalisisController extends Controller
 
         $data = $request->all();
 
-        foreach()
-
         if ($response->successful()) {
             return response()->json(['message' => 'Data berhasil disimpan'], 200);
         } else {
