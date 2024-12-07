@@ -87,7 +87,7 @@
 
             <div class="container mt-1 justify-content-center mt-3">
                 <p class="h3">KodeSubCpmk</p>
-                <textarea id="kscmpk" class="form-control" name="kscpmk"></textarea>
+                <input id="kscmpk" name="analisis[0][kscpmk]" class="form-control" name="kscpmk" type="text"></input>
             </div>
 
 
