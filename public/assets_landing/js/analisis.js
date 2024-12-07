@@ -42,6 +42,15 @@ const getCpmk = async () => {
     }
 };
 
+
+$(document).ready(function() {
+    $('#selectMultipleCpl').select2({
+        placeholder: "", // Placeholder yang akan ditampilkan
+        allowClear: true         // Menambahkan opsi untuk menghapus pilihan
+    });
+});
+
+
 let index = 0;
 addAnalisis = () => {
     m_id++;

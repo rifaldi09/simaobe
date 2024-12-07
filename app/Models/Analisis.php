@@ -23,6 +23,13 @@ class Analisis extends Model
         return $response->json();
     }
 
+    static function getCpl($sessionId)
+    {
+        $id = ['sessionID'=>$sessionId];
+        $response = Http::post(self::path("lo"), $id);
+        return $response->json();
+    }
+
     // Function untuk mengambil data analisis berdasarkan sessionID
     static function get($sessionId)
     {
