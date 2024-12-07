@@ -6,7 +6,6 @@ use App\Models\Analisis;
 use App\Models\Login;
 use App\Models\StrukturMatkul;
 use Illuminate\Http\Request;
-//use App\Model\Login;
 
 class HomeController extends Controller
 {
@@ -48,10 +47,34 @@ class HomeController extends Controller
             'IDSmtMtklh' => $idMatkul
         ];
 
-        $data = Analisis::get($session);
+        $result = [];
+        // Mengambil data Analisis dan CPMK
+        $dataAnalisis = Analisis::get($session);
+        $dataCPMK = Analisis::getCpmk($session['sessionID']);
+
+        // Mengelompokkan data CPMK sesuai dengan CPLID
+        $dataCPFilter = [];
+        foreach ($dataCPMK as $dataCP) {
+            $dataCPFilter[$dataCP['CPLID']][] = $dataCP['KetCPMK'];
+        }
+
+        // Menggabungkan data Analaisis dengen data CPMK yang sudah di kelompokkan
+        foreach ($dataAnalisis as $dataAna) {
+            $CplId = $dataAna['CPLID'];
+
+            $result[] = [
+                'CPLID' => $CplId,
+                'MataKuliah' => $dataAna['MataKuliah'],
+                'Minggu' => $dataAna['Minggu'],
+                'MateriAjar' => $dataAna['MateriAjar'],
+                'CPMK' => $dataCPFilter[$CplId] ?? [],
+            ];
+        }
+
+        // Mengembalikan data yang sudah di gabungkan ke dalam view
         return view('landing_page.analisis-mata-kuliah', [
             'title' => 'Analisis Pembelajaran Page'
-        ], compact('data'));
+        ], compact('result'));
     }
 
     // menampilkan halaman utama basis evaluasi pembelajaran

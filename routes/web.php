@@ -56,5 +56,5 @@ Route::get('/struktur-mata-kuliah/{id}', [HomeController::class, 'struktur_mata_
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // route input
-Route::post('/create-kp', [BEPController::class, 'create'])->name('kp');
+Route::post('/create-kp', [BEPController::class, 'store'])->name('kp');
 Route::post('/analisis', [AnalisisController::class, 'create'])->name('analisis.create');
