@@ -93,7 +93,7 @@ addPenilaian = () => {
     colPlus.className = "col-md-1";
     colPlus.innerHTML = `
           <div class="d-flex justify-content-center align-items-center h-100">
-              <i class="bi bi-plus-circle fs-3 cursor-pointer" onclick="addPenilaian()"></i>
+            <i class="bi bi-plus-circle fs-3 cursor-pointer" onclick="addPenilaian()"></i>
           </div>
       `;
 

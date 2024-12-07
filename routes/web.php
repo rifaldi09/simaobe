@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AnalisisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +53,5 @@ Route::get('/struktur-mata-kuliah/{id}', [HomeController::class, 'struktur_mata_
 
 // logout
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::post('/analisis', [AnalisisController::class, 'create'])->name('analisis.create');
