@@ -15,8 +15,19 @@
                             <th class="text-center">CPMK</th>
                         </tr>
                         <tr>
-                            {{-- No Data --}}
-                            <td colspan="4" class="text-center"><em>No Data</em></td>
+
+                            @php $no = 1; @endphp
+                            @if (empty($data))
+                                {{-- No Data --}}
+                                <td colspan="4" class="text-center"><em>No Data</em></td>
+                            @else
+                                @foreach ($data as $dat)
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $dat['MateriAjar'] }}</td>
+                                    <td>{{ $dat['Minggu'] }}</td>
+                                    {{-- <td>{{ $dat[''] }}</td> --}}
+                                @endforeach
+                                @endif
                         </tr>
                     </table>
                 </table>

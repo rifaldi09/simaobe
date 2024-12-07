@@ -44,10 +44,15 @@ class HomeController extends Controller
     public function analisis_main_page($idMatkul)
     {
         $session = [
-            "sessionID" => session('sessionID')
+            "sessionID" => session('sessionID'),
+            'IDSmtMtklh' => $idMatkul
         ];
 
         $data = Analisis::getAnalisis($session);
+
+        foreach ($data as $dat) {
+            
+        }
         return view('landing_page.analisis-mata-kuliah', [
             'title' => 'Analisis Pembelajaran Page'
         ], compact('data'));
