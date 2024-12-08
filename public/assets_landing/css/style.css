@@ -1,3 +1,9 @@
+/* menghilangkan resize handle textarea */
+textarea {
+    resize: none; /* Menghilangkan resize handle */
+}
+
+
 /* Sidebar Styles */
 .sidebar {
     background-color: #415788 !important;
