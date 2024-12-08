@@ -1,6 +1,6 @@
-/* menghilangkan resize handle textarea */
+/* menghilangkan garis sudut textarea */
 textarea {
-    resize: none; /* Menghilangkan resize handle */
+    resize: none;
 }
 
 
