@@ -100,7 +100,7 @@ class HomeController extends Controller
         // Mengembalikan data yang sudah di gabungkan ke dalam view
         return view('landing_page.analisis-mata-kuliah', [
             'title' => 'Analisis Pembelajaran Page',
-        ], compact('result', 'matkul_id'));
+        ], compact('result', 'matkul_id', 'dataAnalisis'));
     }
 
     // menampilkan halaman utama basis evaluasi pembelajaran

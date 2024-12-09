@@ -47,7 +47,7 @@
                             <p class="h3">Materi Perkuliahan</p>
                             <div class="card">
                                 <div class="card-body">
-                                    <textarea id="MateriPerkuliahan" class="form-control" name="analisis[0][materiperkuliahan]" style="height: 200px;"></textarea>
+                                    <textarea id="MateriPerkuliahan" cols="5" rows="10" class="form-control" name="analisis[0][materiperkuliahan]"></textarea>
                                 </div>
                             </div>
                         </div>
