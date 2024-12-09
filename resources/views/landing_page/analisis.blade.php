@@ -33,11 +33,9 @@
                     <p class="h3">Minggu</p>
                     <select id="selectMultipleMinggu1" class="form-control" name="analisis[0][minggu][]"
                         multiple="multiple">
-                        <option value="1">Minggu 1</option>
-                        <option value="2">Minggu 2</option>
-                        <option value="3">Minggu 3</option>
-                        <option value="4">Minggu 4</option>
-                        <option value="5">Minggu 5</option>
+                        @foreach ($hasil as $minggu)
+                            <option value="{{ $minggu }}">Minggu {{ $minggu }}</option>
+                        @endforeach
                     </select>
                 </div>
                 {{-- * Penutup Bagian Minggu --}}

@@ -31,17 +31,36 @@ class HomeController extends Controller
 
     // mengarah ke halaman landing_page/analisis.blade.php
     public function analisis($id){
+        $session = [
+            "sessionID" => session('sessionID'),
+            'IDSmtMtklh' => $id
+        ];
+
         // Mengambil data dari model Analisis dengan mengirim sessionID
-        $analisis = Analisis::getCpmk(session('sessionID'));
+        $cpmk = Analisis::getCpmk(session('sessionID'));
         $cpl = Analisis::getCpl(session('sessionID'));
+        $analisis = Analisis::get($session);
+        
+        // Minggu
+        $minggu = [ 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 ];
+
+        $result = [];
+
+        // Mengambil data minggu dari aap/get
+        foreach ($analisis as $ana) {
+            $result[] = $ana['Minggu'];
+        }
+        
+        // Mengcompare data minggu dengan data minggu yang dari aap/get
+        $hasil = array_values(array_diff($minggu,$result));
 
         $idMatkul = $id;
 
         return view('landing_page.analisis', [
             'title' => 'Halaman Analisis',
-            'analisis' => $analisis,
+            'analisis' => $cpmk,
             'cpl' => $cpl
-        ], compact('idMatkul'));
+        ], compact('idMatkul','hasil'));
     }
 
     // menampilkan halaman utama analisis pembelajaran
