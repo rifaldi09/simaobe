@@ -37,6 +37,9 @@
                             <option value="{{ $minggu }}">Minggu {{ $minggu }}</option>
                         @endforeach
                     </select>
+                    @error('analisis.0.minggu')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 {{-- * Penutup Bagian Minggu --}}
 
@@ -48,11 +51,14 @@
                             <div class="card">
                                 <div class="card-body">
                                     <textarea id="MateriPerkuliahan" cols="5" rows="10" class="form-control" name="analisis[0][materiperkuliahan]"></textarea>
+                                    @error('analisis.0.materiperkuliahan')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
 
-                        {{-- * Bagian Sub-CPMK --}}
+                        {{-- * Bagian Kode-Sub-CPMK --}}
                         <div class="container mb-3">
                             {{-- * Bagian KodeSubCpmk --}}
                             <p class="h3">KodeSubCpmk</p>
@@ -60,12 +66,20 @@
                                 <div class="card-body">
                                     <input id="kscmpk" name="analisis[0][kscpmk]" class="form-control" name="kscpmk"
                                         type="text"></input>
+                                        @error('analisis.0.kscpmk')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                 </div>
                             </div>
+
+                            {{-- * Bagian Sub-CPMK --}}
                             <p class="h3">Sub-CPMK</p>
                             <div class="card">
                                 <div class="card-body">
                                     <textarea id="subCPMK" class="form-control" name="analisis[0][subcpmk]" style="height: 120px;"></textarea>
+                                    @error('analisis.0.subcpmk')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -80,6 +94,9 @@
                                 <option value="{{ $respon['CPLID'] }}">{{ $respon['KetCPL'] }}</option>
                             @endforeach
                         </select>
+                        @error('analisis.0.cplid')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
 
@@ -92,6 +109,9 @@
                             <option value="{{ $respon['CPMKID'] }}">{{ $respon['KetCPMK'] }}</option>
                         @endforeach --}}
                         </select>
+                        @error('analisis.0.cpmk')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
 

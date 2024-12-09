@@ -10,6 +10,42 @@ class AnalisisController extends Controller
 {
     public function create(Request $request, $id)
     {
+        // menambahkan validasi
+        $validasi = [];
+
+        // Loop untuk membuat aturan validasi berdasarkan jumlah input data analisis
+        foreach ($request->input('analisis', []) as $key => $value) {
+            $validasi["analisis.{$key}.minggu"] = 'required|array';
+            $validasi["analisis.{$key}.materiperkuliahan"] = 'required|string';
+            $validasi["analisis.{$key}.kscpmk"] = 'required|string';
+            $validasi["analisis.{$key}.subcpmk"] = 'required|string';
+            $validasi["analisis.{$key}.cplid"] = 'required';
+            $validasi["analisis.{$key}.cpmk"] = 'required|array';
+        }
+
+        // pesan error nya
+        $messages = [
+            'required' => ':attribute harus diisi ya!',
+            'array' => ':attribute harus dipilih minimal satu',
+            'min' => ':attribute minimal :min karakter ya!',
+            'analisis.0.minggu.required' => 'Minggu harus dipilih minimal satu',
+            'analisis.0.materiperkuliahan.required' => 'Materi perkuliahan tidak boleh kosong',
+            'analisis.0.kscpmk.required' => 'Kode Sub-CPMK harus diisi',
+            'analisis.0.subcpmk.required' => 'Sub-CPMK harus diisi',
+            'analisis.0.cplid.required' => 'CPL harus dipilih',
+            'analisis.0.cpmk.required' => 'CPMK harus dipilih minimal satu'
+        ];
+
+        // kita jalanin validasinya boskuh
+        $validatedData = $request->validate($validasi, $messages);
+
+        // Jika validasi berhasil, lanjutkan eksekusi
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data berhasil divalidasi',
+            'data' => $validatedData
+        ]);
+
         $data = $request->all();
         $analisis = $data['analisis'];
 
@@ -36,9 +72,9 @@ class AnalisisController extends Controller
         // dd($transformedData);
 
         if ($response) {
-            return response()->json(['message' => 'Data berhasil disimpan'], 200);  
+            return response()->json(['message' => 'Horee! Kamu berhasil mendaftar!'], 200);
         } else {
-            return response()->json(['message' => 'Gagal menyimpan data']);
+            return response()->json(['message' => 'Waduh, ada yang kurang tepat nih!']);
         }
     }
 }
