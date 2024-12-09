@@ -87,11 +87,11 @@ class LoginController extends Controller
         ];
 
         $data = Login::logout($session);
+        session()->flush();
         if ($data[0]['message']==="Logout Success") {
             return redirect('/login')->with('success', 'Berhasil Loout');
         } else {
             return redirect()->back()->with('error', 'Gagal Logout');
         }
-        session()->flush();
     }
 }
