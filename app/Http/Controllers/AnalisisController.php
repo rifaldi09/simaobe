@@ -35,7 +35,7 @@ class AnalisisController extends Controller
         $response = Analisis::create($transformedData);
         // dd($transformedData);
 
-        if ($response->successful()) {
+        if ($response) {
             return response()->json(['message' => 'Data berhasil disimpan'], 200);  
         } else {
             return response()->json(['message' => 'Gagal menyimpan data']);

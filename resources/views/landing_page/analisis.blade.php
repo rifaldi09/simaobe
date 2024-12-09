@@ -37,6 +37,7 @@
                 <option value="2">Minggu 2</option>
                 <option value="3">Minggu 3</option>
                 <option value="4">Minggu 4</option>
+                <option value="5">Minggu 5</option>
             </select>
         </div>
         {{--* Penutup Bagian Minggu --}}
@@ -89,7 +90,6 @@
             {{--* Bagian KodeSubCpmk --}}
             <div class="container mt-1 justify-content-center mt-3">
                 <p class="h3">KodeSubCpmk</p>
-                <input id="kscmpk" class="form-control" name="kscpmk"></input>
                 <input id="kscmpk" name="analisis[0][kscpmk]" class="form-control" name="kscpmk" type="text"></input>
             </div>
 
