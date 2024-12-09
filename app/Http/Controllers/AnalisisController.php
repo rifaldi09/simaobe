@@ -40,11 +40,11 @@ class AnalisisController extends Controller
         $validatedData = $request->validate($validasi, $messages);
 
         // Jika validasi berhasil, lanjutkan eksekusi
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Data berhasil divalidasi',
-            'data' => $validatedData
-        ]);
+        // return response()->json([
+        //     'status' => 'success',
+        //     'message' => 'Data berhasil divalidasi',
+        //     'data' => $validatedData
+        // ]);
 
         $data = $request->all();
         $analisis = $data['analisis'];
@@ -72,11 +72,7 @@ class AnalisisController extends Controller
         // dd($transformedData);
 
         if ($response) {
-            return response()->json([
-                'status' => 'success',
-                'redirect' => '/analisis-matkul-page',
-                'message' => 'Horee Data berhasil disimpan!'
-            ]);
+            return redirect('/tabel-analisis')->with('success', 'Data berhasil disimpan!');
         } else {
             return response()->json([
                 'status' => 'error',
