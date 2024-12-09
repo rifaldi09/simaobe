@@ -22,40 +22,46 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-//route untul login
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/proses-login', [LoginController::class, 'prosesLogin'])->name('proses-login');
+Route::middleware("isGuest")->group(function() {
+    //route untul login
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/proses-login', [LoginController::class, 'prosesLogin'])->name('proses-login');
 
-Route::get('/my-profil', [HomeController::class, 'profil'])->name('profil');
+    //route untuk register 
+    //jika ingin register, tambahkan aja di url '127.0.0.1:8000/regis'
+    Route::get('/regis', [LoginController::class, 'register'])->name('register');
+    Route::post('/proses-register', [LoginController::class, 'prosesRegister'])->name('proses-register');
+});
 
+Route::middleware("isLogin")->group(function() {
+    Route::get('/my-profil', [HomeController::class, 'profil'])->name('profil');
+    Route::get('/get-cpmk', [HomeController::class, 'getCpmk'])->name('getCpmk');
+    
+    //belum ada proteksi jadi bisa di akses melalui url
+    Route::get('/landing-page', [HomeController::class, 'index'])->name('landing-page');
+    Route::get('/analisis-page/{id}', [HomeController::class, 'analisis'])->name('analisis-page');
+    
+    // Route untuk mata kuliah
+    Route::get('/analisis-matkul-page/{id}', [HomeController::class, 'analisis_main_page'])->name('analisis-main-page');
+    Route::get('/basis-evaluasi-matkul-page/{id}', [HomeController::class, 'basis_evaluasi_main_page'])->name('basis-evaluasi-main-page');
+    Route::get('/rencana-pembelajaran-matkul-page/{id}', [HomeController::class, 'rencana_pembelajaran_main_page'])->name('rencana-pembelajaran-main-page');
+    
+    // route penilaian
+    Route::get('/penilaian-sub-cpmk-page', [HomeController::class, 'penilaian_subcpmk_page'])->name('penilaian_subcpmk');
+    Route::get('/penilaian1', [HomeController::class, 'penilaian1'])->name('penilaian01');
+    Route::get('/penilaian2', [HomeController::class, 'penilaian2'])->name('penilaian02');
+    Route::get('/rps', [HomeController::class, 'rps'])->name('rps');
+    Route::get('/komponen-penilaian', [HomeController::class, 'komponen_penilaian'])->name('komponenPenilaian');
+    Route::get('/struktur-mata-kuliah/{id}', [HomeController::class, 'struktur_mata_kuliah'])->name('struktur-mata-kuliah');
+    
+    
+    Route::post('/create-analisis/{id}', [AnalisisController::class, 'create'])->name('analisis.create');
+    // route input
+    Route::post('/create-kp', [BEPController::class, 'store'])->name('kp');
+    // Route::post('/analisis', [AnalisisController::class, 'create'])->name('analisis.create');
+    
+});
 
-//route untuk register 
-//jika ingin register, tambahkan aja di url '127.0.0.1:8000/regis'
-Route::get('/regis', [LoginController::class, 'register'])->name('register');
-Route::post('/proses-register', [LoginController::class, 'prosesRegister'])->name('proses-register');
-Route::get('/get-cpmk', [HomeController::class, 'getCpmk'])->name('getCpmk');
-
-//belum ada proteksi jadi bisa di akses melalui url
-Route::get('/landing-page', [HomeController::class, 'index'])->name('landing-page');
-Route::get('/analisis-page/{id}', [HomeController::class, 'analisis'])->name('analisis-page');
-
-// Route untuk mata kuliah
-Route::get('/analisis-matkul-page/{id}', [HomeController::class, 'analisis_main_page'])->name('analisis-main-page');
-Route::get('/basis-evaluasi-matkul-page/{id}', [HomeController::class, 'basis_evaluasi_main_page'])->name('basis-evaluasi-main-page');
-Route::get('/rencana-pembelajaran-matkul-page/{id}', [HomeController::class, 'rencana_pembelajaran_main_page'])->name('rencana-pembelajaran-main-page');
-
-// route penilaian
-Route::get('/penilaian-sub-cpmk-page', [HomeController::class, 'penilaian_subcpmk_page'])->name('penilaian_subcpmk');
-Route::get('/penilaian1', [HomeController::class, 'penilaian1'])->name('penilaian01');
-Route::get('/penilaian2', [HomeController::class, 'penilaian2'])->name('penilaian02');
-Route::get('/rps', [HomeController::class, 'rps'])->name('rps');
-Route::get('/komponen-penilaian', [HomeController::class, 'komponen_penilaian'])->name('komponenPenilaian');
-Route::get('/struktur-mata-kuliah/{id}', [HomeController::class, 'struktur_mata_kuliah'])->name('struktur-mata-kuliah');
 
 // logout
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
-Route::post('/create-analisis/{id}', [AnalisisController::class, 'create'])->name('analisis.create');
-// route input
-Route::post('/create-kp', [BEPController::class, 'store'])->name('kp');
-// Route::post('/analisis', [AnalisisController::class, 'create'])->name('analisis.create');

@@ -32,7 +32,14 @@ class LoginController extends Controller
 
         // cek apakah response ada sessionID apa tidak
         if($response["sessionID"]) {
+            $sessionID = [
+                "sessionID" => $response["sessionID"]
+            ];
+            
+            $user_access = Login::getUserAccess($sessionID);
+
             $request->session()->put("sessionID", $response["sessionID"]);
+            $request->session()->put("user_access", $user_access);
             return redirect('/landing-page')->with('success', 'Berhasil Login');
         } else {
             return redirect()->back()->with('error', 'Gagal Login');

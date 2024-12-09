@@ -33,6 +33,12 @@ class Login extends Model
         return $response->json();
     }
 
+    static function getUserAccess($sessionId)
+    {
+        $response = Http::post(self::path("auth"), $sessionId);
+        return $response->json();
+    }
+
     static function logout($data)
     {
         $response = Http::post(self::path("login/quit"), $data);
