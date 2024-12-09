@@ -72,9 +72,16 @@ class AnalisisController extends Controller
         // dd($transformedData);
 
         if ($response) {
-            return response()->json(['message' => 'Horee! Kamu berhasil mendaftar!'], 200);
+            return response()->json([
+                'status' => 'success',
+                'redirect' => '/analisis-matkul-page',
+                'message' => 'Horee Data berhasil disimpan!'
+            ]);
         } else {
-            return response()->json(['message' => 'Waduh, ada yang kurang tepat nih!']);
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Waduh, ada yang kurang tepat nih!'
+            ]);
         }
     }
 }
