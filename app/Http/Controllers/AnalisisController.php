@@ -72,12 +72,10 @@ class AnalisisController extends Controller
         // dd($transformedData);
 
         if ($response) {
-            return redirect('/tabel-analisis')->with('success', 'Data berhasil disimpan!');
+            // Redirect to the table view with the matkul_id
+            return redirect('/tabel-analisis/' . $id)->with('success', 'Data berhasil disimpan!');
         } else {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Waduh, ada yang kurang tepat nih!'
-            ]);
+            return back()->with('error', 'Waduh, ada yang kurang tepat nih!');
         }
     }
 }
