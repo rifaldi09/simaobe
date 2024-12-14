@@ -41,4 +41,10 @@ class Analisis extends Model
         $response = Http::post(self::path("aap"),$data);
         return $response->json();
     }
+
+    static function destroy($data)
+    {
+        $response = Http::post(self::path(""), $data);
+        return $response->json();
+    }
 }

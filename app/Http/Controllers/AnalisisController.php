@@ -10,9 +10,10 @@ class AnalisisController extends Controller
 {
     public function create(Request $request, $id)
     {
+        
         // menambahkan validasi
         $validasi = [];
-
+        
         // Loop untuk membuat aturan validasi berdasarkan jumlah input data analisis
         foreach ($request->input('analisis', []) as $key => $value) {
             $validasi["analisis.{$key}.minggu"] = 'required|array';
@@ -22,6 +23,7 @@ class AnalisisController extends Controller
             $validasi["analisis.{$key}.cplid"] = 'required';
             $validasi["analisis.{$key}.cpmk"] = 'required|array';
         }
+
 
         // pesan error nya
         $messages = [
@@ -38,13 +40,6 @@ class AnalisisController extends Controller
 
         // kita jalanin validasinya boskuh
         $validatedData = $request->validate($validasi, $messages);
-
-        // Jika validasi berhasil, lanjutkan eksekusi
-        // return response()->json([
-        //     'status' => 'success',
-        //     'message' => 'Data berhasil divalidasi',
-        //     'data' => $validatedData
-        // ]);
 
         $data = $request->all();
         $analisis = $data['analisis'];
@@ -68,16 +63,33 @@ class AnalisisController extends Controller
             }
         }
 
-        $response = Analisis::create($transformedData);
         // dd($transformedData);
+        $response = Analisis::create($transformedData);
 
         if ($response) {
-            return redirect('/tabel-analisis')->with('success', 'Data berhasil disimpan!');
+            return redirect('/analisis-matkul-page/'. $id)->with('success', 'Data berhasil disimpan!');
         } else {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Waduh, ada yang kurang tepat nih!'
-            ]);
+            // return response()->json([
+            //     'status' => 'error',
+            //     'message' => 'Waduh, ada yang kurang tepat nih!'
+            // ]);
+            return back()->with('error', 'Data gagal disimpan!');
+        }
+    }
+
+
+    public function deleteAnalisis($id)
+    {
+        $session = [
+            "sessionID" => session('sessionID'),
+            'IDSmtMtklh' => $id
+        ];
+
+        $response = Analisis::destroy($session);
+        if($response) {
+            return back()->with('success', 'Data berhasil disimpan!');
+        } else {
+            return back()->with('error', 'Data gagal disimpan!');
         }
     }
 }
