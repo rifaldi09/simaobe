@@ -89,7 +89,10 @@ class AnalisisController extends Controller
         if($response) {
             return back()->with('success', 'Data berhasil disimpan!');
         } else {
-            return back()->with('error', 'Data gagal disimpan!');
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Waduh, ada yang kurang tepat nih!'
+            ]);
         }
     }
 }
