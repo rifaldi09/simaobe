@@ -68,8 +68,8 @@ class AnalisisController extends Controller
             }
         }
 
-        $response = Analisis::create($transformedData);
-        // dd($transformedData);
+        dd(json_encode($transformedData));
+        // $response = Analisis::create($transformedData);
 
         if ($response) {
             // Redirect to the table view with the matkul_id

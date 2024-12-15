@@ -42,7 +42,7 @@ class LoginController extends Controller
             $request->session()->put("user_access", $user_access);
             return redirect('/landing-page')->with('success', 'Berhasil Login');
         } else {
-            return redirect()->back()->with('error', 'Gagal Login');
+            return redirect('/landing-page')->with('error', 'Gagal Login');
         }
     }
 
