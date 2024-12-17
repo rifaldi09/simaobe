@@ -33,8 +33,9 @@
                     <p class="h3">Minggu</p>
                     <select id="selectMultipleMinggu1" class="form-control" name="analisis[0][minggu][]"
                         multiple="multiple">
+                        {{-- {{ dd($analisis) }} --}}
                         @foreach ($hasil as $minggu)
-                            <option value="{{ $minggu }}">Minggu {{ $minggu }}</option>
+                            <option value="{{ $minggu }}"  >Minggu {{ $minggu }}</option>
                         @endforeach
                     </select>
                     @error('analisis.0.minggu')
@@ -91,7 +92,7 @@
                         <select class="form-select" name="analisis[0][cplid]" onchange="onCpmkChange()" id="selectCpl1">
                             <option value=""></option>
                             @foreach ($cpl as $respon)
-                                <option value="{{ $respon['CPLID'] }}">{{ $respon['KetCPL'] }}</option>
+                                <option value="{{ $respon['CPLID'] }}" {{ $minggu === 1 ? "selected" : "" ; }}>{{ $respon['KetCPL'] }}</option>
                             @endforeach
                         </select>
                         @error('analisis.0.cplid')

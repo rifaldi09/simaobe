@@ -55,12 +55,12 @@ class HomeController extends Controller
         $hasil = array_values(array_diff($minggu,$result));
 
         $idMatkul = $id;
-
+        dd($analisis);
         return view('landing_page.analisis', [
             'title' => 'Halaman Analisis',
             'analisis' => $cpmk,
             'cpl' => $cpl
-        ], compact('idMatkul','hasil'));
+        ], compact('idMatkul','hasil','analisis'));
     }
 
     // menampilkan halaman utama analisis pembelajaran
