@@ -24,6 +24,7 @@
 
     <form action="/create-analisis/{{ $idMatkul }}" method="POST" id="analisisForm">
         @csrf
+        @foreach ($dataAnalisis as $ana)
         {{-- ! Bagian Body --}}
         <main class="mt-4">
             {{-- * Section Pertama --}}
@@ -33,9 +34,12 @@
                     <p class="h3">Minggu</p>
                     <select id="selectMultipleMinggu1" class="form-control" name="analisis[0][minggu][]"
                         multiple="multiple">
-                        {{-- {{ dd($analisis) }} --}}
-                        @foreach ($hasil as $minggu)
-                            <option value="{{ $minggu }}"  >Minggu {{ $minggu }}</option>
+                        @foreach ($minggu as $ming)
+                            @if (!empty($ana))
+                                <option value="{{ $ming }}" {{ $ana['Minggu']===$ming ? "selected" : "" ; }}>Minggu {{ $ming }}</option>
+                            @else
+                                <option value="{{ $ming }}">Minggu {{ $ming }}</option>
+                            @endif
                         @endforeach
                     </select>
                     @error('analisis.0.minggu')
@@ -51,7 +55,11 @@
                             <p class="h3">Materi Perkuliahan</p>
                             <div class="card">
                                 <div class="card-body">
-                                    <textarea id="MateriPerkuliahan" cols="5" rows="10" class="form-control" name="analisis[0][materiperkuliahan]"></textarea>
+                                    @if (!empty($ana))
+                                        <textarea id="MateriPerkuliahan" cols="5" rows="10" class="form-control" name="analisis[0][materiperkuliahan]">{{ $ana['MateriAjar'] }}</textarea>
+                                    @else
+                                        <textarea id="MateriPerkuliahan" cols="5" rows="10" class="form-control" name="analisis[0][materiperkuliahan]"></textarea>    
+                                    @endif
                                     @error('analisis.0.materiperkuliahan')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -65,8 +73,11 @@
                             <p class="h3">KodeSubCpmk</p>
                             <div class="card mb-3">
                                 <div class="card-body">
-                                    <input id="kscmpk" name="analisis[0][kscpmk]" class="form-control" name="kscpmk"
-                                        type="text"></input>
+                                    @if (!empty($ana))
+                                        <input id="kscmpk" name="analisis[0][kscpmk]" class="form-control" name="kscpmk" type="text" value="{{ $ana['KodeSubCPMK'] }}"></input>
+                                    @else
+                                        <input id="kscmpk" name="analisis[0][kscpmk]" class="form-control" name="kscpmk" type="text" ></input>    
+                                    @endif
                                         @error('analisis.0.kscpmk')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -77,7 +88,11 @@
                             <p class="h3">Sub-CPMK</p>
                             <div class="card">
                                 <div class="card-body">
-                                    <textarea id="subCPMK" class="form-control" name="analisis[0][subcpmk]" style="height: 120px;"></textarea>
+                                    @if (!empty($ana))
+                                        <textarea id="subCPMK" class="form-control" name="analisis[0][subcpmk]" style="height: 120px;">{{ $ana['SubCPMK'] }}</textarea>
+                                    @else
+                                        <textarea id="subCPMK" class="form-control" name="analisis[0][subcpmk]" style="height: 120px;"></textarea>
+                                    @endif
                                     @error('analisis.0.subcpmk')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -92,7 +107,11 @@
                         <select class="form-select" name="analisis[0][cplid]" onchange="onCpmkChange()" id="selectCpl1">
                             <option value=""></option>
                             @foreach ($cpl as $respon)
-                                <option value="{{ $respon['CPLID'] }}" {{ $minggu === 1 ? "selected" : "" ; }}>{{ $respon['KetCPL'] }}</option>
+                            @if (!empty($ana))
+                                <option value="{{ $respon['CPLID'] }}" {{ $ana['CPLID']===$respon['CPLID'] ? "selected" : "" ; }}>{{ $respon['KetCPL'] }}</option>
+                            @else
+                                <option value="{{ $respon['CPLID'] }}">{{ $respon['KetCPL'] }}</option>
+                            @endif
                             @endforeach
                         </select>
                         @error('analisis.0.cplid')
@@ -134,6 +153,7 @@
             <div class="d-flex justify-content-center mt-4 gap-3">
                 <button class="btn btn-primary">Simpan</button>
             </div>
+            @endforeach
     </form>
     </main>
 @endsection

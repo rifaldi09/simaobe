@@ -50,17 +50,16 @@ class HomeController extends Controller
         foreach ($analisis as $ana) {
             $result[] = $ana['Minggu'];
         }
+
+        $dataAnalisis = $analisis;
         
         // Mengcompare data minggu dengan data minggu yang dari aap/get
         $hasil = array_values(array_diff($minggu,$result));
-
         $idMatkul = $id;
-        dd($analisis);
+        // dd($dataAnalisis);
         return view('landing_page.analisis', [
             'title' => 'Halaman Analisis',
-            'analisis' => $cpmk,
-            'cpl' => $cpl
-        ], compact('idMatkul','hasil','analisis'));
+        ], compact('idMatkul','minggu','dataAnalisis','cpl'));
     }
 
     // menampilkan halaman utama analisis pembelajaran

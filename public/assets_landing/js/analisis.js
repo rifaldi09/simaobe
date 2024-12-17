@@ -12,6 +12,9 @@ let cpl_id = cplID.match(/\d+$/)[0];
 $(document).ready(function () {
     $(`#selectMultipleMinggu${m_id}`).select2();
     $(`#selectMultipleCPMK${c_id}`).select2();
+    $('select[id^="selectCpl"]').each(function () {
+        anaCPMK(); // Panggil fungsi untuk setiap elemen select
+    });
 });
 
 $(document).on("click", ".remove_analisis", function () {
@@ -49,27 +52,27 @@ const getCpmk = async () => {
 const cpmkopt = document.querySelector(`#selectMultipleCPMK${c_id}`);
 const selectCpl = document.querySelector(`#selectCpl${cpl_id}`);
 
-const onCpmkChange = () => {
-    const selectedCplValue = selectCpl.value;
+// const onCpmkChange = () => {
+//     const selectedCplValue = selectCpl.value;
 
-    getCpmk()
-        .then((responseData) => {
-            const filteredData = responseData.filter(
-                (value) => value.CPLID == selectedCplValue
-            );
+//     getCpmk()
+//         .then((responseData) => {
+//             const filteredData = responseData.filter(
+//                 (value) => value.CPLID == selectedCplValue
+//             );
 
-            const cpmkOption = filteredData
-                .map(
-                    (value) =>
-                        `<option value="${value.CPMKID}">${value.KetCPMK}</option>`
-                )
-                .join("");
+//             const cpmkOption = filteredData
+//                 .map(
+//                     (value) =>
+//                         `<option value="${value.CPMKID}">${value.KetCPMK}</option>`
+//                 )
+//                 .join("");
 
-            cpmkopt.innerHTML = cpmkOption;
-            $(`#selectMultipleCPMK${c_id}`).select2();
-        })
-        .catch((error) => console.error("Error fetching CPMK:", error));
-};
+//             cpmkopt.innerHTML = cpmkOption;
+//             $(`#selectMultipleCPMK${c_id}`).select2();
+//         })
+//         .catch((error) => console.error("Error fetching CPMK:", error));
+// };
 
 $(document).on("change", 'select[id^="selectCpl"]', function () {
     const selectedCplValue = this.value;
@@ -95,6 +98,28 @@ $(document).on("change", 'select[id^="selectCpl"]', function () {
         })
         .catch((error) => console.error("Error fetching CPMK:", error));
 });
+
+function anaCPMK(){
+    const selectedCplValue = selectCpl.value;
+
+    getCpmk()
+        .then((responseData) => {
+            const filteredData = responseData.filter(
+                (value) => value.CPLID == selectedCplValue
+            );
+
+            const cpmkOption = filteredData
+                .map(
+                    (value) =>
+                        `<option value="${value.CPMKID}">${value.KetCPMK}</option>`
+                )
+                .join("");
+
+            cpmkopt.innerHTML = cpmkOption;
+            $(`#selectMultipleCPMK${c_id}`).select2();
+        })
+        .catch((error) => console.error("Error fetching CPMK:", error));
+}
 
 let index = 0;
 addAnalisis = () => {
