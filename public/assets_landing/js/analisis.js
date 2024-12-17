@@ -12,8 +12,10 @@ let cpl_id = cplID.match(/\d+$/)[0];
 $(document).ready(function () {
     $(`#selectMultipleMinggu${m_id}`).select2();
     $(`#selectMultipleCPMK${c_id}`).select2();
+
+    // manmpilkan hasil select CPL ke CPMK
     $('select[id^="selectCpl"]').each(function () {
-        anaCPMK(); // Panggil fungsi untuk setiap elemen select
+        anaCPMK();
     });
 });
 
@@ -99,6 +101,7 @@ $(document).on("change", 'select[id^="selectCpl"]', function () {
         .catch((error) => console.error("Error fetching CPMK:", error));
 });
 
+// Agar bisa menampilkan selected CPL
 function anaCPMK(){
     const selectedCplValue = selectCpl.value;
 

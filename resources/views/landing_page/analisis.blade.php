@@ -35,7 +35,9 @@
                     <select id="selectMultipleMinggu1" class="form-control" name="analisis[0][minggu][]"
                         multiple="multiple">
                         @foreach ($minggu as $ming)
+                            {{-- Jika data analisis masih kosong atau sudah ada --}}
                             @if (!empty($ana))
+                                {{-- agar bisa langsung ke select ketika terdapat data pada analisis --}}
                                 <option value="{{ $ming }}" {{ $ana['Minggu']===$ming ? "selected" : "" ; }}>Minggu {{ $ming }}</option>
                             @else
                                 <option value="{{ $ming }}">Minggu {{ $ming }}</option>
@@ -107,18 +109,19 @@
                         <select class="form-select" name="analisis[0][cplid]" onchange="onCpmkChange()" id="selectCpl1">
                             <option value=""></option>
                             @foreach ($cpl as $respon)
-                            @if (!empty($ana))
-                                <option value="{{ $respon['CPLID'] }}" {{ $ana['CPLID']===$respon['CPLID'] ? "selected" : "" ; }}>{{ $respon['KetCPL'] }}</option>
-                            @else
-                                <option value="{{ $respon['CPLID'] }}">{{ $respon['KetCPL'] }}</option>
-                            @endif
+                            {{-- Jika data analisis masih kosong atau sudah ada --}}
+                                @if (!empty($ana))
+                                {{-- agar bisa langsung ke select ketika terdapat data pada analisis --}}
+                                    <option value="{{ $respon['CPLID'] }}" {{ $ana['CPLID']===$respon['CPLID'] ? "selected" : "" ; }}>{{ $respon['KetCPL'] }}</option>
+                                @else
+                                    <option value="{{ $respon['CPLID'] }}">{{ $respon['KetCPL'] }}</option>
+                                @endif
                             @endforeach
                         </select>
                         @error('analisis.0.cplid')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-
 
                     {{-- * Bagian CPMK --}}
                     <div class="container mt-1 justify-content-center">
@@ -133,10 +136,6 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-
-
-
-
                 </div>
             </div>
 
