@@ -3,38 +3,42 @@
 @include('landing_page.basis evaluasi.components.header')
 
 <div class="container mt-5">
-  @if (!empty($validasi))
+    @if (!empty($validasi))
     <p>{{ $validasi }}</p>
-  @endif
-  <h4><b>Komponen Penilaian</b></h4>
-  <hr class="border border-2 border-dark">
-  <div class="container mt-4">
+    @endif
+    <div class="text-center">
+        <h1 class="fw-bold font-outfit">{{ $nama_matkul }}</h1>
+    </div>
+    <h4><b>Komponen Penilaian</b></h4>
+    <hr class="border border-2 border-dark">
+    <div class="container mt-4">
         <h4><b>Form Penilaian</b></h4>
 
         @php
-            $selectedComponents = array_column($data, 'KomponenPenilaian');
+        $selectedComponents = array_column($data, 'KomponenPenilaian');
         @endphp
 
         <div class="row">
             <div class="col-md-6">
                 <h5><b>Sikap</b></h5>
-                @foreach (['Aktifitas Partisipatif', 'Team Based Project (TBP)', 'Case Based Method', 'Presensi'] as $sikap)
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="sikap{{ $loop->index }}" value="{{ $sikap }}" 
+                @foreach (['Aktifitas Partisipatif', 'Team Based Project (TBP)', 'Case Based Method', 'Presensi'] as
+                $sikap)
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="sikap{{ $loop->index }}" value="{{ $sikap }}"
                         @if(in_array($sikap, $selectedComponents)) checked @endif>
-                        <label class="form-check-label" for="sikap{{ $loop->index }}"><b>{{ $sikap }}</b></label>
-                    </div>
+                    <label class="form-check-label" for="sikap{{ $loop->index }}"><b>{{ $sikap }}</b></label>
+                </div>
                 @endforeach
             </div>
 
             <div class="col-md-6">
                 <h5><b>Kognitif</b></h5>
                 @foreach (['Tugas', 'Quis', 'UTS', 'UAS'] as $kognitif)
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="kognitif{{ $loop->index }}" value="{{ $kognitif }}" 
-                        @if(in_array($kognitif, $selectedComponents)) checked @endif>
-                        <label class="form-check-label" for="kognitif{{ $loop->index }}"><b>{{ $kognitif }}</b></label>
-                    </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="kognitif{{ $loop->index }}"
+                        value="{{ $kognitif }}" @if(in_array($kognitif, $selectedComponents)) checked @endif>
+                    <label class="form-check-label" for="kognitif{{ $loop->index }}"><b>{{ $kognitif }}</b></label>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -49,17 +53,17 @@
             </thead>
             <tbody>
                 @foreach ($data as $item)
-                    <tr class="penilaianRow" data-cpmk="{{ $item['KodeCPMK'] }}">
-                        <td>{{ $item['KodeCPMK'] }}</td>
-                        <!-- Nilai BobotPenilaian akan ditambahkan oleh JavaScript -->
-                    </tr>
+                <tr class="penilaianRow" data-cpmk="{{ $item['KodeCPMK'] }}">
+                    <td>{{ $item['KodeCPMK'] }}</td>
+                    <!-- Nilai BobotPenilaian akan ditambahkan oleh JavaScript -->
+                </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
         const checkboxes = document.querySelectorAll('.form-check-input');
         const tableHeader = document.querySelector('#penilaianTable thead tr');
         const tableRows = document.querySelectorAll('#penilaianTable .penilaianRow');
@@ -110,6 +114,6 @@
 
         updateTable(); // Inisialisasi pertama
     });
-</script>
+    </script>
 
-@endsection
+    @endsection

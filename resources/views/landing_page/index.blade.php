@@ -62,10 +62,10 @@
                         class="nav-link">Struktur Mata Kuliah</a></li> --}}
                     <li><a href="/analisis-matkul-page/{{ $mata_kuliah["IDSmtMtKlh"] }}/{{ $mata_kuliah["NamaMtKlh"] }}" onclick="event.preventDefault(); openInNewWindow(this.href);"
                             class="nav-link">Analisis Pembelajaran</a></li>
-                    <li><a href="/rencana-pembelajaran-matkul-page/{{ $mata_kuliah["IDSmtMtKlh"] }}"
+                    <li><a href="/rencana-pembelajaran-matkul-page/{{ $mata_kuliah["IDSmtMtKlh"] }}/{{ $mata_kuliah["NamaMtKlh"] }}"
                             onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Rencana
                             Pembelajaran Semester</a></li>
-                    <li><a href="/basis-evaluasi-matkul-page/{{ $mata_kuliah["IDSmtMtKlh"] }}"
+                    <li><a href="/basis-evaluasi-matkul-page/{{ $mata_kuliah["IDSmtMtKlh"] }}/{{ $mata_kuliah["NamaMtKlh"] }}"
                             onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Basis
                             Evaluasi Penilaian</a></li>
                 </ul>

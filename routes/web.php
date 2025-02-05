@@ -43,8 +43,8 @@ Route::middleware("isLogin")->group(function() {
     
     // Route untuk mata kuliah
     Route::get('/analisis-matkul-page/{id}/{NamaMtKlh}', [HomeController::class, 'analisis_main_page'])->name('analisis-main-page');
-    Route::get('/basis-evaluasi-matkul-page/{id}', [HomeController::class, 'basis_evaluasi_main_page'])->name('basis-evaluasi-main-page');
-    Route::get('/rencana-pembelajaran-matkul-page/{id}', [HomeController::class, 'rencana_pembelajaran_main_page'])->name('rencana-pembelajaran-main-page');
+    Route::get('/basis-evaluasi-matkul-page/{id}/{NamaMtKlh}', [HomeController::class, 'basis_evaluasi_main_page'])->name('basis-evaluasi-main-page');
+    Route::get('/rencana-pembelajaran-matkul-page/{id}/{NamaMtKlh}', [HomeController::class, 'rencana_pembelajaran_main_page'])->name('rencana-pembelajaran-main-page');
     
     // route penilaian
     Route::get('/penilaian-sub-cpmk-page', [HomeController::class, 'penilaian_subcpmk_page'])->name('penilaian_subcpmk');

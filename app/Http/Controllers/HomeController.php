@@ -106,22 +106,24 @@ class HomeController extends Controller
     }
 
     // menampilkan halaman utama basis evaluasi pembelajaran
-    public function basis_evaluasi_main_page($IDSmtMkKlh)
+    public function basis_evaluasi_main_page($IDSmtMkKlh, $NamaMtKlh)
     {
         $session = [
             "IDSession" => session('sessionID'),
             'IDSmtMtKlh' => $IDSmtMkKlh
         ];
         $data = BEP::getBEP($session);
+
+        $nama_matkul = $NamaMtKlh;
         // dd($data);
         return view('landing_page.basis-evaluasi-mata-kuliah', [
             'title' => 'Basis Evaluasi Pembelajaran Page'
-        ],compact('data'));
+        ],compact('data', 'nama_matkul'));
     
     }
     
     // menampilkan halaman utama rencana pembelajaran semester
-    public function rencana_pembelajaran_main_page($idMatkul)
+    public function rencana_pembelajaran_main_page($idMatkul, $NamaMtKlh)
     {
         return view('landing_page.rencana-pembelajaran-mata-kuliah', [
             'title' => 'Rencana Pembelajaran Semester Page'
