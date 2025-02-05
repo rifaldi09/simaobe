@@ -30,15 +30,17 @@ class LoginController extends Controller
         // panggil api via model
         $response = Login::auth($data);
 
+        // dd($response);
+
         // cek apakah response ada sessionID apa tidak
-        if($response["sessionID"]) {
+        if($response["IDSession"]) {
             $sessionID = [
-                "sessionID" => $response["sessionID"]
+                "IDSession" => $response["IDSession"]
             ];
             
             $user_access = Login::getUserAccess($sessionID);
 
-            $request->session()->put("sessionID", $response["sessionID"]);
+            $request->session()->put("sessionID", $response["IDSession"]);
             $request->session()->put("user_access", $user_access);
             return redirect('/landing-page')->with('success', 'Berhasil Login');
         } else {
