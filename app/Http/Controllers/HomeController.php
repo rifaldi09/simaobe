@@ -17,11 +17,11 @@ class HomeController extends Controller
 
         $data = Login::dataMatkul($session);
         $nama_dosen = Login::userInfo($session)["NamaLengkap"];
-        // dd($nama_dosen);
+        // dd($data);
 
         return view('landing_page.index', [
             'title' => 'Landing Page'
-        ], compact('data'));
+        ], compact('data', 'nama_dosen'));
     }
 
     public function getCpmk()
