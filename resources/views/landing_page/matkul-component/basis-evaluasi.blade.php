@@ -1,104 +1,115 @@
-<div id="basis-evaluasi" class="cotainer mx-5 mt-3">
-    <div class="container">
-        <a href="{{ route('penilaian_subcpmk') }}" class="text-decoration-none"><i class="bi bi-plus-circle"></i> Tambah</a>
-        <table class="table table-bordered table-responsive mt-2" id="table-subCPMK">
+@extends('layout.main')
+@section('content')
+@include('landing_page.basis evaluasi.components.header')
+
+<div class="container mt-5">
+  @if (!empty($validasi))
+    <p>{{ $validasi }}</p>
+  @endif
+  <h4><b>Komponen Penilaian</b></h4>
+  <hr class="border border-2 border-dark">
+  <div class="container mt-4">
+        <h4><b>Form Penilaian</b></h4>
+
+        @php
+            $selectedComponents = array_column($data, 'KomponenPenilaian');
+        @endphp
+
+        <div class="row">
+            <div class="col-md-6">
+                <h5><b>Sikap</b></h5>
+                @foreach (['Aktifitas Partisipatif', 'Team Based Project (TBP)', 'Case Based Method', 'Presensi'] as $sikap)
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="sikap{{ $loop->index }}" value="{{ $sikap }}" 
+                        @if(in_array($sikap, $selectedComponents)) checked @endif>
+                        <label class="form-check-label" for="sikap{{ $loop->index }}"><b>{{ $sikap }}</b></label>
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="col-md-6">
+                <h5><b>Kognitif</b></h5>
+                @foreach (['Tugas', 'Quis', 'UTS', 'UAS'] as $kognitif)
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="kognitif{{ $loop->index }}" value="{{ $kognitif }}" 
+                        @if(in_array($kognitif, $selectedComponents)) checked @endif>
+                        <label class="form-check-label" for="kognitif{{ $loop->index }}"><b>{{ $kognitif }}</b></label>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+        <h4><b>Table Penilaian</b></h4>
+        <table class="table table-bordered mt-3" id="penilaianTable">
             <thead>
                 <tr>
-                    <th>Sub-CPMK</th>
-                    <th>Sangat Baik</th>
-                    <th class="text-center">Baik</th>
-                    <th class="text-center">Cukup</th>
-                    <th class="text-center">Kurang</th>
+                    <th>CPMK</th>
+                    <!-- Kolom untuk komponen penilaian akan ditambahkan di sini -->
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Sub-CPMK01</td>
-                    <td></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
-                <tr>
-                    <td>Sub-CPMK02</td>
-                    <td></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
-                <tr>
-                    <td>Sub-CPMK03</td>
-                    <td></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
+                @foreach ($data as $item)
+                    <tr class="penilaianRow" data-cpmk="{{ $item['KodeCPMK'] }}">
+                        <td>{{ $item['KodeCPMK'] }}</td>
+                        <!-- Nilai BobotPenilaian akan ditambahkan oleh JavaScript -->
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
-    <div class="container">
-        <a href="{{ route('komponenPenilaian') }}" class="text-decoration-none"><i class="bi bi-plus-circle"></i> Tambah Komponen Penilaian</a>
-    </div>
 
-    <div class="container mt-3">
-        <table class="table table-bordered table-responsive">
-            <thead id="thead-tableKomponen">
-                <tr>
-                    <th class="text-center">No</th>
-                    <th>Komponen Penilaian</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id="table-row">
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <button class="btn btn-danger float-end" type="button">Hapus</button>
-    </div>
-</div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const checkboxes = document.querySelectorAll('.form-check-input');
+        const tableHeader = document.querySelector('#penilaianTable thead tr');
+        const tableRows = document.querySelectorAll('#penilaianTable .penilaianRow');
+        const data = @json($data);
 
-<script>
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateTable);
+        });
 
-    // Melakukan function ketika halaman di buka
-    document.addEventListener("DOMContentLoaded", addColumnRow);
-
-    function addColumnRow() {
-        // Menginisialisasi table sub-CPMK
-        const s_CPMKtable = document.getElementById('table-subCPMK').getElementsByTagName('tbody')[0];
-        const jumlahRowCPMK = s_CPMKtable.rows.length;
-
-        // Menginisialisasi Head Column table komponen Penilaian
-        const tableHeadKomponen_p = document.getElementById('thead-tableKomponen').getElementsByTagName('tr')[0];
-        const table2Row = document.getElementById('table-row');
-        
-        for (let i = 1; i <= jumlahRowCPMK; i++) {
+        function updateTable() {
+            // Bersihkan header
+            tableHeader.innerHTML = '<th>CPMK</th>';
             
-            // Head Table Komponen Penilaian
-            const newHeader = document.createElement('th');
-            newHeader.textContent = `Sub-CPMK0${i}`;
-            newHeader.classList.add('text-center')
-            tableHeadKomponen_p.appendChild(newHeader);
+            // Dapatkan komponen terpilih
+            const selectedComponents = Array.from(
+                document.querySelectorAll('.form-check-input:checked')
+            ).map(cb => cb.value);
 
-            const newCell = document.createElement('td');
+            // Update header
+            selectedComponents.forEach(component => {
+                const th = document.createElement('th');
+                th.textContent = component;
+                tableHeader.appendChild(th);
+            });
 
-            // Isi Sub-CPMK table komponen penilaian
-            newCell.innerHTML = ``;
-            table2Row.appendChild(newCell);
-            table2Row.classList.add('text-center')
+            // Update isi tabel
+            tableRows.forEach(row => {
+                // Hapus kolom kecuali CPMK
+                const cells = row.querySelectorAll('td');
+                cells.forEach((cell, index) => {
+                    if (index > 0) cell.remove();
+                });
+
+                // Tambahkan kolom baru
+                const cpmk = row.dataset.cpmk;
+                selectedComponents.forEach(component => {
+                    const td = document.createElement('td');
+                    const nilai = data.find(
+                        item => item.KodeCPMK === cpmk && 
+                        item.KomponenPenilaian === component
+                    )?.BobotPenilaian || '';
+                    
+                    td.textContent = nilai;
+                    row.appendChild(td);
+                });
+            });
         }
-        
-        // Untuk menambahkan column Bobot
-        const newHeader = document.createElement('th');
-        newHeader.textContent = `Bobot`;
-        newHeader.classList.add('text-center')
-        tableHeadKomponen_p.appendChild(newHeader);
 
-        const newCell = document.createElement('td');
-
-        // Isi Bobot Komponen Peniliaian
-        newCell.innerHTML = ``;
-        table2Row.appendChild(newCell);
-    }
+        updateTable(); // Inisialisasi pertama
+    });
 </script>
+
+@endsection

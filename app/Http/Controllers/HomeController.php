@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Analisis;
 use App\Models\Login;
 use App\Models\RPS;
+use App\Models\BEP;
 use App\Models\StrukturMatkul;
 use Illuminate\Http\Request;
 
@@ -105,11 +106,17 @@ class HomeController extends Controller
     }
 
     // menampilkan halaman utama basis evaluasi pembelajaran
-    public function basis_evaluasi_main_page()
+    public function basis_evaluasi_main_page($IDSmtMkKlh)
     {
+        $session = [
+            "IDSession" => session('sessionID'),
+            'IDSmtMtKlh' => $IDSmtMkKlh
+        ];
+        $data = BEP::getBEP($session);
+        // dd($data);
         return view('landing_page.basis-evaluasi-mata-kuliah', [
             'title' => 'Basis Evaluasi Pembelajaran Page'
-        ]);
+        ],compact('data'));
     
     }
     

@@ -16,10 +16,9 @@ class BEP extends Model
     }
 
     // Function untuk mengambil data dari API berupa data
-    static function BEP($sessionId)
+    static function getBEP($session)
     {
-        $id = ['IDSession'=>$sessionId];
-        $response = Http::post(self::path("BEP"), $id);
+        $response = Http::post(self::path("asses/get"), $session);
         return $response->json();
     }
 }
