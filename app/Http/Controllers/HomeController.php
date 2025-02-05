@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     public function index(){
         $session = [
-            "sessionID" => session('sessionID')
+            "IDSession" => session('sessionID')
         ];
 
         $data = Login::dataMatkul($session);
@@ -33,7 +33,7 @@ class HomeController extends Controller
     // mengarah ke halaman landing_page/analisis.blade.php
     public function analisis($id){
         $session = [
-            "sessionID" => session('sessionID'),
+            "IDSession" => session('sessionID'),
             'IDSmtMtklh' => $id
         ];
 
@@ -67,14 +67,14 @@ class HomeController extends Controller
     public function analisis_main_page($idMatkul)
     {
         $session = [
-            "sessionID" => session('sessionID'),
+            "IDSession" => session('sessionID'),
             'IDSmtMtklh' => $idMatkul
         ];
 
         $result = [];
         // Mengambil data Analisis dan CPMK
         $dataAnalisis = Analisis::get($session);
-        $dataCPMK = Analisis::getCpmk($session['sessionID']);
+        $dataCPMK = Analisis::getCpmk($session['IDSession']);
 
         // Mengelompokkan data CPMK sesuai dengan CPLID
         $dataCPFilter = [];
@@ -178,7 +178,7 @@ class HomeController extends Controller
     public function profil()
     {
         $session = [
-            "sessionID" => session('sessionID')
+            "IDSession" => session('sessionID')
         ];
 
         $data = Login::userInfo($session);

@@ -23,7 +23,7 @@ class Login extends Model
 
     static function dataMatkul($sessionId)
     {
-        $response = Http::post(self::path("courses"), $sessionId);
+        $response = Http::post(self::path("courses/get"), $sessionId);
         return $response->json();
     }
 

@@ -35,7 +35,7 @@ class LoginController extends Controller
         // cek apakah response ada sessionID apa tidak
         if($response["IDSession"]) {
             $sessionID = [
-                "IDSession" => $response["IDSession"]
+                "IDSession  " => $response["IDSession"]
             ];
             
             $user_access = Login::getUserAccess($sessionID);
@@ -85,7 +85,7 @@ class LoginController extends Controller
     public function logout()
     {
         $session = [
-            "sessionID" => session('sessionID')
+            "IDSession" => session('sessionID')
         ];
 
         $data = Login::logout($session);

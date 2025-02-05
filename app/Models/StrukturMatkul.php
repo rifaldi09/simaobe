@@ -20,7 +20,7 @@ class StrukturMatkul extends Model
     // Function untuk mengambil data dari API berupa data bahan kajian
     static function bahanKajian($sessionId)
     {
-        $id = ['sessionID'=>$sessionId];
+        $id = ['IDSession'=>$sessionId];
         $response = Http::post(self::path("bok"), $id);
         return $response->json();
     }

@@ -45,7 +45,7 @@ class AnalisisController extends Controller
         $analisis = $data['analisis'];
 
         $transformedData = [
-            "sessionID" => session('sessionID'), // ID sesi
+            "IDSession" => session('sessionID'), // ID sesi
             "IDSmtMtklh" => $id, // ID semester mata kuliah
             "minggu" => [], // Array untuk data minggu
         ];
@@ -83,7 +83,7 @@ class AnalisisController extends Controller
     public function deleteAnalisis($id)
     {
         $session = [
-            "sessionID" => session('sessionID'),
+            "IDSession" => session('sessionID'),
             'IDSmtMtklh' => $id
         ];
 

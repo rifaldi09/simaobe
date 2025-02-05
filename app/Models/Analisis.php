@@ -25,7 +25,7 @@ class Analisis extends Model
 
     static function getCpl($sessionId)
     {
-        $id = ['sessionID'=>$sessionId];
+        $id = ['IDSession'=>$sessionId];
         $response = Http::post(self::path("lo"), $id);
         return $response->json();
     }

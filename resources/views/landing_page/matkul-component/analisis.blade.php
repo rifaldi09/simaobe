@@ -1,7 +1,6 @@
 {{-- Analisis --}}
 <div id="analisis" class="mx-5 mt-3">
-    <a href="/analisis-page/{{ $matkul_id }}" class="text-decoration-none {{ session("user_access")["AAP"][0]=="Input"
-        ? "visible" : "invisible" }}"><i class="bi bi-plus-circle"></i> Tambah</a>
+    <a href="/analisis-page/{{ $matkul_id }}" class="text-decoration-none "><i class="bi bi-plus-circle"></i> Tambah</a>
     @if(session('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('success') }}
