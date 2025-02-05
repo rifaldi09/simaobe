@@ -31,14 +31,14 @@ class LoginController extends Controller
         $response = Login::auth($data);
 
         // cek apakah response ada sessionID apa tidak
-        if($response["sessionID"]) {
+        if($response["IDSession"]) {
             $sessionID = [
-                "sessionID" => $response["sessionID"]
+                "IDSession  " => $response["IDSession"]
             ];
             
             $user_access = Login::getUserAccess($sessionID);
 
-            $request->session()->put("sessionID", $response["sessionID"]);
+            $request->session()->put("sessionID", $response["IDSession"]);
             $request->session()->put("user_access", $user_access);
             return redirect('/landing-page')->with('success', 'Berhasil Login');
         } else {
@@ -83,7 +83,7 @@ class LoginController extends Controller
     public function logout()
     {
         $session = [
-            "sessionID" => session('sessionID')
+            "IDSession" => session('sessionID')
         ];
 
         $data = Login::logout($session);
