@@ -91,26 +91,80 @@
 
             // Update isi tabel
             tableRows.forEach(row => {
-                // Hapus kolom kecuali CPMK
                 const cells = row.querySelectorAll('td');
                 cells.forEach((cell, index) => {
                     if (index > 0) cell.remove();
                 });
 
-                // Tambahkan kolom baru
                 const cpmk = row.dataset.cpmk;
+
                 selectedComponents.forEach(component => {
                     const td = document.createElement('td');
                     const nilai = data.find(
-                        item => item.KodeCPMK === cpmk && 
+                        item => item.KodeCPMK === cpmk &&
                         item.KomponenPenilaian === component
                     )?.BobotPenilaian || '';
-                    
-                    td.textContent = nilai;
+
+                    const input = document.createElement('input');
+                    input.type = 'number';
+                    input.className = 'form-control';
+                    input.value = nilai;
+                    input.dataset.cpmk = cpmk;
+                    input.dataset.component = component;
+
+                    // Perbarui total global setiap kali input berubah
+                    input.addEventListener('input', updateGlobalTotal);
+
+                    td.appendChild(input);
                     row.appendChild(td);
                 });
             });
+
+            addGlobalTotalRow();
         }
+
+        function addGlobalTotalRow() {
+            let totalRow = document.querySelector('#penilaianTable tfoot');
+            if (!totalRow) {
+                totalRow = document.createElement('tfoot');
+                const totalRowElement = document.createElement('tr');
+                const totalTd = document.createElement('td');
+                totalTd.colSpan = tableHeader.children.length;
+                totalTd.className = 'text-center fw-bold';
+                totalTd.id = 'globalTotalCell';
+                totalRowElement.appendChild(totalTd);
+                totalRow.appendChild(totalRowElement);
+                document.querySelector('#penilaianTable').appendChild(totalRow);
+            }
+            updateGlobalTotal(); // Hitung total pertama kali
+        }
+
+        function updateGlobalTotal() {
+            let totalValue = 0;
+            const inputs = document.querySelectorAll('#penilaianTable input[type="number"]');
+
+            inputs.forEach(input => {
+                totalValue += parseFloat(input.value) || 0;
+            });
+            
+            const allInputs = document.querySelectorAll('#penilaianTable tbody input[type="number"]');
+
+            if (totalValue >= 100) {
+                allInputs.forEach(input => {
+                    input.disabled = true;
+                });
+            } else {
+                allInputs.forEach(input => {
+                    input.disabled = false;
+                });
+            }
+
+            const totalCell = document.querySelector('#globalTotalCell');
+            if (totalCell) {
+                totalCell.textContent = `Total Keseluruhan Nilai: ${totalValue.toFixed(2)}`;
+            }
+        }
+
 
         updateTable(); // Inisialisasi pertama
     });
