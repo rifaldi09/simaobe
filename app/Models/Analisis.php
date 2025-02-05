@@ -38,7 +38,7 @@ class Analisis extends Model
     }
 
     static function create($data){
-        $response = Http::post(self::path("aap"),$data);
+        $response = Http::post(self::path("aap/post"),$data);
         return $response->json();
     }
 

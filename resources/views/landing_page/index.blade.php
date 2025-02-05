@@ -60,7 +60,7 @@
                 <ul class="submenu">
                     {{-- <li><a href="/struktur-mata-kuliah/{{ $mata_kuliah["IDSmtMtklh"] }}" onclick="event.preventDefault(); openInNewWindow(this.href);"
                         class="nav-link">Struktur Mata Kuliah</a></li> --}}
-                    <li><a href="/analisis-matkul-page/{{ $mata_kuliah["IDSmtMtKlh"] }}" onclick="event.preventDefault(); openInNewWindow(this.href);"
+                    <li><a href="/analisis-matkul-page/{{ $mata_kuliah["IDSmtMtKlh"] }}/{{ $mata_kuliah["NamaMtKlh"] }}" onclick="event.preventDefault(); openInNewWindow(this.href);"
                             class="nav-link">Analisis Pembelajaran</a></li>
                     <li><a href="/rencana-pembelajaran-matkul-page/{{ $mata_kuliah["IDSmtMtKlh"] }}"
                             onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Rencana

@@ -64,7 +64,7 @@ class HomeController extends Controller
     }
 
     // menampilkan halaman utama analisis pembelajaran
-    public function analisis_main_page($idMatkul)
+    public function analisis_main_page($idMatkul, $NamaMtKlh)
     {
         $session = [
             "IDSession" => session('sessionID'),
@@ -96,11 +96,12 @@ class HomeController extends Controller
         }
 
         $matkul_id = $idMatkul;
+        $nama_matkul = $NamaMtKlh;
 
         // Mengembalikan data yang sudah di gabungkan ke dalam view
         return view('landing_page.analisis-mata-kuliah', [
             'title' => 'Analisis Pembelajaran Page',
-        ], compact('result', 'matkul_id', 'dataAnalisis'));
+        ], compact('result', 'matkul_id', 'dataAnalisis', 'nama_matkul'));
     }
 
     // menampilkan halaman utama basis evaluasi pembelajaran
