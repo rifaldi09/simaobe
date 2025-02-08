@@ -10,38 +10,33 @@ class Login extends Model
 {
     use HasFactory;
 
-    static function path($param = null)
-    {
-        return "http://148.135.137.186:54312/" . $param;
-    }
-
     static function auth($data)
     {
-        $response = Http::post(self::path("login"), $data);
+        $response = Http::post(env('API_URL')."login", $data);
         return $response->json();
     }
 
     static function dataMatkul($sessionId)
     {
-        $response = Http::post(self::path("courses/get"), $sessionId);
+        $response = Http::post(env('API_URL')."courses/get", $sessionId);
         return $response->json();
     }
 
     static function userInfo($sessionId)
     {   
-        $response = Http::post(self::path("info"), $sessionId);
+        $response = Http::post(env('API_URL') . "info", $sessionId);
         return $response->json();
     }
 
     static function getUserAccess($sessionId)
     {
-        $response = Http::post(self::path("auth"), $sessionId);
+        $response = Http::post(env('API_URL') . "auth", $sessionId);
         return $response->json();
     }
 
     static function logout($data)
     {
-        $response = Http::post(self::path("login/quit"), $data);
+        $response = Http::post(env('API_URL') . "login/quit", $data);
         return $response->json();
     }
 

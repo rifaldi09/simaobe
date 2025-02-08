@@ -46,7 +46,7 @@
                 @enderror
             </div>
             <button type="submit" class="btn-masuk">Masuk</button>
-            <a href="/regis" class="forgot-password">Register</a>
+            {{-- <a href="/regis" class="forgot-password">Register</a> --}}
         </form>
     </div>
 </div>

@@ -36,7 +36,7 @@
 </header>
 
 <!-- Sidebar -->
-<div class="sidebar" id="sidebar">
+<div class="sidebar active" id="sidebar">
     <div class="sidebar-content">
         <div class="sidebar-header">
             <span class="sidebar-title">
