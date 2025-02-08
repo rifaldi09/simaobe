@@ -20,6 +20,8 @@
         @endphp
 
         <div class="row">
+
+            {{-- Untuk menampilkan list SIKAP dan PENGETAHUN sebagai check list --}}
             @foreach ($namaKelompok as $Kelompok)
                 <div class="col-md-6">
                     <h5><b>{{ $Kelompok }}</b></h5>
@@ -37,23 +39,26 @@
         </div>
 
         <h4><b>Table Penilaian</b></h4>
-        <form id="formBobot" action="{{ route('basis-evaluasi-post-data') }}" method="post" enctype="multipart/form-data">
+        <form id="formBobot" action="{{ route('basis-evaluasi-post-data',$IDSmtMkKlh,) }}" method="post" enctype="multipart/form-data">
         @csrf
         <table class="table table-bordered mt-3" id="penilaianTable">
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th>CPMK</th>
                     <!-- Kolom untuk komponen penilaian akan ditambahkan di sini -->
                 </tr>
             </thead>
             <tbody>
                 @php
+                    // Menseleksi jika terdapat data yang sama atau tidak
                     $CPMK = array_unique(array_column($data, 'KodeCPMK'))
                 @endphp
                 @foreach ($CPMK as $item)
                 <tr class="penilaianRow" data-cpmk="{{ $item }}">
                     <td>{{ $item }}</td>
                     <!-- Nilai BobotPenilaian akan ditambahkan oleh JavaScript -->
+                    {{--! MASIH ADA ERROR DI BAGIAN INPUTAN DATA NYA --}}
+                    {{--! JIKA MENEKAN ENTER CUMAN TAG INPUT YANG PERTAMA YANG BISA, YANG LAINNYA GAK BER FUNGSI --}}
                 </tr>
                 @endforeach
             </tbody>
@@ -96,19 +101,24 @@
                 });
 
                 const cpmk = row.dataset.cpmk;
+                const cpmkData = data.find(item => item.KodeCPMK === cpmk);
+                const IDCpmk = cpmkData ? cpmkData.IDKodeCPMK : '';
 
                 selectedComponents.forEach(component => {
                     const td = document.createElement('td');
                     const nilai = data.find(
                         item => item.KodeCPMK === cpmk &&
                         item.KomponenPenilaian === component
-                    )?.BobotPenilaian ||'';
+                    )?.BobotPenilaian ||'0';
+
+                    const komponenData = data.find(item => item.KomponenPenilaian === component);
+                    const IDKomponen = komponenData ? komponenData.IDKomponenPenilaian : '';
 
                     const input = document.createElement('input');
                     input.type = 'number';
-                    input.className = 'form-control';
+                    input.className = 'form-control text-center';
                     input.value = nilai;
-                    input.setAttribute('name',`BobotPenilaian[${cpmk}][${component}]`)
+                    input.setAttribute('name',`BobotPenilaian[${IDCpmk}][${IDKomponen}]`)
                     input.setAttribute('id','inputBobotPenilaian')
                     input.dataset.cpmk = cpmk;
                     input.dataset.component = component;

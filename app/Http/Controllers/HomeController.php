@@ -119,7 +119,7 @@ class HomeController extends Controller
         // dd($data);
         return view('landing_page.basis-evaluasi-mata-kuliah', [
             'title' => 'Basis Evaluasi Pembelajaran Page'
-        ],compact('data','dataKP', 'nama_matkul'));
+        ],compact('data','dataKP', 'nama_matkul', 'IDSmtMkKlh'));
     
     }
     

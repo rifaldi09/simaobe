@@ -7,24 +7,36 @@ use App\Models\BEP;
 
 class BEPController extends Controller
 {
-    public function basis_evaluasi_post_data(Request $request){
+    public function basis_evaluasi_post_data(Request $request, $IDSmtMkKlh){
         try {
-
             $data = $request->input('BobotPenilaian');
-            $formattedData = []; // Array untuk menampung hasil yang diinginkan
+            $DataPostBEP = []; // Array untuk menampung data dari inputan
+
 
             foreach ($data as $cpmk => $nilai) {
                 foreach ($nilai as $penilaian => $nilaiItem) {
                     if (!empty($nilaiItem)) { // Hanya simpan yang tidak kosong
-                        $formattedData[] = [
-                            "Penilaian" => $penilaian,
-                            "CPMK" => $cpmk,
-                            "Nilai" => $nilaiItem
+                        $DataPostBEP[] = [
+                            "IDSession" => session('sessionID'),
+                            "IDSmtMtKlh" => $IDSmtMkKlh,
+                            "IDKodeCPMK" => $penilaian,
+                            "IDKomponenPenilaian" => $cpmk,
+                            "BobotPenilaian" => $nilaiItem
                         ];
                     }
                 }
             }
-            dd($data);
+
+            //* cuman menampilkan hasil dari inputan data nya
+            dd($DataPostBEP);
+            
+            //! Ini untuk mengirim data ke API
+            // $response = BEP::postBEP($DataPostBEP);
+            // if ($response) {
+            //     return back();
+            // } else {
+            //     return back();
+            // }
 
         } catch (\Exception $e) {
             return response()->json([
