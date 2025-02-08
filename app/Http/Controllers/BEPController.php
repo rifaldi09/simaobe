@@ -24,7 +24,7 @@ class BEPController extends Controller
                     }
                 }
             }
-            dd($formattedData);
+            dd($data);
 
         } catch (\Exception $e) {
             return response()->json([

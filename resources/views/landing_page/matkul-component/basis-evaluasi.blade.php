@@ -47,9 +47,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($data as $item)
-                <tr class="penilaianRow" data-cpmk="{{ $item['KodeCPMK'] }}">
-                    <td>{{ $item['KodeCPMK'] }}</td>
+                @php
+                    $CPMK = array_unique(array_column($data, 'KodeCPMK'))
+                @endphp
+                @foreach ($CPMK as $item)
+                <tr class="penilaianRow" data-cpmk="{{ $item }}">
+                    <td>{{ $item }}</td>
                     <!-- Nilai BobotPenilaian akan ditambahkan oleh JavaScript -->
                 </tr>
                 @endforeach
@@ -96,20 +99,16 @@
 
                 selectedComponents.forEach(component => {
                     const td = document.createElement('td');
-                    const dataTable = data.find(
+                    const nilai = data.find(
                         item => item.KodeCPMK === cpmk &&
                         item.KomponenPenilaian === component
-                    )||{};
-
-                    const nilai = dataTable.BobotPenilaian||'';
-                    const IDKomponen = data.map(item => item.IDKomponenPenilaian);
-                    const IDCPMK = data.map(item=>item.IDKodeCPMK);
+                    )?.BobotPenilaian ||'';
 
                     const input = document.createElement('input');
                     input.type = 'number';
                     input.className = 'form-control';
                     input.value = nilai;
-                    input.setAttribute('name',`BobotPenilaian[${IDKomponen}][${IDCPMK}]`)
+                    input.setAttribute('name',`BobotPenilaian[${cpmk}][${component}]`)
                     input.setAttribute('id','inputBobotPenilaian')
                     input.dataset.cpmk = cpmk;
                     input.dataset.component = component;
