@@ -37,8 +37,6 @@
         </div>
 
         <h4><b>Table Penilaian</b></h4>
-        <form id="formBobot" action="{{ route('basis-evaluasi-post-data') }}" method="post" enctype="multipart/form-data">
-        @csrf
         <table class="table table-bordered mt-3" id="penilaianTable">
             <thead>
                 <tr>
@@ -55,7 +53,6 @@
                 @endforeach
             </tbody>
         </table>
-        </form>
     </div>
 
     <script>
@@ -96,21 +93,15 @@
 
                 selectedComponents.forEach(component => {
                     const td = document.createElement('td');
-                    const dataTable = data.find(
+                    const nilai = data.find(
                         item => item.KodeCPMK === cpmk &&
                         item.KomponenPenilaian === component
-                    )||{};
-
-                    const nilai = dataTable.BobotPenilaian||'';
-                    const IDKomponen = data.map(item => item.IDKomponenPenilaian);
-                    const IDCPMK = data.map(item=>item.IDKodeCPMK);
+                    )?.BobotPenilaian || '';
 
                     const input = document.createElement('input');
                     input.type = 'number';
                     input.className = 'form-control';
                     input.value = nilai;
-                    input.setAttribute('name',`BobotPenilaian[${IDKomponen}][${IDCPMK}]`)
-                    input.setAttribute('id','inputBobotPenilaian')
                     input.dataset.cpmk = cpmk;
                     input.dataset.component = component;
 
@@ -151,7 +142,7 @@
             
             const allInputs = document.querySelectorAll('#penilaianTable tbody input[type="number"]');
 
-            if (totalValue >= 1000) {
+            if (totalValue >= 100) {
                 allInputs.forEach(input => {
                     input.disabled = true;
                 });
@@ -169,12 +160,6 @@
 
 
         updateTable(); // Inisialisasi pertama
-        document.getElementById("inputBobotPenilaian").addEventListener("keydown", function(event) {
-            if (event.key === "Enter") { // Cek jika tombol Enter ditekan
-                event.preventDefault(); // Mencegah form dikirim secara default jika ada perilaku lain
-                document.getElementById("formBobot").submit(); // Kirim form secara manual
-            }
-        });
     });
     </script>
 

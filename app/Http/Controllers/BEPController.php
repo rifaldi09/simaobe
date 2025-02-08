@@ -7,29 +7,24 @@ use App\Models\BEP;
 
 class BEPController extends Controller
 {
-    public function store(Request $request){
+    public function basis_evaluasi_post_data(Request $request){
         try {
-            $validated = $request->validate([
-                'komponen_penilaian' => 'required|string',
-                'subcpmk01' => 'numeric',
-                'subcpmk02' => 'numeric',
-                'subcpmk03' => 'numeric',
-                'boot' => 'required|numeric'
-            ]);
 
-            $kp = BEP::create([
-                'komponen_penilaian' => $request->komponen_penilaian,
-                'subcpmk01' => $request->subcpmk01,
-                'subcpmk02' => $request->subcpmk02,
-                'subcpmk03' => $request->subcpmk03,
-                'boot' => $request->bobot
-            ]);
+            $data = $request->input('BobotPenilaian');
+            $formattedData = []; // Array untuk menampung hasil yang diinginkan
 
-            return response()->json([
-                'status' => true,
-                'message' => 'Data berhasil disimpan',
-                'data' => $kp
-            ], 201);
+            foreach ($data as $cpmk => $nilai) {
+                foreach ($nilai as $penilaian => $nilaiItem) {
+                    if (!empty($nilaiItem)) { // Hanya simpan yang tidak kosong
+                        $formattedData[] = [
+                            "Penilaian" => $penilaian,
+                            "CPMK" => $cpmk,
+                            "Nilai" => $nilaiItem
+                        ];
+                    }
+                }
+            }
+            dd($formattedData);
 
         } catch (\Exception $e) {
             return response()->json([
