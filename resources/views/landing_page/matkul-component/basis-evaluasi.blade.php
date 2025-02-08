@@ -16,31 +16,24 @@
 
         @php
         $selectedComponents = array_column($data, 'KomponenPenilaian');
+        $namaKelompok = array_unique(array_column($dataKP, 'KelompokPenilaian'))
         @endphp
 
         <div class="row">
-            <div class="col-md-6">
-                <h5><b>Sikap</b></h5>
-                @foreach (['Aktifitas Partisipatif', 'Team Based Project (TBP)', 'Case Based Method', 'Presensi'] as
-                $sikap)
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="sikap{{ $loop->index }}" value="{{ $sikap }}"
-                        @if(in_array($sikap, $selectedComponents)) checked @endif>
-                    <label class="form-check-label" for="sikap{{ $loop->index }}"><b>{{ $sikap }}</b></label>
+            @foreach ($namaKelompok as $Kelompok)
+                <div class="col-md-6">
+                    <h5><b>{{ $Kelompok }}</b></h5>
+                    @foreach ($dataKP as $dataKomponen)
+                        @if ($dataKomponen['KelompokPenilaian']===$Kelompok)
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="sikap{{ $loop->index }}" value="{{ $dataKomponen['KomponenPenilaian'] }}"
+                                    @if(in_array($dataKomponen['KomponenPenilaian'] , $selectedComponents)) checked @endif>
+                                <label class="form-check-label" for="sikap{{ $loop->index }}"><b>{{ $dataKomponen['KomponenPenilaian'] }}</b></label>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
-                @endforeach
-            </div>
-
-            <div class="col-md-6">
-                <h5><b>Kognitif</b></h5>
-                @foreach (['Tugas', 'Quis', 'UTS', 'UAS'] as $kognitif)
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="kognitif{{ $loop->index }}"
-                        value="{{ $kognitif }}" @if(in_array($kognitif, $selectedComponents)) checked @endif>
-                    <label class="form-check-label" for="kognitif{{ $loop->index }}"><b>{{ $kognitif }}</b></label>
-                </div>
-                @endforeach
-            </div>
+            @endforeach
         </div>
 
         <h4><b>Table Penilaian</b></h4>

@@ -113,12 +113,13 @@ class HomeController extends Controller
             'IDSmtMtKlh' => $IDSmtMkKlh
         ];
         $data = BEP::getBEP($session);
+        $dataKP = BEP::getKomponenPenilaian($session);
 
         $nama_matkul = $NamaMtKlh;
         // dd($data);
         return view('landing_page.basis-evaluasi-mata-kuliah', [
             'title' => 'Basis Evaluasi Pembelajaran Page'
-        ],compact('data', 'nama_matkul'));
+        ],compact('data','dataKP', 'nama_matkul'));
     
     }
     

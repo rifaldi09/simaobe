@@ -21,4 +21,14 @@ class BEP extends Model
         $response = Http::post(self::path("asses/get"), $session);
         return $response->json();
     }
+    static function postBEP($data)
+    {
+        $response = Http::post(self::path("asses/post"), $data);
+        return $response->json();
+    }
+    static function getKomponenPenilaian($session)
+    {
+        $response = Http::post(self::path("komponenpenilaian/get"), $session);
+        return $response->json();
+    }
 }
