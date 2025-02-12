@@ -7,6 +7,7 @@ use App\Models\Login;
 use App\Models\RPS;
 use App\Models\BEP;
 use App\Models\StrukturMatkul;
+use App\Models\KelasNilaiMKDosen;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -195,6 +196,17 @@ class HomeController extends Controller
         $data = Login::userInfo($session);
         return view('profil', [
             'title' => 'My Profil'
+        ], compact('data'));
+    }
+    public function daftarKelasMKDosen()
+    {
+        $session = [
+            "IDSession" => session('sessionID')
+        ];
+
+        $data = KelasNilaiMKDosen::getDaftarKelasDosen($session);
+        return view('daftarKelasDosen', [
+            'title' => 'Daftar Kelas Dosen'
         ], compact('data'));
     }
 }
