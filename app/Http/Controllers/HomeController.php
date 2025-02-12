@@ -127,9 +127,10 @@ class HomeController extends Controller
     // menampilkan halaman utama rencana pembelajaran semester
     public function rencana_pembelajaran_main_page($idMatkul, $NamaMtKlh)
     {
+        $nama_matkul = $NamaMtKlh;
         return view('landing_page.rencana-pembelajaran-mata-kuliah', [
             'title' => 'Rencana Pembelajaran Semester Page'
-        ]);
+        ],compact('nama_matkul'));
     }
 
     // menampilkan halaman penilaian sub cpmk

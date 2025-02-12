@@ -3,7 +3,7 @@
 @section('content')
 <header>
     <div class="text-center">
-        <h1 class="fw-bold font-outfit">NAMA MATA KULIAH</h1>
+        <h1 class="fw-bold font-outfit">{{ $nama_matkul }}</h1>
     </div>
     <div class="tabs-bg float-start py-2 w-100 mb-3">
         <span id="analisis" class="ms-5 text-outline-yellow">Rencanan Pembelajaran Semester</span>
