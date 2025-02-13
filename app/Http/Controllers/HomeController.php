@@ -117,7 +117,7 @@ class HomeController extends Controller
         $dataKP = BEP::getKomponenPenilaian($session);
 
         $nama_matkul = $NamaMtKlh;
-        // dd($data);
+        // dd($dataKP);
         return view('landing_page.basis-evaluasi-mata-kuliah', [
             'title' => 'Basis Evaluasi Pembelajaran Page'
         ],compact('data','dataKP', 'nama_matkul', 'IDSmtMkKlh'));
@@ -199,6 +199,7 @@ class HomeController extends Controller
             'title' => 'My Profil'
         ], compact('data'));
     }
+
     public function daftarKelasMKDosen()
     {
         $session = [
@@ -208,6 +209,20 @@ class HomeController extends Controller
         $data = KelasNilaiMKDosen::getDaftarKelasDosen($session);
         return view('daftarKelasDosen', [
             'title' => 'Daftar Kelas Dosen'
+        ], compact('data'));
+    }
+
+    public function tableNilaiMK($idCourse)
+    {
+        $session = [
+            "IDSession" => session('sessionID'),
+            "IDCourseClass" => $idCourse
+        ];
+        
+        $data = KelasNilaiMKDosen::getNilaiMK($session);
+        // dd($data);
+        return view('nilaiKelasMKS', [
+            'title' => 'Nilai Kelas Matkul'
         ], compact('data'));
     }
 }

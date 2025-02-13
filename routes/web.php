@@ -60,6 +60,7 @@ Route::middleware("isLogin")->group(function() {
     // route input
     Route::post('/create-kp', [BEPController::class, 'store'])->name('kp');
     Route::get('/daftar-kelas-dosen', [HomeController::class, 'daftarKelasMKDosen'])->name('daftar-kelas-dosen');
+    Route::get('/table-nilai-mk/{idCourse}', [HomeController::class, 'tableNilaiMK'])->name('table-nilai-mk');
     // Route::post('/analisis', [AnalisisController::class, 'create'])->name('analisis.create');
     
 });

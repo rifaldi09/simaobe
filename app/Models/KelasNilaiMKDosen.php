@@ -14,4 +14,9 @@ class KelasNilaiMKDosen extends Model
         $response = Http::post(env('API_URL') . "teachingclass/get", $session);
         return $response->json();
     }
+    static function getNilaiMK($session)
+    {
+        $response = Http::post(env('API_URL') . "classgrading/get", $session);
+        return $response->json();
+    }
 }
