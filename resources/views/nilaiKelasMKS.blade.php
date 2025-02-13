@@ -18,18 +18,8 @@
             <th rowspan="2">No</th>
             <th rowspan="2">NIM</th>
             <th rowspan="2">Nama Mahasiswa</th>
-            @foreach ($data[0] as $key => $value)
-            @php
-                $penilian = explode("_",$key)[0];
-                $judulTabel = [];
-                if (!in_array($penilian, $judulTabel)) {
-                    $judulTabel[$key] = $penilian; 
-                }
-            @endphp
-            @endforeach
-            @foreach ($judulTabel as $judul)
-                
-            <th colspan="3">{{ $judul }}</th>
+            @foreach ($datas as $key => $value)
+            <th colspan="3">{{ $value }}</th>
             @endforeach
         </tr>
         <tr>
