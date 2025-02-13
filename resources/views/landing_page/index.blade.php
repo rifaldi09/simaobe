@@ -86,6 +86,40 @@
                 </h4>
             </span>
         </div>
+
+        {{-- rekap data --}}
+        <li class="menu-item list-unstyled">
+            <a href="#" class="menu-link">
+                <ul>
+                    <span>Mengambil data rekapan OBE</span>
+                </ul>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="chevron-icon">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <ul>
+                        <a href="/rekap-sc" onclick="event.preventDefault(); openInNewWindow(this.href);"
+                        class="nav-link">Rekap capaian OBE mahasiswa per kelas mata kuliah</a>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <a href="/rekap-cs" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Rekap capaian OBE per kelas mata kuliah</a>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <a href="/rekap-cc" onclick="event.preventDefault(); openInNewWindow(this.href);" class="nav-link">Rekap capaian OBE per mata kuliah semester</a>
+                        </ul>
+                </li>
+            </ul>
+        </li>
+        {{-- end rekap data --}}
+
     </div>
 </div>
 
