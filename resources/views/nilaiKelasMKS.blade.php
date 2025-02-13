@@ -18,10 +18,11 @@
             <th rowspan="2">No</th>
             <th rowspan="2">NIM</th>
             <th rowspan="2">Nama Mahasiswa</th>
-            @foreach ($datas as $key => $value)
-            <th colspan="3">{{ $value }}</th>
+            @foreach ($dataP as $key => $value)
+            <th colspan="3">{{ $key }}</th>
             @endforeach
         </tr>
+        
         <tr>
             <th>cpmk</th>
             <th>cpmk</th>

@@ -221,17 +221,18 @@ class HomeController extends Controller
         
         $data = KelasNilaiMKDosen::getNilaiMK($session);
         $dataP = [];
+
+        // dd($data[0]);
         foreach ($data[0] as $key => $value) {
             if (strpos($key,"CPMK") !== false) {
-                $dataP[] = explode('_',$key)[0];
+                $baseKey = explode('_',$key)[0];
+                $cpmkKey = explode('_',$key)[1];
+                $dataP[$baseKey][] = $cpmkKey;
             }
         }
 
-        $datas = array_unique($dataP);
-        // dd($datas);
-
         return view('nilaiKelasMKS', [
             'title' => 'Nilai Kelas Matkul'
-        ], compact('data','datas'));
+        ], compact('data','dataP'));
     }
 }
