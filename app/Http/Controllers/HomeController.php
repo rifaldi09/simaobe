@@ -222,7 +222,7 @@ class HomeController extends Controller
         $data = KelasNilaiMKDosen::getNilaiMK($session);
         $dataP = [];
 
-        // dd($data[0]);
+        // dd($data);
         foreach ($data[0] as $key => $value) {
             if (strpos($key,"CPMK") !== false) {
                 $baseKey = explode('_',$key)[0];

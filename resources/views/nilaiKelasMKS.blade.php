@@ -13,28 +13,34 @@
 <main>
     
     <table class="table">
-        
-        <tr>
+        <tr class="text-center">
             <th rowspan="2">No</th>
             <th rowspan="2">NIM</th>
             <th rowspan="2">Nama Mahasiswa</th>
             @foreach ($dataP as $key => $value)
-            <th colspan="3">{{ $key }}</th>
+                <th colspan="{{ count($value) }}">{{ $key }}</th>
             @endforeach
         </tr>
-        
-        <tr>
-            <th>cpmk</th>
-            <th>cpmk</th>
-            <th>cpmk</th>
-            <th>cpmk</th>
-            <th>cpmk</th>
+    
+        <tr class="text-center">
+            @foreach ($dataP as $key => $value)
+                @foreach ($value as $cpmk)
+                    <th>{{ $cpmk }}</th>
+                @endforeach
+            @endforeach
         </tr>
-        <tr>
-            <td>1</td>
-            <td>23123423</td>
-            <td>Holder</td>
-        </tr>
+        @foreach ($data as $key => $value)
+        <tr class="text-center">
+                <td>{{ ++$key }}</td>
+                <td>{{ $value["NIM"] }}</td>
+                <td>{{ $value["Mahasiswa"] }}</td>
+                @foreach ($dataP as $key => $item)
+                    @foreach ($item as $cpmk)
+                        <td>{{ $value[$key . '_' . $cpmk] ?? '-' }}</td>
+                    @endforeach
+                @endforeach
+            </tr>
+        @endforeach
     </table>
 </main>
 
