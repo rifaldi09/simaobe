@@ -230,13 +230,9 @@ class HomeController extends Controller
                 $cpmkKey = explode('_',$key)[1];
                 $dataP[$baseKey][] = $cpmkKey;
             }
-            if (strpos($key,"CPMK") !== false) {
-                $baseKey = explode('_',$key)[0];
-                $cpmkKey = explode('_', $value)[0];
-                $dataR[$baseKey][] = $cpmkKey;
-            }
         }
-        // dd($dataR);
+        
+
         return view('nilaiKelasMKS', [
             'title' => 'Nilai Kelas Matkul'
         ], compact('data','dataP','dataR'));

@@ -27,7 +27,7 @@
                 </div>
             </div>
             <table class=" table table-bordered" style="font-size:12px">
-                <tr class="text-center">
+                <tr class="text-center align-middle">
                     <th rowspan="2">No</th>
                     <th rowspan="2">NIM</th>
                     <th rowspan="2">Nama Mahasiswa</th>
@@ -49,7 +49,7 @@
                 </tr>
                 @foreach ($data as $key => $value)
                 <tr>
-                        <td>{{ ++$key }}</td>
+                        <td class="text-center">{{ ++$key }}</td>
                         <td>{{ $value["NIM"] }}</td>
                         <td>{{ $value["Mahasiswa"] }}</td>
                         @foreach ($dataP as $key => $item)
@@ -57,11 +57,12 @@
                                 <td class="text-center">{{ $value[$key . '_' . $cpmk] ?? '0' }}</td>
                             @endforeach
                         @endforeach
-                        {{-- @foreach ($dataR as $key => $value)
-                        @foreach ($value as $data)
-                            <td>{{ $data }}</td>
+                        @foreach ($dataP as $kunci => $isi)
+                        @if (isset($value[$kunci]))
+                            <td class="text-center">{{ $value[$kunci] }}</td>
+                        @endif
                         @endforeach
-                        @endforeach --}}
+                        <td class="text-center">{{ $value['Grade'] }}</td>
                     </tr>
                 @endforeach
             </table>
