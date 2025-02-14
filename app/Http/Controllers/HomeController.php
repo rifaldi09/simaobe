@@ -220,21 +220,34 @@ class HomeController extends Controller
         ];
         
         $data = KelasNilaiMKDosen::getNilaiMK($session);
-        $dataP = [];
-        $dataR = [];
+        $dataUnduh = KelasNilaiMKDosen::unduhFileNilaiMK($session);
 
-        // dd($data);
-        foreach ($data[0] as $key => $value) {
+        //! I dont know WTF is this, but it works (maybe?)
+        //* dibuat agar data CPMK lebih dinamis yang dimana jika 1 mahasiswa terdapat lebih banyak CPMk dari yang lain (kira-kira seperti itu)
+        $dataP = [];
+        $dataWithMaxKeys = array_filter($data, fn($item) => count($item) === max(array_map('count', $data)));
+        $dataWithMaxKeys = array_values($dataWithMaxKeys);
+        foreach ($dataWithMaxKeys[0] as $key => $value) {
             if (strpos($key,"CPMK") !== false) {
                 $baseKey = explode('_',$key)[0];
                 $cpmkKey = explode('_',$key)[1];
                 $dataP[$baseKey][] = $cpmkKey;
             }
         }
-        
 
         return view('nilaiKelasMKS', [
             'title' => 'Nilai Kelas Matkul'
-        ], compact('data','dataP','dataR'));
+        ], compact('data','dataP', 'idCourse'));
+    }
+
+    function unduhNilaiMK($idCourse){
+        $session = [
+            "IDSession" => session('sessionID'),
+            "IDCourseClass" => $idCourse
+        ];
+
+        $dataUnduh = KelasNilaiMKDosen::unduhFileNilaiMK($session);
+
+        return response($dataUnduh)->header('Content-Type','application/xlsx')->header('Content-Disposition', 'attachment; filename="Daftar Nilai Peserta Kelas Matkul Semester.xlsx"');
     }
 }

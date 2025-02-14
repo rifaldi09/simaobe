@@ -18,10 +18,10 @@
                         <button class="btn btn-primary align-self-start ms-2">Upload</button>
                     </form>
                 <div class="d-flex">
-                    <form action="" method="post" enctype="multipart/form-data">
-                        <button class="btn btn-success mb-2">Unduh</button>
+                    <form action="{{ route('unduh-nilai-mk',$idCourse) }}" method="get" enctype="multipart/form-data">
+                        <button class="btn btn-success ms-2">Unduh</button>
                     </form>
-                    <form action="" method="post">
+                    <form action="" method="post" enctype="multipart/form-data">
                         <button class="btn btn-danger ms-2">Print</button>
                     </form>
                 </div>

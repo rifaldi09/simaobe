@@ -60,9 +60,11 @@ Route::middleware("isLogin")->group(function() {
     Route::post('/create-analisis/{id}', [AnalisisController::class, 'create'])->name('analisis.create');
     // route input
     Route::post('/create-kp', [BEPController::class, 'store'])->name('kp');
+    // Route::post('/analisis', [AnalisisController::class, 'create'])->name('analisis.create');
+
     Route::get('/daftar-kelas-dosen', [HomeController::class, 'daftarKelasMKDosen'])->name('daftar-kelas-dosen');
     Route::get('/table-nilai-mk/{idCourse}', [HomeController::class, 'tableNilaiMK'])->name('table-nilai-mk');
-    // Route::post('/analisis', [AnalisisController::class, 'create'])->name('analisis.create');
+    Route::get('/unduh-nilai_mk/{idCourse}', [HomeController::class, 'unduhNilaiMK'])->name('unduh-nilai-mk');
 
     // route untuk rekap capaian
     Route::get('/rekap-sc', [RekapController::class, 'rekapSC']);

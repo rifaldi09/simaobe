@@ -19,4 +19,9 @@ class KelasNilaiMKDosen extends Model
         $response = Http::post(env('API_URL') . "classgrading/get", $session);
         return $response->json();
     }
+    static function unduhFileNilaiMK($session)
+    {
+        $response = Http::post(env('API_URL') . "classgrading/unduh", $session);
+        return $response->body();
+    }
 }
