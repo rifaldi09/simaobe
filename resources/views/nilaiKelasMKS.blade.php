@@ -21,9 +21,7 @@
                     <form action="{{ route('unduh-nilai-mk',$idCourse) }}" method="get" enctype="multipart/form-data">
                         <button class="btn btn-success ms-2">Unduh</button>
                     </form>
-                    <form action="" method="post" enctype="multipart/form-data">
-                        <button class="btn btn-danger ms-2">Print</button>
-                    </form>
+                    <a href="{{ route('print-nilai-mk',$idCourse) }}" target="_blank" class="btn btn-danger ms-2 align-self-start">Print</a>
                 </div>
             </div>
             <table class=" table table-bordered" style="font-size:12px">

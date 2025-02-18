@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AnalisisController;
+use App\Http\Controllers\NilaiKelasMKControler;
 use App\Http\Controllers\RekapController;
 
 /*
@@ -62,9 +63,10 @@ Route::middleware("isLogin")->group(function() {
     Route::post('/create-kp', [BEPController::class, 'store'])->name('kp');
     // Route::post('/analisis', [AnalisisController::class, 'create'])->name('analisis.create');
 
-    Route::get('/daftar-kelas-dosen', [HomeController::class, 'daftarKelasMKDosen'])->name('daftar-kelas-dosen');
-    Route::get('/table-nilai-mk/{idCourse}', [HomeController::class, 'tableNilaiMK'])->name('table-nilai-mk');
-    Route::get('/unduh-nilai_mk/{idCourse}', [HomeController::class, 'unduhNilaiMK'])->name('unduh-nilai-mk');
+    Route::get('/daftar-kelas-dosen', [NilaiKelasMKControler::class, 'daftarKelasMKDosen'])->name('daftar-kelas-dosen');
+    Route::get('/table-nilai-mk/{idCourse}', [NilaiKelasMKControler::class, 'tableNilaiMK'])->name('table-nilai-mk');
+    Route::get('/unduh-nilai_mk/{idCourse}', [NilaiKelasMKControler::class, 'unduhNilaiMK'])->name('unduh-nilai-mk');
+    Route::get('/print-nilai_mk/{idCourse}', [NilaiKelasMKControler::class, 'printNilaiMK'])->name('print-nilai-mk');
 
     // route untuk rekap capaian
     Route::get('/rekap-sc', [RekapController::class, 'rekapSC']);
