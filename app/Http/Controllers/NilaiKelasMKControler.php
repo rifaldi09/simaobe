@@ -33,9 +33,17 @@ class NilaiKelasMKControler extends Controller
         //! I dont know WTF is this, but it works (maybe?)
         //* dibuat agar data CPMK lebih dinamis yang dimana jika 1 mahasiswa terdapat lebih banyak CPMk dari yang lain (kira-kira seperti itu)
         $dataP = [];
+
+        // header khusus untuk field yang dinamis
+        $specialTableHeader = [];
+
         $dataWithMaxKeys = array_filter($data, fn($item) => count($item) === max(array_map('count', $data)));
         $dataWithMaxKeys = array_values($dataWithMaxKeys);
         foreach ($dataWithMaxKeys[0] as $key => $value) {
+            if(!str_contains($key, '_') && !in_array($key, ["NIM", "Mahasiswa", "Grade"])) {
+                $specialTableHeader[] = $key;
+            }
+
             if (strpos($key, "CPMK") !== false) {
                 $baseKey = explode('_', $key)[0];
                 $cpmkKey = explode('_', $key)[1];
@@ -45,7 +53,7 @@ class NilaiKelasMKControler extends Controller
 
         return view('nilaiKelasMKS', [
             'title' => 'Nilai Kelas Matkul'
-        ], compact('data', 'dataP', 'idCourse'));
+        ], compact('data', 'dataP', 'idCourse', 'specialTableHeader'));
     }
 
     function unduhNilaiMK($idCourse)

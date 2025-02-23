@@ -18,22 +18,24 @@
                         <button class="btn btn-primary align-self-start ms-2">Upload</button>
                     </form>
                 <div class="d-flex">
-                    <form action="{{ route('unduh-nilai-mk',$idCourse) }}" method="get" enctype="multipart/form-data">
-                        <button class="btn btn-success ms-2">Unduh</button>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <button class="btn btn-success mb-2">Unduh</button>
                     </form>
-                    <a href="{{ route('print-nilai-mk',$idCourse) }}" target="_blank" class="btn btn-danger ms-2 align-self-start">Print</a>
+                    <form action="" method="post">
+                        <button class="btn btn-danger ms-2">Print</button>
+                    </form>
                 </div>
             </div>
             <table class=" table table-bordered" style="font-size:12px">
-                <tr class="text-center align-middle">
+                <tr class="text-center">
                     <th rowspan="2">No</th>
                     <th rowspan="2">NIM</th>
                     <th rowspan="2">Nama Mahasiswa</th>
                     @foreach ($dataP as $key => $value)
                         <th colspan="{{ count($value) }}">{{ $key }}</th>
                     @endforeach
-                    @foreach ($dataP as $key => $value)
-                        <th rowspan="2">{{ $key }}</th>
+                    @foreach ($specialTableHeader as $header)
+                        <th rowspan="2">{{ $header }}</th>
                     @endforeach
                     <th rowspan="2">Grade</th>
                 </tr>
@@ -47,7 +49,7 @@
                 </tr>
                 @foreach ($data as $key => $value)
                 <tr>
-                        <td class="text-center">{{ ++$key }}</td>
+                        <td>{{ ++$key }}</td>
                         <td>{{ $value["NIM"] }}</td>
                         <td>{{ $value["Mahasiswa"] }}</td>
                         @foreach ($dataP as $key => $item)
@@ -55,12 +57,12 @@
                                 <td class="text-center">{{ $value[$key . '_' . $cpmk] ?? '0' }}</td>
                             @endforeach
                         @endforeach
-                        @foreach ($dataP as $kunci => $isi)
-                        @if (isset($value[$kunci]))
-                            <td class="text-center">{{ $value[$kunci] }}</td>
-                        @endif
+
+                        {{-- kalo ga ada nilainya, datanya strip --}}
+                        @foreach ($specialTableHeader as $header)
+                            <td>{{ $value[$header] ?? "-" }}</td>
                         @endforeach
-                        <td class="text-center">{{ $value['Grade'] }}</td>
+                        <td>{{ $value["Grade"] }}</td>
                     </tr>
                 @endforeach
             </table>
