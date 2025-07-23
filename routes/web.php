@@ -21,7 +21,7 @@ use App\Http\Controllers\RekapController;
 
 //ini default, kalau mau di hapus silahkan
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 })->name('home');
 
 Route::middleware("isGuest")->group(function() {

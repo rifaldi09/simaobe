@@ -45,7 +45,7 @@
                 <small>{{ $message }}</small>
                 @enderror
             </div>
-            <button type="submit" class="btn-masuk">Masuk</button>
+            <button type="submit" class="btn-masuk">Login</button>
             {{-- <a href="/regis" class="forgot-password">Register</a> --}}
         </form>
     </div>
